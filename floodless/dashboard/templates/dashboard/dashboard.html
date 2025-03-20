@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Disaster Dashboard</h1>
+
+            <form method="GET" class="field is-grouped">
+                <div class="control">
+                    <div class="select">
+                        <select name="calamity_type" onchange="this.form.submit()">
+                            <option value="all" {% if selected_type == 'all' %}selected{% endif %}>All Calamities</option>
+                            {% for type in calamity_types %}
+                                <option value="{{ type }}" {% if selected_type == type %}selected{% endif %}>{{ type|capfirst }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="select">
+                        <select name="year" onchange="this.form.submit()">
+                            <option value="all" {% if selected_year == 'all' %}selected{% endif %}>All Years</option>
+                            {% for year in years %}
+                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: { lat: 0, lng: 0 }
+            });
+
+            var colorMap = {
+                'drought': '#FFA500',          // Orange
+                'earthquake': '#FF0000',       // Red
+                'flood': '#0000FF',            // Blue
+                'storm': '#800080',            // Purple
+                'volcanic activity': '#FF4500', // Orange-Red
+                'wildfire': '#FFD700'          // Gold
+            };
+
+            var calamities = JSON.parse('{{ calamities|safe|escapejs }}');
+            console.log("Calamities data:", calamities);
+
+            calamities.forEach(function(calamity) {
+                if (calamity.latitude && calamity.longitude) {
+                    console.log("Plotting:", calamity);
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(calamity.latitude), lng: parseFloat(calamity.longitude) },
+                        map: map,
+                        icon: {
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 8,
+                            fillColor: colorMap[calamity.calamity_type] || '#808080',
+                            fillOpacity: 0.8,
+                            strokeWeight: 1,
+                            strokeColor: colorMap[calamity.calamity_type] || '#808080'
+                        },
+                        title: calamity.calamity_type.toUpperCase()  // Tooltip on hover
+                    });
+
+                    // Info window on click
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: `<b>${calamity.calamity_type.toUpperCase()}</b><br>` +
+                                 `Year: ${calamity.year}<br>` +
+                                 `Location: ${calamity.location}, ${calamity.region}, ${calamity.country}`
+                    });
+                    marker.addListener('click', function() {
+                        infoWindow.open(map, marker);
+                    });
+                } else {
+                    console.log("Skipping (no coords):", calamity);
+                }
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+</body>
+</html>
