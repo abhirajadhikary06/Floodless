@@ -3,6 +3,7 @@ from django.core.cache import cache
 import requests
 import nltk
 from nltk.tokenize import word_tokenize
+from nltk import bigrams
 from datetime import datetime
 from .models import NewsArticle
 
@@ -13,14 +14,15 @@ except LookupError:
     nltk.download('punkt_tab')
 
 def fetch_and_process_news():
-    api_key = '33e4180d7dd04c9ebea8bbff7cd197e5'  # Your NewsAPI key
+    api_key = '33e4180d7dd04c9ebea8bbff7cd197e5'
     url = f'https://newsapi.org/v2/everything?q="natural disaster" OR earthquake OR flood OR hurricane OR wildfire OR tsunami OR cyclone OR tornado -politics -business -sports&apiKey={api_key}&language=en&sortBy=relevancy'
 
     response = requests.get(url)
     data = response.json()
+    print("API Response:", data)  # Debug
 
     if data['status'] == 'ok':
-        NewsArticle.objects.all().delete()  # Clear old articles (optional)
+        NewsArticle.objects.all().delete()
 
         articles_to_cache = []
         for article in data['articles']:
@@ -28,7 +30,6 @@ def fetch_and_process_news():
             description = article.get('description', '') or ''
             full_text = title + " " + description
 
-            # Check if disaster-related using NLTK
             is_disaster = analyze_news(full_text)
 
             if is_disaster and not NewsArticle.objects.filter(url=article['url']).exists():
@@ -42,45 +43,46 @@ def fetch_and_process_news():
                 )
                 articles_to_cache.append(news_article)
 
-        # Bulk create to save all articles at once
         if articles_to_cache:
             NewsArticle.objects.bulk_create(articles_to_cache)
 
-        # Cache the articles (queryset serialized as a list of dicts)
         cached_articles = list(NewsArticle.objects.filter(is_disaster_related=True).values(
             'title', 'description', 'url', 'published_at', 'source', 'is_disaster_related'
         ))
-        cache.set('disaster_news', cached_articles, 900)  # Cache for 15 minutes
+        #print("Cached articles:", cached_articles)  # Debug
+        cache.set('disaster_news', cached_articles, 900)
         return cached_articles
     return []
 
 def analyze_news(text):
-    """
-    Enhanced disaster check with NLTK: look for keywords with context and exclude non-disaster phrases.
-    """
     text = text.lower()
     tokens = word_tokenize(text)
     disaster_keywords = {'disaster', 'earthquake', 'flood', 'hurricane', 'wildfire', 'tsunami', 'cyclone', 'tornado', 'storm'}
     exclude_phrases = {'flood of', 'storm of', 'earthquake in politics', 'hurricane of', 'wildfire of', 'tsunami of'}
+    exclude_words = {'tiktok', 'smartphone'}
     disaster_context = {'damage', 'evacuation', 'relief', 'victims', 'destroyed', 'warning', 'emergency'}
 
     has_disaster_keyword = any(token in disaster_keywords for token in tokens)
-    if not has_disaster_keyword:
-        return False
-
     text_str = " ".join(tokens)
-    has_exclusion = any(phrase in text_str for phrase in exclude_phrases)
-    has_context = any(token in disaster_context for token in tokens)
+    has_exclusion_phrase = any(phrase in text_str for phrase in exclude_phrases)
+    has_exclusion_word = any(word in tokens for word in exclude_words)
+    bigram_list = [" ".join(bg) for bg in bigrams(tokens)]
+    has_context = any(bg in disaster_context or bg in disaster_keywords for bg in bigram_list)
 
-    return has_disaster_keyword and (has_context or not has_exclusion)
+    print(f"Text: {text[:100]}... | Keyword: {has_disaster_keyword} | Exclusion Phrase: {has_exclusion_phrase} | Exclusion Word: {has_exclusion_word} | Context: {has_context}")
+
+    # Relaxed condition: disaster keyword alone is enough if no exclusions
+    if not has_disaster_keyword or has_exclusion_phrase or has_exclusion_word:
+        return False
+    return True  # Accept if it has a disaster keyword and no exclusions, context optional
 
 def news_list(request):
-    # Check cache first
     cached_articles = cache.get('disaster_news')
     if cached_articles is None:
-        # If not in cache, fetch and process news
+        print("Cache miss, fetching news...")
         cached_articles = fetch_and_process_news()
-    
-    # Convert cached articles to a queryset-like format for the template
+    else:
+        print("Cache hit, using cached articles:", cached_articles)
     articles = NewsArticle.objects.filter(is_disaster_related=True).order_by('-published_at')
+    print("Database articles:", list(articles.values()))
     return render(request, 'news/news_list.html', {'articles': articles})
