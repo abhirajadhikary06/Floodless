@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster News</title>
+</head>
+<body>
+    <h1>Disaster News</h1>
+    <ul>
+    {% for article in articles %}
+        <li>
+            <a href="{{ article.url }}" target="_blank">{{ article.title }}</a> - {{ article.source }} 
+            ({{ article.published_at }})
+        </li>
+    {% empty %}
+        <li>No disaster news available.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
