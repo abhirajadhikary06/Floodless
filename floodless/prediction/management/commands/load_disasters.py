@@ -1,6 +1,6 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
-from predication.models import Disaster
+from prediction.models import Disaster
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 import os
