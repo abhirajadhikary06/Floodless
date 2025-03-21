@@ -181,8 +181,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Flood,China,Asia,Sichuan
 2017,Flood,China,Asia,Loess Plateau
 2017,Flood,China,Asia,Beijing
-2018,Flood,China,Asia,
-2018,Flood,China,Asia,
 2018,Flood,China,Asia,Tianshui
 2018,Flood,China,Asia,Deyang
 2018,Flood,China,Asia,Guangxi Zhuang Autonomous
@@ -197,7 +195,6 @@ Year,Disaster Type,Country,Region,Location
 2019,Flood,China,Asia,Shenzhen City (Guangdong Province)
 2020,Flood,China,Asia,Anhui
 2020,Flood,China,Asia,Shaanxi
-2020,Flood,China,Asia,
 2020,Flood,China,Asia,Mianning county (Sichuan province)
 2020,Flood,China,Asia,Tongzi (Zunyi)
 2021,Flood,China,Asia,Zhengzhou
@@ -793,9 +790,7 @@ Year,Disaster Type,Country,Region,Location
 2016,Flood,Afghanistan,Asia,Daykundi
 2016,Flood,Afghanistan,Asia,Yaqubi
 2017,Flood,Afghanistan,Asia,Badakhshan (Nusay
-2018,Flood,Afghanistan,Asia,
 2018,Flood,Afghanistan,Asia,Ghazi-Abad district (Kunar province)
-2018,Flood,Afghanistan,Asia,
 2019,Flood,Afghanistan,Asia,Zheri
 2019,Flood,Afghanistan,Asia,Obey
 2019,Flood,Afghanistan,Asia,Kabul
@@ -881,7 +876,6 @@ Year,Disaster Type,Country,Region,Location
 2016,Flood,Pakistan,Asia,Azad Jammu and Kashmir
 2017,Flood,Pakistan,Asia,Tehsil Hub
 2017,Flood,Pakistan,Asia,Turbat (Kech); Gwadar
-2018,Flood,Pakistan,Asia,
 2019,Flood,Pakistan,Asia,Khyber Pakhtunkhwa province; Lasbellla district (Balochistan Province)
 2019,Flood,Pakistan,Asia,Punjab
 2019,Flood,Pakistan,Asia,Sindh
@@ -900,7 +894,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Flood,Pakistan,Asia,Abottabad
 2022,Flood,Pakistan,Asia,Lasbela
 2023,Flood,Pakistan,Asia,Punjab province
-2023,Flood,Pakistan,Asia,
 2023,Flood,Pakistan,Asia,Awaran
 2023,Flood,Pakistan,Asia,Punjab
 2023,Flood,Pakistan,Asia,Mardan
@@ -1052,7 +1045,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Flood,Thailand,Asia,Chaiyaphum
 2021,Flood,Thailand,Asia,Chanthaburi
 2021,Flood,Thailand,Asia,Phetchaburi
-2022,Flood,Thailand,Asia,
 2022,Flood,Thailand,Asia,Surat Thani
 2022,Flood,Thailand,Asia,Satun
 2022,Flood,Thailand,Asia,Ang Thong
@@ -1448,7 +1440,6 @@ Year,Disaster Type,Country,Region,Location
 2015,Flood,Georgia,Asia,Vake and Saburtalo boroughs (Tbilissi district
 2016,Flood,Saudi Arabia,Asia,Al-Baidhani valley of Asir region
 2016,Flood,Oman,Asia,Wadi Kabeel (Qurayat province)
-2016,Flood,Democratic People's Republic of Korea,Asia,
 2016,Flood,Myanmar,Asia,Sagaing
 2016,Flood,Democratic People's Republic of Korea,Asia,Hamgyong-bukto province (North Hamgyong)
 2016,Flood,Lao People's Democratic Republic,Asia,Luang Prabang city (Louangphrabang distrcit
@@ -1497,10 +1488,8 @@ Year,Disaster Type,Country,Region,Location
 2018,Flood,Tajikistan,Asia,Farkhor
 2018,Flood,Japan,Asia,Kochi
 2018,Flood,Kazakhstan,Asia,Ayagoz
-2018,Flood,Bangladesh,Asia,
 2018,Flood,Bangladesh,Asia,Cox�s Bazar
 2018,Flood,Myanmar,Asia,Shan state and Magway and Sagaing regions
-2018,Flood,Kuwait,Asia,
 2018,Flood,Israel,Asia,Nahal Tsafit gorges
 2019,Flood,Saudi Arabia,Asia,Tabouk
 2019,Flood,Iran (Islamic Republic of),Asia,Sistan-Baluchestan Province
@@ -1566,7 +1555,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Flood,Nepal,Asia,Parbat
 2020,Flood,Sri Lanka,Asia,Mannar
 2020,Flood,T�rkiye,Asia,Samsun
-2020,Flood,Yemen,Asia,
 2020,Flood,Israel,Asia,Tel Aviv; Haifa District
 2020,Flood,Oman,Asia,Governorate of Dhofar
 2021,Flood,Sri Lanka,Asia,Batticaloa
@@ -1624,7 +1612,6 @@ Year,Disaster Type,Country,Region,Location
 2023,Flood,Bangladesh,Asia,Chattogram
 2023,Flood,Myanmar,Asia,Belin town
 2023,Flood,T�rkiye,Asia,Istanbul City
-2023,Flood,"China, Hong Kong Special Administrative Region",Asia,
 2023,Flood,Myanmar,Asia,Pegou region; Bago and Yangon
 2023,Flood,Sri Lanka,Asia,Western
 2023,Flood,Syrian Arab Republic,Asia,Aleppo and Idlib governorates
@@ -1638,7 +1625,6 @@ Year,Disaster Type,Country,Region,Location
 2024,Flood,Iran (Islamic Republic of),Asia,Jiroft (Kerman province)
 2024,Flood,United Arab Emirates,Asia,Dubai
 2024,Flood,Bangladesh,Asia,Sylhet
-2024,Flood,Nepal,Asia,
 2024,Flood,Myanmar,Asia,Myitkyina
 2024,Flood,Republic of Korea,Asia,Chupungnyeong
 2024,Flood,Kyrgyzstan,Asia,Osh city (Osh city region)
@@ -2338,7 +2324,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Flood,South Africa,Africa,KwaZulu-Natal
 2018,Flood,Kenya,Africa,Nairobi
 2018,Flood,Kenya,Africa,Near Nakuru
-2018,Flood,Rwanda,Africa,
 2018,Flood,Mali,Africa,Kayes city
 2018,Flood,Angola,Africa,Luanda
 2018,Flood,Mozambique,Africa,Nampula
@@ -2498,7 +2483,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Flood,Rwanda,Africa,Gicumbi and Burera Districts (Northern province); Kayonza District (Eastern province)
 2021,Flood,Sudan,Africa,Gedaref
 2021,Flood,Central African Republic,Africa,Bimbo; Birao and Baoro cities
-2021,Flood,Ethiopia,Africa,
 2021,Flood,South Sudan,Africa,Mayendit County (Unity); Ayod
 2021,Flood,Nigeria,Africa,Jigawa
 2021,Flood,Algeria,Africa,Chlef Province
@@ -2540,8 +2524,6 @@ Year,Disaster Type,Country,Region,Location
 2022,Flood,C�te d�Ivoire,Africa,Abobo
 2022,Flood,Ghana,Africa,Ga South Municipal District (Greater Accra Region)
 2022,Flood,Mali,Africa,Mopti region
-2022,Flood,Mozambique,Africa,
-2022,Flood,Uganda,Africa,
 2022,Flood,Malawi,Africa,Balaka
 2022,Flood,Democratic Republic of the Congo,Africa,Mount Ngafula
 2022,Flood,South Africa,Africa,Soweto
@@ -2618,11 +2600,8 @@ Year,Disaster Type,Country,Region,Location
 2024,Flood,Sierra Leone,Africa,Bumbuna dam in Bumbuna town (Tonkolili District
 2024,Flood,South Africa,Africa,Eastern Cape province
 2024,Flood,Senegal,Africa,Tambacounda
-2024,Flood,Togo,Africa,
 2024,Flood,Algeria,Africa,B�char
 2024,Flood,Central African Republic,Africa,Mbomou
-2024,Flood,Kenya,Africa,
-2024,Flood,Malawi,Africa,
 2024,Flood,Libya,Africa,Tarhuna city
 2024,Flood,Gabon,Africa,Mouila (Ngouni� Province)
 2024,Flood,United Republic of Tanzania,Africa,Tarime district (Mara region)
@@ -3164,7 +3143,6 @@ Year,Disaster Type,Country,Region,Location
 2022,Flood,Ecuador,Americas,Guayas
 2022,Flood,Haiti,Americas,North-west
 2022,Flood,Honduras,Americas,Cort�s
-2022,Flood,Dominican Republic,Americas,
 2022,Flood,Bolivia (Plurinational State of),Americas,O'Connor Province (Tarija Department)
 2022,Flood,Peru,Americas,Machu Picchu Pueblo District (Cusco Department)
 2022,Flood,Uruguay,Americas,Montevideo Capital City
@@ -4009,7 +3987,6 @@ Year,Disaster Type,Country,Region,Location
 2023,Flood,Latvia,Europe,Upper Daugava and Aug�daugava regions
 2023,Flood,Belarus,Europe,Vitebsk
 2023,Flood,Croatia,Europe,Gracac Municipality (Zadar County)
-2023,Flood,Czechia,Europe,
 2023,Flood,Serbia,Europe,Borski
 2023,Flood,Slovenia,Europe,Gorenjska
 2023,Flood,Serbia,Europe,Sjenica and Brodarevo Novi Pazar Municipality; Novi Pazar Municipality (Sumadija and Western Serbia Region
@@ -4239,14 +4216,11 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Australia,Oceania,Logan region; Queensland; Nouvelle-Galles du Sud
 2017,Storm,Vanuatu,Oceania,Torba
 2017,Storm,New Zealand,Oceania,Otago (Dunedin
-2017,Storm,Australia,Oceania,
 2018,Storm,Northern Mariana Islands,Oceania,Tinian
 2018,Storm,Tonga,Oceania,Tongatapu
 2018,Storm,Fiji,Oceania,Nadi
 2018,Storm,Fiji,Oceania,Sigatoka
 2018,Storm,Solomon Islands,Oceania,Malaita
-2018,Storm,Samoa,Oceania,
-2018,Storm,Marshall Islands,Oceania,
 2019,Storm,Micronesia (Federated States of),Oceania,Chuuk
 2019,Storm,Fiji,Oceania,Ba
 2020,Storm,Australia,Oceania,Brisbane
@@ -4256,22 +4230,18 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Tonga,Oceania,Tongatapu
 2020,Storm,Solomon Islands,Oceania,Espiritu Santo
 2020,Storm,Fiji,Oceania,Kadavvu
-2020,Storm,Tuvalu,Oceania,
 2020,Storm,Fiji,Oceania,Viti Levu Island
 2021,Storm,Fiji,Oceania,Viti levu
 2021,Storm,Australia,Oceania,Queensland and New South Wales
 2021,Storm,Australia,Oceania,Kalbarri and Northampton Town
 2021,Storm,Palau,Oceania,Anguar
 2021,Storm,New Zealand,Oceania,Aukland City (North Island
-2021,Storm,New Caledonia,Oceania,
 2022,Storm,Fiji,Oceania,Tavua Town
 2022,Storm,New Zealand,Oceania,Nelson-Tasman and West Coast regions
 2023,Storm,Australia,Oceania,New South Wales
 2023,Storm,Australia,Oceania,Cairns
 2023,Storm,Fiji,Oceania,Central
 2023,Storm,Vanuatu,Oceania,Penama
-2023,Storm,Solomon Islands,Oceania,
-2023,Storm,Guam,Oceania,
 2023,Storm,Vanuatu,Oceania,Sanma
 2023,Storm,Vanuatu,Oceania,Shefa and Tafea Provinces
 2023,Storm,New Zealand,Oceania,Northland
@@ -4430,14 +4400,12 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Rwanda,Africa,Rusizi
 2017,Storm,South Africa,Africa,Durban (Bluff
 2017,Storm,Madagascar,Africa,Antalaha district (Sava province)
-2018,Storm,Djibouti,Africa,
 2018,Storm,Somalia,Africa,Somaliland
 2018,Storm,Guinea-Bissau,Africa,Antula
 2018,Storm,Madagascar,Africa,Mandritsara
 2018,Storm,R�union,Africa,Saint-Pierre
 2018,Storm,Mauritius,Africa,Rodrigues island
 2018,Storm,Madagascar,Africa,Antananarivo Atsimondrano
-2019,Storm,Comoros,Africa,
 2019,Storm,Mozambique,Africa,Beira (Sofala province); Zambezia
 2019,Storm,Zimbabwe,Africa,Chikomba
 2019,Storm,Comoros,Africa,Grande Comore
@@ -4463,9 +4431,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Storm,South Africa,Africa,Umkhanyakude
 2021,Storm,Mozambique,Africa,Beira
 2021,Storm,Madagascar,Africa,Antalaha
-2021,Storm,Eswatini,Africa,
-2022,Storm,Mauritius,Africa,
-2022,Storm,R�union,Africa,
 2022,Storm,Madagascar,Africa,Fianarantsoa and Ambositra ; Manakara Atsimo
 2022,Storm,Mozambique,Africa,Zambezia
 2022,Storm,Zimbabwe,Africa,Kariba
@@ -4480,8 +4445,6 @@ Year,Disaster Type,Country,Region,Location
 2022,Storm,Malawi,Africa,Nsanje
 2022,Storm,Madagascar,Africa,Analanjirofo Region
 2022,Storm,Malawi,Africa,Nsanje
-2023,Storm,Zimbabwe,Africa,
-2023,Storm,R�union,Africa,
 2023,Storm,Sierra Leone,Africa,Dalakuru Village
 2023,Storm,South Africa,Africa,Phoenix
 2023,Storm,Gabon,Africa,Haut Ogoue
@@ -4490,25 +4453,19 @@ Year,Disaster Type,Country,Region,Location
 2023,Storm,South Africa,Africa,Dundee City area (KwaZulu-Natal Province)
 2023,Storm,Lesotho,Africa,Berea
 2023,Storm,Malawi,Africa,Balaka
-2023,Storm,Mauritius,Africa,
 2023,Storm,Madagascar,Africa,Vatovavy
 2023,Storm,Madagascar,Africa,Antalaha (Sava Region); Diana regon
 2023,Storm,Mozambique,Africa,Niassa
 2024,Storm,Canary Islands,Africa,Grand Canaria
 2024,Storm,Madagascar,Africa,Haute Matsiatra
-2024,Storm,Mauritius,Africa,
-2024,Storm,R�union,Africa,
 2024,Storm,Burundi,Africa,Butihinda Municipality (Muyinga Province)
 2024,Storm,South Africa,Africa,uThukela (Ladysmith)
 2024,Storm,Mozambique,Africa,Vilankulo and Morrumbene Districts
-2024,Storm,United Republic of Tanzania,Africa,
 2024,Storm,Botswana,Africa,Francistown
-2024,Storm,Mayotte,Africa,
 2024,Storm,Malawi,Africa,Salima
 2024,Storm,Democratic Republic of the Congo,Africa,Maniema Province
 2024,Storm,Mozambique,Africa,Mecufi
 2024,Storm,Madagascar,Africa,Diana region
-2024,Storm,Comoros,Africa,
 2024,Storm,Uganda,Africa,Palabek
 2024,Storm,South Africa,Africa,Cape Winelands
 2024,Storm,Nigeria,Africa,Nasarawa State
@@ -4767,7 +4724,6 @@ Year,Disaster Type,Country,Region,Location
 2019,Storm,France,Europe,Alpes-Maritimes Department; Nouvelle Aquitaine
 2019,Storm,Italy,Europe,Liguria
 2019,Storm,France,Europe,Var
-2020,Storm,Switzerland,Europe,
 2020,Storm,Italy,Europe,Massa
 2020,Storm,Italy,Europe,Liguria and Piemonte Regions of Italy
 2020,Storm,Germany,Europe,Kiel
@@ -4775,7 +4731,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,France,Europe,Roya Valley
 2020,Storm,Poland,Europe,Bukowina Tatrza?ska
 2020,Storm,Spain,Europe,Gandia
-2020,Storm,Belgium,Europe,
 2020,Storm,Czechia,Europe,Prague; Vyso?ina (Centre)
 2020,Storm,France,Europe,Pyr�n�es-Orientales
 2020,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,Needles (Isles of Wight); Honister Pass (Cumbria); Micheldever
@@ -4783,8 +4738,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Italy,Europe,Traona (Lombardy)
 2020,Storm,Slovenia,Europe,North-East
 2020,Storm,Sweden,Europe,South
-2021,Storm,Belgium,Europe,
-2021,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,
 2021,Storm,Belgium,Europe,Dinant
 2021,Storm,France,Europe,Brittany
 2021,Storm,Spain,Europe,Madrid
@@ -4802,16 +4755,6 @@ Year,Disaster Type,Country,Region,Location
 2022,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,Scotland
 2022,Storm,Norway,Europe,Rogaland and Vestland counties
 2022,Storm,Germany,Europe,Brocken
-2022,Storm,Poland,Europe,
-2022,Storm,Netherlands (Kingdom of the),Europe,
-2022,Storm,Ireland,Europe,
-2022,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,
-2022,Storm,Germany,Europe,
-2022,Storm,Belgium,Europe,
-2022,Storm,Czechia,Europe,
-2022,Storm,Germany,Europe,
-2022,Storm,Denmark,Europe,
-2022,Storm,Poland,Europe,
 2022,Storm,Czechia,Europe,Sn?�ka
 2022,Storm,Poland,Europe,Krakow
 2022,Storm,France,Europe,Pas-de-Calais
@@ -4840,22 +4783,12 @@ Year,Disaster Type,Country,Region,Location
 2023,Storm,Russian Federation,Europe,Lake Yalchik (Mari-El Region)
 2023,Storm,Switzerland,Europe,La Chaux-de-Fonds (Neuchatel)
 2023,Storm,Slovenia,Europe,Bled Town
-2023,Storm,Serbia,Europe,
 2023,Storm,Croatia,Europe,Brod-Posavina and Vukovar-Srijem Counties; Vinkovci
 2023,Storm,Bosnia and Herzegovina,Europe,Brcko district
 2023,Storm,Italy,Europe,Padoue
-2023,Storm,Spain,Europe,
-2023,Storm,Germany,Europe,
-2023,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,
-2023,Storm,Belgium,Europe,
-2023,Storm,Netherlands (Kingdom of the),Europe,
-2023,Storm,Bulgaria,Europe,
-2023,Storm,Serbia,Europe,
-2023,Storm,Germany,Europe,
 2024,Storm,Netherlands (Kingdom of the),Europe,Zeeland
 2024,Storm,Slovakia,Europe,Bratislava
 2024,Storm,Switzerland,Europe,Valais
-2024,Storm,Ireland,Europe,
 2024,Storm,Spain,Europe,Barcelona
 2024,Storm,United Kingdom of Great Britain and Northern Ireland,Europe,Southern England and Wales
 2024,Storm,France,Europe,East and south-east France
@@ -4892,7 +4825,6 @@ Year,Disaster Type,Country,Region,Location
 2001,Storm,Argentina,Americas,Buenos Aires province
 2001,Storm,Haiti,Americas,Grande Anse
 2001,Storm,Bahamas,Americas,New Providence island (Administrative unit not available)
-2001,Storm,Cayman Islands,Americas,
 2002,Storm,Jamaica,Americas,Westmoreland
 2002,Storm,Cayman Islands,Americas,Little Cayman
 2002,Storm,Saint Vincent and the Grenadines,Americas,Charlotte
@@ -4911,7 +4843,6 @@ Year,Disaster Type,Country,Region,Location
 2002,Storm,Nicaragua,Americas,Managua province
 2002,Storm,Uruguay,Americas,Canelones
 2002,Storm,El Salvador,Americas,Ahuachapan province
-2003,Storm,Bermuda,Americas,
 2003,Storm,Canada,Americas,Nova Scotia
 2003,Storm,Canada,Americas,Ontario province
 2003,Storm,Haiti,Americas,Port-au-Prince district (Ouest province)
@@ -4943,7 +4874,6 @@ Year,Disaster Type,Country,Region,Location
 2004,Storm,Cuba,Americas,Pinar del Rio
 2004,Storm,Grenada,Americas,Name Unknown
 2004,Storm,Haiti,Americas,Cap-Haitien district (Nord province)
-2004,Storm,Bahamas,Americas,
 2004,Storm,Saint Vincent and the Grenadines,Americas,Charlotte
 2004,Storm,Trinidad and Tobago,Americas,Caparo
 2005,Storm,Cuba,Americas,Cienfuegos
@@ -4964,7 +4894,6 @@ Year,Disaster Type,Country,Region,Location
 2005,Storm,Dominican Republic,Americas,Puerto Plata province
 2005,Storm,Jamaica,Americas,Saint Thomas
 2005,Storm,Cuba,Americas,Santiago de Cuba
-2005,Storm,Bahamas,Americas,
 2005,Storm,El Salvador,Americas,San Salvador
 2005,Storm,Nicaragua,Americas,San Sebastian De Yali district (Jinotega province)
 2005,Storm,Haiti,Americas,Dessalines
@@ -4996,7 +4925,6 @@ Year,Disaster Type,Country,Region,Location
 2007,Storm,Belize,Americas,Corozal
 2007,Storm,Dominica,Americas,St. Andrew
 2007,Storm,El Salvador,Americas,Ahuachapan
-2007,Storm,Guadeloupe,Americas,
 2007,Storm,Saint Lucia,Americas,Region Number 1
 2007,Storm,Canada,Americas,Ontario
 2007,Storm,Canada,Americas,Toronto
@@ -5031,8 +4959,6 @@ Year,Disaster Type,Country,Region,Location
 2008,Storm,Haiti,Americas,Grande Anse
 2008,Storm,Brazil,Americas,Santa Catarina state
 2008,Storm,Cuba,Americas,Island of Youth
-2008,Storm,Saint Kitts and Nevis,Americas,
-2008,Storm,Bahamas,Americas,
 2009,Storm,Canada,Americas,Nova Scotia
 2009,Storm,Argentina,Americas,Santa Rosa
 2009,Storm,Brazil,Americas,Sao Paulo
@@ -5067,7 +4993,6 @@ Year,Disaster Type,Country,Region,Location
 2011,Storm,Peru,Americas,Amazonas
 2011,Storm,Dominican Republic,Americas,Azua
 2011,Storm,Haiti,Americas,Sud province
-2011,Storm,Bahamas,Americas,
 2011,Storm,Dominican Republic,Americas,San Jos� de Ocoa
 2011,Storm,Haiti,Americas,Nord province
 2011,Storm,Puerto Rico,Americas,Aguadilla
@@ -5077,7 +5002,6 @@ Year,Disaster Type,Country,Region,Location
 2012,Storm,Argentina,Americas,Buenos Aires
 2012,Storm,Argentina,Americas,Buenos Aires
 2012,Storm,Haiti,Americas,Grande-Anse
-2012,Storm,Bahamas,Americas,
 2012,Storm,Dominican Republic,Americas,Azua
 2012,Storm,Cuba,Americas,Gantanamo
 2012,Storm,Cuba,Americas,Santiago de Cuba
@@ -5131,13 +5055,9 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Guatemala,Americas,Ixcan
 2017,Storm,Dominican Republic,Americas,Santo Domingo
 2017,Storm,Jamaica,Americas,Clarendon
-2017,Storm,Anguilla,Americas,
 2017,Storm,Antigua and Barbuda,Americas,Barbuda
 2017,Storm,Cuba,Americas,Habana del Este
 2017,Storm,Dominican Republic,Americas,Veron
-2017,Storm,Saint Kitts and Nevis,Americas,
-2017,Storm,Saint Martin (French Part),Americas,
-2017,Storm,Sint Maarten (Dutch part),Americas,
 2017,Storm,Dominica,Americas,All island
 2017,Storm,Dominican Republic,Americas,La Altagracia
 2017,Storm,Guadeloupe,Americas,La Desirade Island
@@ -5146,20 +5066,16 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Costa Rica,Americas,South Pacific
 2017,Storm,Haiti,Americas,Caracol (Trou du Nord)
 2017,Storm,Honduras,Americas,Ocotepeque
-2017,Storm,British Virgin Islands,Americas,
-2017,Storm,Saint Barth�lemy,Americas,
 2018,Storm,Argentina,Americas,La Matanza
 2018,Storm,Cuba,Americas,Ciego De Avila
 2018,Storm,Dominican Republic,Americas,San Crist�bal and Santo Domingo provinces
 2018,Storm,Canada,Americas,Ottawa; Quebec province
 2018,Storm,Cuba,Americas,Sandino
-2018,Storm,Puerto Rico,Americas,
 2019,Storm,Canada,Americas,Bromont
 2019,Storm,Guatemala,Americas,Alta Verapaz
 2019,Storm,Bahamas,Americas,Great Abaco
 2019,Storm,Guatemala,Americas,San Lucas Sacatep�quez Municipality (Sacatep�quez Department)
 2019,Storm,Cuba,Americas,Cerro
-2020,Storm,El Salvador,Americas,
 2020,Storm,Nicaragua,Americas,Bonanza Municipality
 2020,Storm,Honduras,Americas,La Ceiba
 2020,Storm,Guatemala,Americas,Alta Verapaz
@@ -5169,8 +5085,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Costa Rica,Americas,Nandayure
 2020,Storm,Colombia,Americas,Magdalena
 2020,Storm,Belize,Americas,Cayo
-2020,Storm,Haiti,Americas,
-2020,Storm,Dominican Republic,Americas,
 2020,Storm,Dominican Republic,Americas,Duarte
 2020,Storm,Panama,Americas,Bocas del Toro
 2020,Storm,Colombia,Americas,San Andre
@@ -5190,23 +5104,16 @@ Year,Disaster Type,Country,Region,Location
 2021,Storm,Dominican Republic,Americas,Bahoruco region
 2021,Storm,Haiti,Americas,Sud-Est
 2021,Storm,Saint Vincent and the Grenadines,Americas,Northern half of St. Vincent
-2021,Storm,Dominican Republic,Americas,
-2021,Storm,Haiti,Americas,
 2021,Storm,Cuba,Americas,Isle of Youth (Isla de la Juventud) and the Pinar del Rio Province
 2021,Storm,Canada,Americas,Montreal City area (Quebec)
 2021,Storm,Chile,Americas,Santiago Metropolitan
 2021,Storm,Saint Lucia,Americas,Soufri�re
 2021,Storm,Cuba,Americas,Matanzas
-2022,Storm,Guadeloupe,Americas,
-2022,Storm,Puerto Rico,Americas,
-2022,Storm,Nicaragua,Americas,
 2022,Storm,Canada,Americas,Ontario
 2022,Storm,Canada,Americas,Toronto
 2022,Storm,Belize,Americas,Dangriga and Belize City
 2022,Storm,Venezuela (Bolivarian Republic of),Americas,Sucre
 2022,Storm,El Salvador,Americas,San Salvador
-2022,Storm,Nicaragua,Americas,
-2022,Storm,Honduras,Americas,
 2022,Storm,Guatemala,Americas,Alta Verapaz
 2022,Storm,Costa Rica,Americas,Guanacaste
 2022,Storm,Canada,Americas,British Columbia
@@ -5216,10 +5123,7 @@ Year,Disaster Type,Country,Region,Location
 2022,Storm,El Salvador,Americas,Sonsonate
 2022,Storm,Canada,Americas,Nova Scotia
 2022,Storm,Dominican Republic,Americas,La Altagracia
-2023,Storm,Barbados,Americas,
-2023,Storm,Peru,Americas,
 2023,Storm,Brazil,Americas,Gua�ba
-2023,Storm,Saint Vincent and the Grenadines,Americas,
 2023,Storm,Dominican Republic,Americas,Barahona
 2023,Storm,Argentina,Americas,Gobernador Virasoro and Ituzaingo (Posadas municipality)
 2023,Storm,Cuba,Americas,Pinar del Rio
@@ -5227,23 +5131,13 @@ Year,Disaster Type,Country,Region,Location
 2023,Storm,Argentina,Americas,Bah�a Blanca and Moreno Cities (Buenos Aires Province)
 2023,Storm,Brazil,Americas,Porto Alegre (Rio Grande do Sul); Balne�rio Cambori�
 2023,Storm,Honduras,Americas,Atl�ntida
-2023,Storm,El Salvador,Americas,
 2023,Storm,Brazil,Americas,Mu�um
-2023,Storm,Honduras,Americas,
-2024,Storm,Jamaica,Americas,
-2024,Storm,Costa Rica,Americas,
-2024,Storm,Dominican Republic,Americas,
-2024,Storm,Colombia,Americas,
-2024,Storm,Haiti,Americas,
-2024,Storm,Nicaragua,Americas,
 2024,Storm,Canada,Americas,Nouvelle Ecosse
 2024,Storm,Canada,Americas,Quebec
 2024,Storm,Canada,Americas,Calgary (Alberta)
 2024,Storm,Cuba,Americas,Artemisa and coastal communities
-2024,Storm,Nicaragua,Americas,
 2024,Storm,Cuba,Americas,Artemisa
 2024,Storm,Brazil,Americas,Rio Grande do Sul State
-2024,Storm,El Salvador,Americas,
 2024,Storm,Honduras,Americas,Sula Valley
 2024,Storm,Guatemala,Americas,Pet�n
 2024,Storm,Argentina,Americas,Lan�s and Avellaneda districts (La Plata area
@@ -5253,8 +5147,6 @@ Year,Disaster Type,Country,Region,Location
 2024,Storm,Colombia,Americas,San Jacinto del Cauca municipalit (Bol�var department); Guaranda
 2024,Storm,El Salvador,Americas,Tacuba district in Ahuachap�n Department; La Paz
 2024,Storm,Chile,Americas,Coquimbo
-2024,Storm,Costa Rica,Americas,
-2024,Storm,Belize,Americas,
 2024,Storm,Colombia,Americas,Alto Baud�
 2024,Storm,Cuba,Americas,Havana
 2024,Storm,Panama,Americas,Los Santos
@@ -5264,7 +5156,6 @@ Year,Disaster Type,Country,Region,Location
 2024,Storm,Saint Vincent and the Grenadines,Americas,Union Island
 2024,Storm,Jamaica,Americas,Clarendon
 2024,Storm,Grenada,Americas,The Union
-2024,Storm,Barbados,Americas,
 2024,Storm,Honduras,Americas,Ocotepeque
 2024,Storm,Guatemala,Americas,Jalpatagua and Chacaya municipalities
 2025,Storm,Brazil,Americas,Pernambuco
@@ -5898,7 +5789,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,China,Asia,Guangdong
 2017,Storm,China,Asia,Chen village in Taiping town
 2018,Storm,China,Asia,Shenzhen
-2018,Storm,China,Asia,
 2018,Storm,China,Asia,Anhui
 2018,Storm,China,Asia,Guangdong
 2018,Storm,China,Asia,Fujian province
@@ -5912,9 +5802,7 @@ Year,Disaster Type,Country,Region,Location
 2019,Storm,China,Asia,Zhoushan
 2019,Storm,China,Asia,Kaiyuan city (Liaoning Province)
 2019,Storm,China,Asia,Zhejiang and Shandong provinces
-2019,Storm,China,Asia,
 2020,Storm,China,Asia,Hainan Island (southern China)
-2020,Storm,China,Asia,
 2020,Storm,China,Asia,Zhejiang
 2020,Storm,China,Asia,Zhangzhou Prefecture (Fujian province)
 2021,Storm,China,Asia,Inner Mongolia
@@ -5933,7 +5821,6 @@ Year,Disaster Type,Country,Region,Location
 2024,Storm,China,Asia,Shanghai
 2024,Storm,China,Asia,Hainan Island
 2024,Storm,China,Asia,Hainan
-2024,Storm,China,Asia,
 2024,Storm,China,Asia,Guangzhou (Guangdong province)
 2024,Storm,China,Asia,Dongming
 2000,Storm,Philippines,Asia,National Capital region (NCR)
@@ -6086,7 +5973,6 @@ Year,Disaster Type,Country,Region,Location
 2018,Storm,Philippines,Asia,Ilocos Norte
 2018,Storm,Philippines,Asia,I
 2018,Storm,Philippines,Asia,Apayao
-2018,Storm,Philippines,Asia,
 2018,Storm,Philippines,Asia,Palawan (Mimaropa); Capiz
 2018,Storm,Philippines,Asia,Aklan
 2019,Storm,Philippines,Asia,Agusan del Norte
@@ -6104,7 +5990,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Philippines,Asia,Mindanao Island
 2021,Storm,Philippines,Asia,MIMAROPA and Western Visayas Regions
 2021,Storm,Philippines,Asia,Mimaropa
-2021,Storm,Philippines,Asia,
 2021,Storm,Philippines,Asia,Sur Province (north-western Luzon)
 2021,Storm,Philippines,Asia,Caraga Region (northern Mindanao) and Eastern Visayas Region
 2021,Storm,Philippines,Asia,Bicol
@@ -6121,17 +6006,13 @@ Year,Disaster Type,Country,Region,Location
 2023,Storm,Philippines,Asia,Northern Luzon
 2023,Storm,Philippines,Asia,Davao
 2023,Storm,Philippines,Asia,Luzon
-2023,Storm,Philippines,Asia,
 2023,Storm,Philippines,Asia,Luzon Isl.
-2024,Storm,Philippines,Asia,
 2024,Storm,Philippines,Asia,Cagayan Valley
 2024,Storm,Philippines,Asia,Cagayan
 2024,Storm,Philippines,Asia,Aurora
 2024,Storm,Philippines,Asia,Northern Luzon
 2024,Storm,Philippines,Asia,Luzon
 2024,Storm,Philippines,Asia,Northern Luzon island
-2024,Storm,Philippines,Asia,
-2024,Storm,Philippines,Asia,
 2024,Storm,Philippines,Asia,Luzon Isl.
 2024,Storm,Philippines,Asia,Metro Manilla
 2000,Storm,India,Asia,Nagappattinam
@@ -6309,7 +6190,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Japan,Asia,Oita (Bungo-ono)
 2018,Storm,Japan,Asia,Osaka
 2018,Storm,Japan,Asia,Tokyo
-2018,Storm,Japan,Asia,
 2019,Storm,Japan,Asia,Nagano
 2019,Storm,Japan,Asia,Chiba prefecture; Tokyo
 2019,Storm,Japan,Asia,Okinawa
@@ -6387,7 +6267,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Viet Nam,Asia,Lao Cai (Sa Pa district)
 2017,Storm,Viet Nam,Asia,Nghe An
 2017,Storm,Viet Nam,Asia,Khanh Hoa
-2018,Storm,Viet Nam,Asia,
 2018,Storm,Viet Nam,Asia,Khanh Hoa province
 2018,Storm,Viet Nam,Asia,Nghe An
 2018,Storm,Viet Nam,Asia,Chuong My
@@ -6402,12 +6281,9 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Viet Nam,Asia,Da Nang
 2020,Storm,Viet Nam,Asia,Quang Nam
 2020,Storm,Viet Nam,Asia,Quang Nam
-2020,Storm,Viet Nam,Asia,
 2021,Storm,Viet Nam,Asia,Quang Ngai city; Binh Duong province; Nghe An province
 2021,Storm,Viet Nam,Asia,Binh Son district (Quang Ngai); Nui Thanh
-2021,Storm,Viet Nam,Asia,
 2021,Storm,Viet Nam,Asia,Thai Binh
-2021,Storm,Viet Nam,Asia,
 2022,Storm,Viet Nam,Asia,Thua Thien Hue
 2022,Storm,Viet Nam,Asia,Quang Ngai
 2022,Storm,Viet Nam,Asia,Cao Bang
@@ -6477,7 +6353,6 @@ Year,Disaster Type,Country,Region,Location
 2016,Storm,Bangladesh,Asia,Dhaka (Jatrabarhi�s Konaparha)
 2017,Storm,Bangladesh,Asia,Rajshani
 2017,Storm,Bangladesh,Asia,Swandip
-2018,Storm,Bangladesh,Asia,
 2019,Storm,Bangladesh,Asia,Dhaka
 2019,Storm,Bangladesh,Asia,Barguna
 2019,Storm,Bangladesh,Asia,Satkhira
@@ -6661,11 +6536,8 @@ Year,Disaster Type,Country,Region,Location
 2015,Storm,Thailand,Asia,Rayong (Muang
 2015,Storm,Lebanon,Asia,Baalbeck
 2015,Storm,Israel,Asia,Central District
-2016,Storm,Taiwan (Province of China),Asia,
 2016,Storm,Iran (Islamic Republic of),Asia,Golestan
 2016,Storm,Pakistan,Asia,Federally Administered Tribal Areas
-2016,Storm,Taiwan (Province of China),Asia,
-2016,Storm,Taiwan (Province of China),Asia,
 2016,Storm,Republic of Korea,Asia,Busan city (Pusan province)
 2016,Storm,Saudi Arabia,Asia,Qunfudah governorat (Makkah province)
 2016,Storm,Myanmar,Asia,Mandalay city (Mandalay district
@@ -6685,15 +6557,11 @@ Year,Disaster Type,Country,Region,Location
 2017,Storm,Malaysia,Asia,Sarawak (Miri and Limbang)
 2017,Storm,T�rkiye,Asia,Istanbul
 2017,Storm,Afghanistan,Asia,Kabul province
-2017,Storm,"China, Macao Special Administrative Region",Asia,
-2017,Storm,"China, Hong Kong Special Administrative Region",Asia,
 2018,Storm,Oman,Asia,Dhofar
 2018,Storm,Mongolia,Asia,Naranbulag
-2018,Storm,Oman,Asia,
 2018,Storm,Lao People's Democratic Republic,Asia,Attapeu
 2018,Storm,Democratic People's Republic of Korea,Asia,Kangwon
 2018,Storm,Taiwan (Province of China),Asia,Chiayi
-2018,Storm,"China, Hong Kong Special Administrative Region",Asia,
 2018,Storm,Yemen,Asia,Al Maharah governorate
 2018,Storm,Armenia,Asia,Shirak region
 2018,Storm,Lebanon,Asia,Near Masnaa
@@ -6709,7 +6577,6 @@ Year,Disaster Type,Country,Region,Location
 2019,Storm,Armenia,Asia,Karnut
 2019,Storm,Mongolia,Asia,Khentii
 2019,Storm,Democratic People's Republic of Korea,Asia,Yonggwang
-2019,Storm,Taiwan (Province of China),Asia,
 2020,Storm,Thailand,Asia,Mae Hong Son
 2020,Storm,Cambodia,Asia,Battambang
 2020,Storm,Republic of Korea,Asia,Ulsan
@@ -6718,7 +6585,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Afghanistan,Asia,Helmand
 2020,Storm,Pakistan,Asia,Mastung
 2020,Storm,Mongolia,Asia,Bayankhongor
-2020,Storm,Thailand,Asia,
 2020,Storm,Sri Lanka,Asia,Ratnapura district
 2020,Storm,Armenia,Asia,Gyumri
 2020,Storm,Lao People's Democratic Republic,Asia,Xayaboury Province
@@ -6730,15 +6596,11 @@ Year,Disaster Type,Country,Region,Location
 2020,Storm,Thailand,Asia,Central and eastern Provinces
 2021,Storm,Taiwan (Province of China),Asia,Taipei
 2021,Storm,Oman,Asia,Al Suwayq Town (Al Batinah North Governorate); Muscat Province; Al- Dhahira
-2021,Storm,Taiwan (Province of China),Asia,
-2021,Storm,"China, Hong Kong Special Administrative Region",Asia,
 2021,Storm,Iran (Islamic Republic of),Asia,Chabahar City (south Sistan-Baluchestan Province)
 2021,Storm,Mongolia,Asia,Dundgovi
-2021,Storm,"China, Hong Kong Special Administrative Region",Asia,
 2021,Storm,Indonesia,Asia,East Nusa Tenggara and West Nusa Tenggar Provinces
 2021,Storm,Cambodia,Asia,Banteay Ampil district (Oddar Meanchey province); Battambang province; Krakor District (Pursat province)
 2021,Storm,Sri Lanka,Asia,Western
-2021,Storm,Maldives,Asia,
 2021,Storm,Lao People's Democratic Republic,Asia,Xayaboury Province
 2021,Storm,Pakistan,Asia,Okara
 2021,Storm,Oman,Asia,Sur in Ash Sharqiyah (South Governorate); Sohar (Al Batinah North Governorate)
@@ -6747,44 +6609,32 @@ Year,Disaster Type,Country,Region,Location
 2021,Storm,Republic of Korea,Asia,Jeju Island
 2021,Storm,Timor-Leste,Asia,Dili
 2021,Storm,Thailand,Asia,Northern and eastern provinces
-2022,Storm,Cambodia,Asia,
 2022,Storm,Iraq,Asia,Najaf City (Najaf Governorate)
 2022,Storm,Syrian Arab Republic,Asia,Afrin and Azaz district (Aleppo Governorate) and Harim district (Idleb Governorate)
 2022,Storm,Thailand,Asia,Chiang Mai
 2022,Storm,Sri Lanka,Asia,Sabaragamuwa
 2022,Storm,Republic of Korea,Asia,Jeju Isl.
-2022,Storm,Nepal,Asia,
 2022,Storm,Sri Lanka,Asia,Badulla District (Uva Province)
 2022,Storm,Taiwan (Province of China),Asia,Xizhi
 2022,Storm,Thailand,Asia,Sisaket Province
 2022,Storm,Pakistan,Asia,Punjab province
 2023,Storm,Iraq,Asia,Babil
 2023,Storm,T�rkiye,Asia,Diyarbakir; Batman; Eregli City (Zonguldak) T�rkiye's Black Sea
-2023,Storm,Pakistan,Asia,
-2023,Storm,Taiwan (Province of China),Asia,
 2023,Storm,Sri Lanka,Asia,Kurunegala
 2023,Storm,Mongolia,Asia,Bayan-Ulgii
 2023,Storm,Sri Lanka,Asia,Kurunegala
 2023,Storm,Yemen,Asia,Hadramout
 2023,Storm,Iran (Islamic Republic of),Asia,Sistan and Baluchestan Provinces
 2023,Storm,Taiwan (Province of China),Asia,Taichung
-2023,Storm,"China, Hong Kong Special Administrative Region",Asia,
-2023,Storm,Taiwan (Province of China),Asia,
 2023,Storm,Armenia,Asia,Lori
 2023,Storm,Iran (Islamic Republic of),Asia,Zabol
 2023,Storm,Myanmar,Asia,Sittwe
-2023,Storm,Sri Lanka,Asia,
 2023,Storm,Thailand,Asia,Chiang Mai
 2023,Storm,T�rkiye,Asia,Pazarcik City (southern Kahramanmaras Province)
 2023,Storm,Myanmar,Asia,Aung Myin Kone and Tadau villages (Naypyitaw capital city greater area)
-2023,Storm,Cambodia,Asia,
 2023,Storm,Indonesia,Asia,Batam City (Riau Islands)
-2023,Storm,T�rkiye,Asia,
 2023,Storm,Iran (Islamic Republic of),Asia,Bukan (West Azerbaijan Province); Mehran (Ilam Province); Alamut (Qazvin Province); Kermanshah
-2023,Storm,"China, Hong Kong Special Administrative Region",Asia,
-2023,Storm,Sri Lanka,Asia,
 2023,Storm,Indonesia,Asia,Konawe Regency
-2023,Storm,Republic of Korea,Asia,
 2024,Storm,Republic of Korea,Asia,South Gyeongsang
 2024,Storm,Thailand,Asia,Kamphaeng Phet
 2024,Storm,Pakistan,Asia,Peshawar
@@ -6793,12 +6643,9 @@ Year,Disaster Type,Country,Region,Location
 2024,Storm,Taiwan (Province of China),Asia,Nantou county
 2024,Storm,Sri Lanka,Asia,Colombo and Gampaha districts; North Western
 2024,Storm,Taiwan (Province of China),Asia,Hualien and Taitung counties
-2024,Storm,Thailand,Asia,
 2024,Storm,Myanmar,Asia,Bago
-2024,Storm,Lao People's Democratic Republic,Asia,
 2024,Storm,Thailand,Asia,Lampang
 2024,Storm,Pakistan,Asia,Khyber Pakhtunkhwa Province
-2024,Storm,Taiwan (Province of China),Asia,
 2025,Storm,Georgia,Asia,Chokhatauri and Ozurgeti municipalities (Guria region); Adjara Aut. Rep.
 2000,Earthquake,Azerbaijan,Asia,Absheron
 2000,Earthquake,Tajikistan,Asia,Khasanov village (Parharskiy district
@@ -7050,17 +6897,14 @@ Year,Disaster Type,Country,Region,Location
 2023,Earthquake,T�rkiye,Asia,Defne District (Hatay Province
 2023,Earthquake,Japan,Asia,Ishikawa
 2023,Earthquake,T�rkiye,Asia,Gaziantep; Pazarcik District (Kahramanmaras); Sanliurfa
-2023,Earthquake,Syrian Arab Republic,Asia,
 2023,Earthquake,Iran (Islamic Republic of),Asia,Khoy
 2023,Earthquake,Iran (Islamic Republic of),Asia,Firouragh district
 2023,Earthquake,Syrian Arab Republic,Asia,Aleppo
-2024,Earthquake,Kazakhstan,Asia,
 2024,Earthquake,Japan,Asia,Noto
 2024,Earthquake,Taiwan (Province of China),Asia,Hualien region
 2024,Earthquake,Iran (Islamic Republic of),Asia,Razavi Khorasan province
 2024,Earthquake,T�rkiye,Asia,Kale (Malatya province)
 2024,Earthquake,Philippines,Asia,Lingig municipality (Mindanao Island)
-2025,Earthquake,Nepal,Asia,
 2000,Earthquake,Indonesia,Asia,Lahat district (Sumatera Selatan province)
 2000,Earthquake,Indonesia,Asia,Pandeglang
 2000,Earthquake,Indonesia,Asia,Ciranggon village (Karawang district
@@ -7339,7 +7183,6 @@ Year,Disaster Type,Country,Region,Location
 2020,Earthquake,Puerto Rico,Americas,Ponce
 2020,Earthquake,Puerto Rico,Americas,Ponce City
 2021,Earthquake,Peru,Americas,Condorcanqui
-2021,Earthquake,Ecuador,Americas,
 2021,Earthquake,Mexico,Americas,Southern Guerrero State
 2021,Earthquake,Haiti,Americas,Nippe
 2021,Earthquake,Peru,Americas,Piura region
@@ -7464,7 +7307,6 @@ Year,Disaster Type,Country,Region,Location
 2023,Earthquake,France,Europe,La Laigne
 2023,Earthquake,Morocco,Africa,Al Haouz and Taroudant Provinces; Marrakech; Ouarzazate
 2023,Earthquake,Iceland,Europe,Grindavik (Reykjanes peninsula)
-2024,Earthquake,Vanuatu,Oceania,
 2024,Earthquake,Papua New Guinea,Oceania,Ambunti-Dreikikir
 2025,Earthquake,Ethiopia,Africa,Southern Afar
 2000,Drought,Republic of Moldova,Europe,Balti
@@ -7494,19 +7336,12 @@ Year,Disaster Type,Country,Region,Location
 2015,Drought,Solomon Islands,Oceania,Bellona
 2015,Drought,Papua New Guinea,Oceania,Kandep district (Enga province)
 2015,Drought,Fiji,Oceania,NO DATA: all country selected
-2015,Drought,Marshall Islands,Oceania,
-2015,Drought,Palau,Oceania,
 2016,Drought,Micronesia (Federated States of),Oceania,Yap
 2017,Drought,Italy,Europe,Calabria
 2018,Drought,Australia,Oceania,New South Wales
-2018,Drought,Poland,Europe,
-2018,Drought,Lithuania,Europe,
 2021,Drought,Tuvalu,Oceania,Funafuti with Nukufetau (central); Nanumea
 2022,Drought,Marshall Islands,Oceania,Aur
-2022,Drought,France,Europe,
-2022,Drought,United Kingdom of Great Britain and Northern Ireland,Europe,
 2022,Drought,Italy,Europe,�milie-Romagne
-2022,Drought,Portugal,Europe,
 2023,Drought,Spain,Europe,Catalognia
 2023,Drought,Micronesia (Federated States of),Oceania,Chuuk
 2023,Drought,Italy,Europe,Sicile
@@ -7590,21 +7425,16 @@ Year,Disaster Type,Country,Region,Location
 2019,Drought,Sri Lanka,Asia,North
 2019,Drought,Viet Nam,Asia,Long An
 2019,Drought,Pakistan,Asia,Thatta
-2019,Drought,Democratic People's Republic of Korea,Asia,
 2019,Drought,Philippines,Asia,MIMAROPA Region
 2019,Drought,Thailand,Asia,North
-2019,Drought,Lao People's Democratic Republic,Asia,
 2021,Drought,China,Asia,Guangxi
 2021,Drought,Kazakhstan,Asia,Mangistau
 2021,Drought,Iran (Islamic Republic of),Asia,Sistan and Baluchestan
-2021,Drought,Iraq,Asia,
 2021,Drought,Syrian Arab Republic,Asia,Hasakah
 2021,Drought,Afghanistan,Asia,Badghis
 2022,Drought,China,Asia,Chongqing
 2023,Drought,Indonesia,Asia,Nangroe Aceh Darussalam
-2023,Drought,China,Asia,
 2024,Drought,Viet Nam,Asia,Can Duoc
-2024,Drought,China,Asia,
 2000,Drought,Bolivia (Plurinational State of),Americas,Gran Chaco district (Tarija province)
 2000,Drought,Honduras,Americas,Montana de la Flor area (Marale district
 2000,Drought,Nicaragua,Americas,Atlantico Norte
@@ -7681,14 +7511,9 @@ Year,Disaster Type,Country,Region,Location
 2016,Drought,Bolivia (Plurinational State of),Americas,Oruro
 2016,Drought,Paraguay,Americas,Alto Paraguay
 2017,Drought,United States of America,Americas,Upper Midwest
-2018,Drought,Panama,Americas,
-2018,Drought,Costa Rica,Americas,
 2018,Drought,Argentina,Americas,Buenos Aires
 2018,Drought,United States of America,Americas,Nationwide
 2018,Drought,El Salvador,Americas,San Vicente
-2018,Drought,Nicaragua,Americas,
-2018,Drought,Honduras,Americas,
-2018,Drought,Guatemala,Americas,
 2018,Drought,Uruguay,Americas,Tacuaremb�
 2019,Drought,Argentina,Americas,San Mart�n
 2020,Drought,United States of America,Americas,West and central states
@@ -7697,7 +7522,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Drought,United States of America,Americas,Nationwide
 2022,Drought,Uruguay,Americas,Cerro Largo
 2022,Drought,United States of America,Americas,Nation wide; Arizona
-2022,Drought,Brazil,Americas,
 2023,Drought,Brazil,Americas,Amazonas state
 2023,Drought,Uruguay,Americas,Cerro Largo
 2023,Drought,Honduras,Americas,Choculeta
@@ -7706,7 +7530,6 @@ Year,Disaster Type,Country,Region,Location
 2024,Drought,Grenada,Americas,Saint Andrew
 2024,Drought,Colombia,Americas,Boyaca
 2024,Drought,United States of America,Americas,Texas
-2024,Drought,Brazil,Americas,
 2000,Drought,Madagascar,Africa,Ambovombe-Androy
 2001,Drought,Burkina Faso,Africa,Plateau Central province
 2001,Drought,Mali,Africa,Bamako
@@ -7822,33 +7645,25 @@ Year,Disaster Type,Country,Region,Location
 2016,Drought,South Sudan,Africa,Western Bahr El Ghazal
 2016,Drought,Lesotho,Africa,Qacha�s Nek
 2016,Drought,Madagascar,Africa,Ambovombe-Androy
-2017,Drought,Cabo Verde,Africa,
 2017,Drought,Madagascar,Africa,South
 2017,Drought,Mauritania,Africa,Brakna
 2017,Drought,Chad,Africa,Chari Baguimi
 2017,Drought,Niger,Africa,Bosso
-2017,Drought,Zimbabwe,Africa,
 2017,Drought,Angola,Africa,Seven provinces in the South (Cunene
 2017,Drought,South Africa,Africa,Cap town
 2018,Drought,Namibia,Africa,Hardap
 2018,Drought,Senegal,Africa,Northern regions
-2018,Drought,Mauritania,Africa,
-2019,Drought,South Africa,Africa,
 2019,Drought,Botswana,Africa,Botswana�s Okavango Delta
-2019,Drought,Lesotho,Africa,
 2019,Drought,Eswatini,Africa,Shiselweni
 2019,Drought,Zambia,Africa,Southern
 2019,Drought,Kenya,Africa,West Pokot
 2019,Drought,Somalia,Africa,Awdal
 2020,Drought,Somalia,Africa,Gedo; Las Anod / Hudun and Taleb (Sool)
 2020,Drought,Kenya,Africa,Marsabit
-2020,Drought,Mozambique,Africa,
 2020,Drought,Niger,Africa,Diffa
 2020,Drought,Mali,Africa,M�naka
 2020,Drought,Mauritania,Africa,Tagant
 2020,Drought,Madagascar,Africa,Betioky
-2020,Drought,Lesotho,Africa,
-2020,Drought,Burkina Faso,Africa,
 2020,Drought,Angola,Africa,Cunene
 2021,Drought,United Republic of Tanzania,Africa,Handeni
 2021,Drought,Zambia,Africa,Southern
@@ -7856,28 +7671,16 @@ Year,Disaster Type,Country,Region,Location
 2021,Drought,South Sudan,Africa,Aweil South (Northern Bahr el Gazzal State)
 2021,Drought,Ethiopia,Africa,Tigray
 2021,Drought,Mozambique,Africa,Cabo Delgado
-2021,Drought,South Africa,Africa,
 2022,Drought,Niger,Africa,Agadez
 2022,Drought,Ethiopia,Africa,Somali region and Oromia (Boran and Moyale zones)
 2022,Drought,Cabo Verde,Africa,Ribeira Grande de Santiago
 2022,Drought,Chad,Africa,Bahr El Gazal (Nord
 2022,Drought,Djibouti,Africa,Ali Sabieh
 2022,Drought,Uganda,Africa,Napak
-2022,Drought,Burkina Faso,Africa,
-2022,Drought,Cameroon,Africa,
-2022,Drought,Central African Republic,Africa,
-2022,Drought,Democratic Republic of the Congo,Africa,
-2022,Drought,Malawi,Africa,
-2022,Drought,Mali,Africa,
-2022,Drought,Nigeria,Africa,
-2022,Drought,Sudan,Africa,
 2023,Drought,Lesotho,Africa,Maseru
 2023,Drought,Mozambique,Africa,Manica
 2023,Drought,Botswana,Africa,Southern
 2024,Drought,Zambia,Africa,Shangombo
-2024,Drought,Malawi,Africa,
-2024,Drought,Zimbabwe,Africa,
-2024,Drought,Angola,Africa,
 2024,Drought,Namibia,Africa,Khomas
 2025,Drought,Somalia,Africa,Gedo
 2000,Wildfire,Greece,Europe,Ipeiros province
@@ -8069,7 +7872,6 @@ Year,Disaster Type,Country,Region,Location
 2019,Wildfire,Australia,Oceania,Gippsland region (South-east Victoria state)
 2019,Wildfire,Chile,Americas,Rocuant
 2019,Wildfire,Indonesia,Asia,Riau
-2019,Wildfire,Peru,Americas,
 2019,Wildfire,China,Asia,Liangshan (Sichan province)
 2020,Wildfire,Bolivia (Plurinational State of),Americas,Santa Cruz
 2020,Wildfire,China,Asia,Liangshan Prefecture (Sichuan province)
@@ -8288,7 +8090,6 @@ Year,Disaster Type,Country,Region,Location
 2017,Volcanic activity,Indonesia,Asia,Bali (Karangasem)
 2017,Volcanic activity,Vanuatu,Oceania,Ambae
 2018,Volcanic activity,Philippines,Asia,Bacacay
-2018,Volcanic activity,Indonesia,Asia,
 2018,Volcanic activity,Italy,Europe,Acicatena
 2018,Volcanic activity,Indonesia,Asia,Pandenglang
 2018,Volcanic activity,Vanuatu,Oceania,Malampa province
@@ -8312,7 +8113,6 @@ Year,Disaster Type,Country,Region,Location
 2021,Volcanic activity,Philippines,Asia,Agoncillo and Laurel municipaliies (Batangas in Luzon)
 2021,Volcanic activity,Canary Islands,Africa,La Palma Island
 2021,Volcanic activity,Indonesia,Asia,Lumajang Regency; Malang Regency; Blitar district (Java Province)
-2021,Volcanic activity,Vanuatu,Oceania,
 2022,Volcanic activity,Philippines,Asia,Agoncillo and Laurel minicpalities (Batangas Province)
 2022,Volcanic activity,Indonesia,Asia,East Java Province
 2022,Volcanic activity,Peru,Americas,Ventanilla district
