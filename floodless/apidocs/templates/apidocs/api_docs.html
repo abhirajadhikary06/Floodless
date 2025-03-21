@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster API Documentation | Global Alert Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    
+    .dashboard-header {
+      background: var(--blue);
+      padding: 4rem 1.5rem 2rem; /* Increased top padding for more space */
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+/*Section*/
+    
+            
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime2 {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime2:hover {
+      background-color: var(--lime-dark);
+    }
+    
+    /* Tags */
+    .tags .tag.is-info {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tags .tag.is-danger {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+
+
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <span class="icon mr-2" style="color: var(--blue);">
+            <i class="fas fa-satellite-dish"></i>
+          </span>
+          Global Alert Network
+          <span class="alert-badge">LIVE</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="dashboard-header">
+    <div class="container">
+      <h1 class="dashboard-title">
+        <span class="icon mr-2" style="color: var(--lime);">
+            <i class="fas fa-book"></i>
+        </span>
+        API Docs & Dataset
+      </h1>
+      <p class="dashboard-subtitle">Access all disaster (earthquake, storm, flood, wildfire, volcanic activity) data from year 2000 to 2025.<br> You can also donwload dataset.</p>
+    </div>
+  </section>
+  
+  <!-- Section -->
+  <section class="section" style="padding: -4rem 2rem; margin-top: -1rem; margin-bottom: -2rem;">
+    <div class="container">
+
+        <!-- Download Dataset Button -->
+        <div class="has-text-centered mb-5">
+            <a href="#" class="button" style="background-color: var(--lime); color: var(--dark);">
+                <span class="icon">
+                    <i class="fas fa-download"></i>
+                </span>
+                <span>Download Dataset</span>
+            </a>
+        </div>
+
+        <!-- API Documentation -->
+        <div class="content" style="line-height: 1.6;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Base URL</h1>
+            <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>https://floodless.example.com/api/disasters/</code></pre>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Endpoints</h1>
+            <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>GET /disasters/</code></pre>
+            <p style="color: var(--white);">This endpoint retrieves disaster records and supports filtering by parameters.</p>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Query Parameters</h1>
+            <table class="table is-fullwidth" style="background-color: var(--dark-lighter); color: var(--white); border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; width: 100%;">
+                <thead>
+                    <tr style="background-color: var(--lime); color: var(--white);">
+                        <th style="padding: 0.75rem; text-align: left;">Parameter</th>
+                        <th style="padding: 0.75rem; text-align: left;">Type</th>
+                        <th style="padding: 0.75rem; text-align: left;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">year</td>
+                        <td style="padding: 0.75rem;">Integer</td>
+                        <td style="padding: 0.75rem;">Filter by year (e.g., 2020)</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">disaster_type</td>
+                        <td style="padding: 0.75rem;">String</td>
+                        <td style="padding: 0.75rem;">Type of disaster (e.g., Flood, Earthquake)</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">country</td>
+                        <td style="padding: 0.75rem;">String</td>
+                        <td style="padding: 0.75rem;">Filter by country</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">region</td>
+                        <td style="padding: 0.75rem;">String</td>
+                        <td style="padding: 0.75rem;">Filter by region</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">location</td>
+                        <td style="padding: 0.75rem;">String</td>
+                        <td style="padding: 0.75rem;">Filter by specific location</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">limit</td>
+                        <td style="padding: 0.75rem;">Integer</td>
+                        <td style="padding: 0.75rem;">Max results per page (default: 100)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Example API Request</h1>
+            <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>GET https://abhirajadhikary06.github.io/DisasterAPI/disasters.json?year=2020&disaster_type=Flood&limit=5</code></pre>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Example API Response</h1>
+            <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>{
+"count": 1,
+"next": null,
+"previous": null,
+"results": [
+    {
+        "year": 2020,
+        "disaster_type": "Flood",
+        "country": "India",
+        "region": "Kerala",
+        "location": "Alappuzha",
+    }
+]
+}</code></pre>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Authentication</h1>
+            <p style="color: var(--white);">The API requires an API key. Include your key in the request header:</p>
+            <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+            <p style="color: var(--white);">To obtain an API key, contact <a href="mailto:admin@floodless.example.com" style="color: var(--blue-light); text-decoration: none;">admin@floodless.example.com</a>.</p>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Error Codes</h1>
+            <table class="table is-fullwidth" style="background-color: var(--dark-lighter); color: var(--white); border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; width: 100%;">
+                <thead>
+                    <tr style="background-color: var(--lime); color: var(--white);">
+                        <th style="padding: 0.75rem; text-align: left;">Code</th>
+                        <th style="padding: 0.75rem; text-align: left;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">400</td>
+                        <td style="padding: 0.75rem;">Bad Request - Invalid parameters</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">401</td>
+                        <td style="padding: 0.75rem;">Unauthorized - Invalid or missing API key</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">429</td>
+                        <td style="padding: 0.75rem;">Too Many Requests - Rate limit exceeded</td>
+                    </tr>
+                    <tr style="background-color: var(--dark-light); color: var(--white);">
+                        <td style="padding: 0.75rem;">500</td>
+                        <td style="padding: 0.75rem;">Internal Server Error</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Rate Limiting</h1>
+            <p style="color: var(--white);">To ensure fair usage, the API enforces rate limits:</p>
+            <ul style="color: var(--white);">
+                <li>Unauthenticated users: 100 requests per hour</li>
+                <li>Authenticated users: 1,000 requests per hour</li>
+            </ul>
+            <p style="color: var(--white);">Exceeding the limit will result in a <code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">429 Too Many Requests</code> response.</p>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Pagination</h1>
+            <p style="color: var(--white);">Results are paginated with a default page size of 100 records. Use the <code style="background-color: var(--dark-lighter); color: var(--white); padding: 0.25rem 0.5rem; border-radius: 3px;">page</code> query parameter to navigate through pages. Metadata about pagination is included in the response:</p>
+            <ul style="color: var(--white);">
+                <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">count</code>: Total number of records</li>
+                <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">next</code>: URL for the next page</li>
+                <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">previous</code>: URL for the previous page</li>
+            </ul>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Sorting</h1>
+            <p style="color: var(--white);">Results can be sorted by specific fields using the <code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">ordering</code> query parameter:</p>
+            <ul style="color: var(--white);">
+                <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">ordering=-year</code>: Sort by year in descending order</li>
+                <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">ordering=disaster_type</code>: Sort by disaster type in ascending order</li>
+            </ul>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Use Cases</h1>
+            <p style="color: var(--white);">This API can be used for various purposes, including:</p>
+            <ul style="color: var(--white);">
+                <li>Data visualization on interactive maps or dashboards</li>
+                <li>Research and analysis of historical disaster data</li>
+                <li>Building alert systems for early warnings</li>
+                <li>Developing mobile apps to provide disaster-related information</li>
+            </ul>
+
+            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+
+            <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Support</h1>
+            <p style="color: var(--white);">If you encounter issues or have questions, please contact our support team:</p>
+            <ul style="color: var(--white);">
+                <li>Email: <a href="mailto:support@floodless.example.com" style="color: var(--blue-light); text-decoration: none;">support@floodless.example.com</a></li>
+                <li>Website: <a href="https://www.floodless.example.com/support" style="color: var(--blue-light); text-decoration: none;">https://www.floodless.example.com/support</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+            <span class="icon mr-2" style="color: var(--blue);">
+              <i class="fas fa-satellite-dish"></i>
+            </span>
+            Global Alert Network
+          </h3>
+          <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+          <button class="button is-lime2 mt-3">
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span>Subscribe to Alerts</span>
+          </button>
+        </div>
+        <div class="column is-2 is-offset-1">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+            <li class="mb-2"><a href="#">Relief Organizations</a></li>
+            <li class="mb-2"><a href="#">Safety Guides</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Our Mission</a></li>
+            <li class="mb-2"><a href="#">Sources</a></li>
+            <li class="mb-2"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Data Sources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

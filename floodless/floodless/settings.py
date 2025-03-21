@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'news',
     'dashboard',
     'prediction',
+    'apidocs',
 ]
 
 MIDDLEWARE = [

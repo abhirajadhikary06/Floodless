@@ -22,4 +22,5 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('prediction/', include('prediction.urls')),
+    path('apidocs/', include('apidocs.urls')),
 ]
