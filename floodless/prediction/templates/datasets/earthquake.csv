@@ -1,0 +1,668 @@
+Year,Disaster Type,Country,Location,Total Affected,Magnitude
+2000,Earthquake,Bangladesh,Maheshkhali area (Cox's Bazar district,1000.0,4.3
+2000,Earthquake,China,Yongren Xian,1855007.0,5.9
+2000,Earthquake,China,Mile Xian area (Honghe Hani and Yi district,10302.0,4.9
+2000,Earthquake,China,Xiuyan Manzu Zizhixian area (Anshan district,62030.0,5.1
+2000,Earthquake,Iran (Islamic Republic of),Kashmar,2015.0,5.3
+2000,Earthquake,Iran (Islamic Republic of),Mohammadieh,1000.0,4.9
+2000,Earthquake,Iceland,Grimsnes,108.0,6.5
+2000,Earthquake,Colombia,Jurado island and Jurado districts (Choco province),430.0,6.5
+2000,Earthquake,Indonesia,Totikum,52770.0,7.6
+2000,Earthquake,Türkiye,Poturge district (Malatya province),1000.0,4.5
+2000,Earthquake,Türkiye,Cerkes,23080.0,6.0
+2000,Earthquake,Indonesia,Enggano island (Bengkulu Utara district,204714.0,6.7
+2000,Earthquake,China,Lanzhou Shi area (Lanzhou district,100.0,5.6
+2000,Earthquake,Greece,Michalitsi,600.0,5.6
+2000,Earthquake,Iceland,Hella city (Rangarvalla province),91.0,6.5
+2000,Earthquake,Nicaragua,Laguna de Apoyo nature reserve (Masaya district,7477.0,5.4
+2000,Earthquake,Japan,Koodusimamura,100.0,6.1
+2000,Earthquake,Indonesia,Ciranggon village (Karawang district,4124.0,5.4
+2000,Earthquake,Russian Federation,Ougklegorsk region (Sakhalinskaya Oblast Province),19108.0,6.8
+2000,Earthquake,China,Wuding Xian area (Chuxiong Yi district,177611.0,4.9
+2000,Earthquake,United States of America,Near Yountville city (Napa district,25174.0,4.9
+2000,Earthquake,United Republic of Tanzania,Isale,791.0,6.5
+2000,Earthquake,Japan,Aimityoo,7132.0,6.7
+2000,Earthquake,Tajikistan,Khasanov village (Parharskiy district,6000.0,4.8
+2000,Earthquake,Papua New Guinea,Duke of York island (Kokopo district,5000.0,8.0
+2000,Earthquake,Indonesia,Pandeglang,5500.0,6.8
+2000,Earthquake,Indonesia,Lahat district (Sumatera Selatan province),3000.0,6.7
+2000,Earthquake,Azerbaijan,Absheron,3294.0,6.8
+2000,Earthquake,Turkmenistan,Balkan province,100.0,7.0
+2001,Earthquake,United Republic of Tanzania,Rungwe district (Mbeya province),700.0,4.3
+2001,Earthquake,El Salvador,Berlin,1334529.0,7.7
+2001,Earthquake,Guatemala,Jutapia province,152.0,7.7
+2001,Earthquake,India,Ahmadabad,6321812.0,7.7
+2001,Earthquake,Pakistan,Badin District,914292.0,7.7
+2001,Earthquake,El Salvador,La Paz,256021.0,6.6
+2001,Earthquake,China,Yajiang Xian,300109.0,5.6
+2001,Earthquake,United States of America,Seattle city (King district),400.0,6.8
+2001,Earthquake,Japan,Hirosima,11261.0,6.8
+2001,Earthquake,China,Shidian area (Baoshan district,150190.0,5.6
+2001,Earthquake,China,Ninglang Yi Zizhixian area (Lijiang district,10605.0,5.5
+2001,Earthquake,Afghanistan,Panjsher,270.0,5.0
+2001,Earthquake,Peru,Arequipa,349978.0,8.4
+2001,Earthquake,Papua New Guinea,Mumeng district (Morobe province),201.0,6.4
+2001,Earthquake,Türkiye,Osmaniye province,480.0,5.5
+2001,Earthquake,China,Donghua village (Yongsheng Xian area,25000.0,4.6
+2001,Earthquake,Indonesia,Jawa Barat province,12512.0,5.0
+2001,Earthquake,China,Yongsheng area (Lijiang district,17220.0,5.6
+2001,Earthquake,Indonesia,Bengkulu province,100.0,7.4
+2001,Earthquake,Türkiye,Erzurum province,131.0,5.4
+2001,Earthquake,Greece,Skyros Island (Evvoias district,300.0,6.5
+2001,Earthquake,Iran (Islamic Republic of),Birjand district (Khorasan province),1000.0,4.9
+2001,Earthquake,Peru,Pucuncho city (Cayarani municipality,155.0,5.8
+2001,Earthquake,Peru,Antambaba district (Apurcmac province),3965.0,5.8
+2002,Earthquake,Vanuatu,Port Vila city (Shefa province),500.0,7.2
+2002,Earthquake,Tajikistan,Taghi Akbar,1050.0,5.3
+2002,Earthquake,Rwanda,Gisenyi city (Rubavu district,1643.0,4.7
+2002,Earthquake,Türkiye,Bolvadin district (Afyon province),252327.0,6.5
+2002,Earthquake,Papua New Guinea,Aitape district (West Sepik province),1000.0,6.7
+2002,Earthquake,Iran (Islamic Republic of),Dashty district (Bushehr province),780.0,5.4
+2002,Earthquake,Afghanistan,Hindu Kush montain (Wakhan district,3513.0,6.3
+2002,Earthquake,Pakistan,Bajaur Agency district (Federally Administered Tribal Areas province),100.0,6.3
+2002,Earthquake,Tajikistan,Badakhshoni Kuni province,500.0,6.3
+2002,Earthquake,Philippines,General Santos city (South Cotabato district,73451.0,7.5
+2002,Earthquake,Taiwan (Province of China),Hualien area (Name Unknown district,500.0,7.1
+2002,Earthquake,Afghanistan,Nahrin district (Baghlan province),91228.0,6.1
+2002,Earthquake,Afghanistan,Dawabi,6150.0,5.9
+2002,Earthquake,Serbia Montenegro,Gnjilane town (Kosovsko-pomoravski Province) (Serbia),100.0,5.7
+2002,Earthquake,Iran (Islamic Republic of),Behabad village (Sonqor district,20056.0,5.4
+2002,Earthquake,Georgia,Tbilissi district (Tbilisi province),19156.0,4.8
+2002,Earthquake,Argentina,Aminga,727.0,6.0
+2002,Earthquake,Iran (Islamic Republic of),Ab Garm,111300.0,6.5
+2002,Earthquake,Indonesia,Poso district (Sulawesi Tengah province),2548.0,6.2
+2002,Earthquake,Egypt,Cairo province,250.0,4.4
+2002,Earthquake,Papua New Guinea,Wewak district (East Sepik province),4470.0,7.6
+2002,Earthquake,India,Andaman Islands district (Andaman and Nicobar province),200.0,6.5
+2002,Earthquake,Indonesia,Manokwari,9082.0,7.6
+2002,Earthquake,United Republic of Tanzania,Bunda district (Mara province),2000.0,5.5
+2002,Earthquake,China,Rulong village (Xinlong Xian area,378.0,5.3
+2002,Earthquake,Italy,Zafferana Etnea,1009.0,4.3
+2002,Earthquake,Italy,San Guliano di Puglia town (Campobasso province,8533.0,5.9
+2002,Earthquake,Pakistan,Administrative unit not available district (Jammu and Kashmir province),15065.0,5.4
+2002,Earthquake,Pakistan,Administrative unit not available district (Jammu and Kashmir province),140782.0,6.3
+2002,Earthquake,Greece,Vartholomio city (Ileias district,167.0,5.7
+2002,Earthquake,Vanuatu,Merelava island (Torba province),503.0,5.9
+2002,Earthquake,Iran (Islamic Republic of),Kermanshah province,15015.0,5.2
+2002,Earthquake,Indonesia,Ransiki village (Manokwari district,155.0,6.4
+2002,Earthquake,Iran (Islamic Republic of),Masjed-e soleiman district (Khuzestan province),5.0,5.6
+2002,Earthquake,Indonesia,Simeulue district (Nangroe Aceh Darussalam province),60.0,7.4
+2002,Earthquake,China,Yumen Shi (Jiuquan district,65500.0,5.6
+2002,Earthquake,Italy,Palermo Province (Sicilia Region),100.0,6.0
+2003,Earthquake,Mexico,Colima,178603.0,7.6
+2003,Earthquake,Iran (Islamic Republic of),Nourabad area (Shiraz district,10080.0,5.2
+2003,Earthquake,Indonesia,Dompu district (Nusatenggara Barat province),2502.0,5.5
+2003,Earthquake,China,Payzawat village (Jiashi Xian area,517000.0,6.3
+2003,Earthquake,China,Huaitoutalazhen village (Delingha Shi area,3300.0,6.4
+2003,Earthquake,Italy,Alessandria Province (Piemonte Region),232.0,5.0
+2003,Earthquake,Türkiye,Bingol,290520.0,6.4
+2003,Earthquake,China,Bachu Xian,8003.0,5.8
+2003,Earthquake,Afghanistan,Yaka Bagh area (Namakab district,1001.0,4.6
+2003,Earthquake,Algeria,Thenia,210261.0,6.8
+2003,Earthquake,Japan,Iwate,2303.0,7.0
+2003,Earthquake,Indonesia,Morotai island (Halmahera Utara district,247.0,7.0
+2003,Earthquake,Algeria,Zemmouri district (Boumerdes province),200.0,5.8
+2003,Earthquake,Kazakhstan,Zhambyl district (Jambylslkaya province),36626.0,5.5
+2003,Earthquake,Iran (Islamic Republic of),Torbat-e jam district (Khorasan province),1091.0,5.2
+2003,Earthquake,China,Dayao Xian area (Chuxiong Yi district,1295584.0,6.0
+2003,Earthquake,Japan,Sendaisi_Aobaku,18191.0,5.5
+2003,Earthquake,China,Lindong village (Balin-Zuo Qi area,455500.0,5.4
+2003,Earthquake,Panama,Colon district (Colon province),340.0,5.4
+2003,Earthquake,Indonesia,Wasile area (Halmahera Tengah district,500.0,6.0
+2003,Earthquake,Iran (Islamic Republic of),Shahr e Pir,17525.0,5.8
+2003,Earthquake,Bangladesh,Chittagong,2525.0,5.7
+2003,Earthquake,Japan,Hokkaidoo province,773.0,7.4
+2003,Earthquake,Dominican Republic,Puerto Plata district (Puerto Plata province),2015.0,6.4
+2003,Earthquake,Russian Federation,Kosh-Agachsky,1805.0,7.3
+2003,Earthquake,China,Dayao Xian area (Chuxiong Yi district,60056.0,5.6
+2003,Earthquake,China,Minle Xian,275043.0,5.8
+2003,Earthquake,China,Min Xian area (Dingxi district,23369.0,5.1
+2003,Earthquake,China,Ludian Xian area (Zhaotong district,493065.0,5.6
+2003,Earthquake,China,Zhaosu Xian area (Ili Kazakh district,6018.0,6.0
+2003,Earthquake,China,Ludian Xian area (Zhaotong district,10004.0,4.7
+2003,Earthquake,United States of America,Paso Robles,160.0,6.5
+2003,Earthquake,Costa Rica,Corredores,135.0,6.5
+2003,Earthquake,Panama,Puerto Armuelles municipality (Baru district,1075.0,6.5
+2003,Earthquake,Iran (Islamic Republic of),Bam district (Kerman province),267628.0,6.6
+2003,Earthquake,Türkiye,Buldan district (Denizli province),240.0,4.5
+2003,Earthquake,Iran (Islamic Republic of),Masjed-e soleiman district (Khuzestan province),725.0,5.0
+2003,Earthquake,Türkiye,Seferihisar,170.0,5.8
+2004,Earthquake,Indonesia,Kota Mataram,30040.0,5.8
+2004,Earthquake,Algeria,Alger,300.0,4.5
+2004,Earthquake,Indonesia,Nabire district (Papua province),14072.0,7.0
+2004,Earthquake,Pakistan,Bisham Tehsil area (Shangla District district,13148.0,5.5
+2004,Earthquake,Morocco,Tamassint village (Imrabten area,13465.0,6.4
+2004,Earthquake,Indonesia,Kota Padangpanjang district (Sumatera Barat province),507.0,5.1
+2004,Earthquake,China,Xiwuzhumuqin Qi area (Xilin Gol district,190100.0,5.5
+2004,Earthquake,Türkiye,Askale,4030.0,5.6
+2004,Earthquake,Türkiye,Askale,32530.0,5.6
+2004,Earthquake,Tajikistan,Karabuin village (Penjikenskiy district,180.0,4.3
+2004,Earthquake,Iran (Islamic Republic of),Nour,498.0,6.3
+2004,Earthquake,Russian Federation,Tatarsky Bay (Sakhalin Isl.) (Sakhalinskaya Oblast Province),138.0,4.9
+2004,Earthquake,Türkiye,Dogubeyazit district (Agri province),356.0,5.1
+2004,Earthquake,China,Ludian Xian area (Zhaotong district,120600.0,5.4
+2004,Earthquake,Colombia,Sotara district (Cauca province),502.0,5.1
+2004,Earthquake,Afghanistan,Paktya province,1040.0,5.2
+2004,Earthquake,China,Baoshan district (Yunnan Sheng province),100012.0,4.8
+2004,Earthquake,Japan,Odiyasi,62183.0,6.6
+2004,Earthquake,Indonesia,Alor district (Nusatenggara Timur province),83381.0,7.5
+2004,Earthquake,China,Gansu Sheng province,22019.0,5.2
+2004,Earthquake,Colombia,Litoral de San Juan,8036.0,7.2
+2004,Earthquake,Dominica,St. Andrew,100.0,6.3
+2004,Earthquake,Guadeloupe,Basse-Terre,153.0,6.3
+2004,Earthquake,Costa Rica,San Jose,280.0,6.4
+2004,Earthquake,Indonesia,Nabire district (Papua province),12833.0,7.1
+2004,Earthquake,Algeria,Boumerdes district (Boumerdes province),15.0,4.5
+2004,Earthquake,Bangladesh,Barisal,100.0,9.1
+2004,Earthquake,Indonesia,Nangroe Aceh Darussalam,532898.0,9.1
+2004,Earthquake,India,Kancheepuram,654512.0,9.1
+2004,Earthquake,Kenya,Mombassa district (Coast province),100.0,9.1
+2004,Earthquake,Sri Lanka,Jaffna,1019306.0,9.1
+2004,Earthquake,Maldives,Alifu Alifu,27214.0,9.1
+2004,Earthquake,Myanmar,Kawthoung,15700.0,9.1
+2004,Earthquake,Malaysia,Barat Daya,5063.0,9.1
+2004,Earthquake,Somalia,Hafun village (Iskushuban district,105083.0,9.1
+2004,Earthquake,Seychelles,Anse Aux Pins,4830.0,9.1
+2004,Earthquake,Thailand,Krabi,67007.0,9.1
+2004,Earthquake,United Republic of Tanzania,Dar-es-salaam,100.0,9.1
+2004,Earthquake,Germany,Waldkirch,150.0,4.8
+2004,Earthquake,Slovenia,Kobarid,605.0,5.2
+2004,Earthquake,Burundi,Ruyaga village (Rugombo district,120.0,4.7
+2004,Earthquake,China,Delingha area (Haixi Mongol and Tibetan district,4199.0,5.5
+2005,Earthquake,Iran (Islamic Republic of),Agh Ghala area (Gorgan district,110.0,5.4
+2005,Earthquake,Indonesia,Kota Palu district (Sulawesi Tengah province),684.0,6.3
+2005,Earthquake,Türkiye,Batman city (Merkez district,422.0,5.9
+2005,Earthquake,Iran (Islamic Republic of),Rooein Abad,94766.0,6.4
+2005,Earthquake,Türkiye,Karliova district (Bingol province),2268.0,5.8
+2005,Earthquake,Japan,Hukuoka province,3535.0,6.6
+2005,Earthquake,South Africa,Klerksdorp,58.0,5.0
+2005,Earthquake,Indonesia,Simeulue,105313.0,8.6
+2005,Earthquake,Japan,Hukuoka,895.0,5.5
+2005,Earthquake,El Salvador,Apaneca district (Ahuachapan province),751.0,4.8
+2005,Earthquake,Chile,Iquique,27645.0,7.8
+2005,Earthquake,Peru,Arequipa district (Arequipa province),100.0,7.8
+2005,Earthquake,Papua New Guinea,Lae district (Morobe province),200.0,6.1
+2005,Earthquake,Türkiye,Karliova district (Bingol province),354.0,5.6
+2005,Earthquake,Peru,Moyobamba,2505.0,7.5
+2005,Earthquake,Afghanistan,Jalalabad district (Nangarhar province),100.0,7.6
+2005,Earthquake,India,Administrative unit not available districts (Jammu and Kashmir province),156622.0,7.6
+2005,Earthquake,Pakistan,Bisham Tehsil,5128309.0,7.6
+2005,Earthquake,China,Jiujiang district (Jiangxi Sheng province),615500.0,5.2
+2005,Earthquake,Iran (Islamic Republic of),Ghurzin,100.0,5.9
+2005,Earthquake,Democratic Republic of the Congo,Kalemie city (Tanganyka district,1505.0,6.8
+2005,Earthquake,United Republic of Tanzania,Kigoma province,5000.0,6.8
+2005,Earthquake,Afghanistan,Alishang district (Laghman province),501.0,6.5
+2005,Earthquake,Iran (Islamic Republic of),Saravan district (Sistan-o baluchestan province),21912.0,6.0
+2005,Earthquake,China,Huize area (Qujing district,18509.0,5.2
+2006,Earthquake,China,Mojiang area (Pu'er district,68761.0,4.6
+2006,Earthquake,Mozambique,Machaze,1476.0,7.0
+2006,Earthquake,Iran (Islamic Republic of),Faryab village (Kahnug district,7006.0,6.0
+2006,Earthquake,Bulgaria,Murgovo village (Kardzhali district,527.0,4.6
+2006,Earthquake,Algeria,Laalam village (Tamridjet district,319.0,5.2
+2006,Earthquake,Iran (Islamic Republic of),Aleshtar village (Selseleh district,161418.0,6.1
+2006,Earthquake,Russian Federation,Apuka,12040.0,7.6
+2006,Earthquake,Indonesia,Pela,1202.0,6.7
+2006,Earthquake,Iran (Islamic Republic of),Zarand district (Kerman province),70.0,5.0
+2006,Earthquake,Indonesia,Kulonprogo,3177923.0,6.3
+2006,Earthquake,Indonesia,Tasikmalaya,35543.0,7.7
+2006,Earthquake,China,Yanjin area (Zhaotong district,265106.0,4.9
+2006,Earthquake,Afghanistan,Emamsaheb district (Kunduz province),935.0,5.6
+2006,Earthquake,Tajikistan,Kumsangir village (Kolhosobadskiy districts,15427.0,5.6
+2006,Earthquake,China,Xinsi village (Tongwei Xian area,130.0,4.9
+2006,Earthquake,China,Doushazhen village (Yanjin Xian area,45551.0,5.0
+2006,Earthquake,China,Hubei Sheng province,20000.0,4.5
+2006,Earthquake,China,Chifeng district (Nei Mongol Zizhiqu province),12000.0,4.7
+2006,Earthquake,Indonesia,Muara Sipongi area (Mandailingnatal district,1200.0,5.8
+2006,Earthquake,Taiwan (Province of China),Pingtung city (Name Unknown district,42.0,7.1
+2006,Earthquake,Kyrgyzstan,Isakeevo,12050.0,5.8
+2006,Earthquake,El Salvador,San Lorenzo,16470.0,4.1
+2006,Earthquake,United States of America,Hawai province,3529.0,6.7
+2006,Earthquake,Indonesia,Bima district (Nusatenggara Barat province),114.0,6.3
+2007,Earthquake,Indonesia,Tanahdatar,137660.0,6.3
+2007,Earthquake,Japan,Nanao,41027.0,6.7
+2007,Earthquake,Solomon Islands,Administrative unit not available,2384.0,8.1
+2007,Earthquake,Chile,Puerto Aisen,100.0,6.2
+2007,Earthquake,China,Pu'er district (Yunnan Sheng province),329.0,6.1
+2007,Earthquake,Japan,Aikawamati,14000.0,6.6
+2007,Earthquake,Tajikistan,Oshoba,7003.0,5.2
+2007,Earthquake,Russian Federation,Yuzhno-Sakhalinsk,25012.0,6.2
+2007,Earthquake,Peru,Pisco,658331.0,8.0
+2007,Earthquake,Colombia,El Charco,175.0,6.8
+2007,Earthquake,Indonesia,Bengkulu,459567.0,8.4
+2007,Earthquake,Honduras,El Progreso district (Yoro province),1883.0,5.3
+2007,Earthquake,Indonesia,Situbondo district (Java Timur province),469.0,4.9
+2007,Earthquake,Indonesia,Sumbawa district (Nusatengarra Barat province),21800.0,6.5
+2007,Earthquake,Barbados,Bridgetown (St. Michael Province),1.0,7.4
+2007,Earthquake,Saint Lucia,Cap Estate,100.0,7.4
+2007,Earthquake,Martinique,Fort-De-France province,100.0,7.4
+2007,Earthquake,Chile,Tocopilla,25155.0,7.7
+2007,Earthquake,Brazil,Itacarambi,286.0,4.9
+2007,Earthquake,Japan,Mie,201.0,5.1
+2007,Earthquake,United Kingdom of Great Britain and Northern Ireland,Folkestone town (Kent district,4501.0,4.6
+2008,Earthquake,Kyrgyzstan,Kara-suu,3000.0,5.6
+2008,Earthquake,Democratic Republic of the Congo,Bukavu district (Sud-Kivu province),17355.0,5.9
+2008,Earthquake,Rwanda,Cyangugu,643.0,5.9
+2008,Earthquake,United States of America,Wells city (Elko district,2103.0,5.9
+2008,Earthquake,Iran (Islamic Republic of),Borugerd district (Lorestan province),170.0,4.5
+2008,Earthquake,China,Wenchuan Xian,45976596.0,7.9
+2008,Earthquake,Greece,Achaïe (Achaias district,3708.0,6.4
+2008,Earthquake,Japan,Mizusawasi,448.0,6.9
+2008,Earthquake,Japan,Hatinohesi district (Aomori province),470.0,6.8
+2008,Earthquake,China,Qingchuan area (Guangyuan district,13529.0,6.0
+2008,Earthquake,China,Yingjiang area (Dehong Dai and Jingpo district,160.0,6.0
+2008,Earthquake,China,Huili area (Liangshan Yi district,1000589.0,6.0
+2008,Earthquake,Iran (Islamic Republic of),Tonban village (Geshm district,20545.0,6.1
+2008,Earthquake,Indonesia,Jarai village (Lahat district,625.0,5.2
+2008,Earthquake,Kyrgyzstan,Nura village (Alay district,1197.0,6.7
+2008,Earthquake,China,Ningzhongxiang village (Dangxiong Xian area,754.0,6.3
+2008,Earthquake,Russian Federation,Chechnya Rep. Province,5235.0,5.8
+2008,Earthquake,Pakistan,Khanozai village (Pishin District district,75320.0,6.4
+2008,Earthquake,Indonesia,Buol district (Sulawesi Tengah province) Gorontalo province,10077.0,7.4
+2008,Earthquake,China,Yunnan Sheng province,27169.0,4.8
+2008,Earthquake,Colombia,Quetame district (Cundinamarca province),1754.0,5.9
+2008,Earthquake,China,Sichuan Sheng province,351000.0,6.1
+2009,Earthquake,Indonesia,Manokwari ,4250.0,7.7
+2009,Earthquake,Costa Rica,Alajuela,128618.0,6.1
+2009,Earthquake,China,Chabucha'er Xibo Zizhixian,4549.0,5.1
+2009,Earthquake,Indonesia,Kepulauan-talaud district (Sulawesi Utara province),3049.0,7.2
+2009,Earthquake,Italy,Aquila,72000.0,6.3
+2009,Earthquake,Afghanistan,Sherzad,3309.0,5.2
+2009,Earthquake,Honduras,La Ceiba,50136.0,7.3
+2009,Earthquake,China,Guantun village (Yao'an Xian area,65336.0,5.7
+2009,Earthquake,Japan,Sizuokasi,25319.0,6.2
+2009,Earthquake,Indonesia,Cianjur,339792.0,7.0
+2009,Earthquake,Albania,Peshkopi district,150.0,5.5
+2009,Earthquake,Georgia,Nigavzebi,7306.0,6.0
+2009,Earthquake,Philippines,Norala,392.0,5.7
+2009,Earthquake,Bhutan,Monggar,12.0,8.1
+2009,Earthquake,American Samoa,Pago Pago,2500.0,8.1
+2009,Earthquake,Tonga,Niuatoputapu island (Administrative unit not available province),507.0,8.1
+2009,Earthquake,Samoa,Administrative unit not available province,5584.0,8.1
+2009,Earthquake,Indonesia,Agam,2501798.0,6.6
+2009,Earthquake,Indonesia,Raba village (Kota Bima district,1510.0,7.6
+2009,Earthquake,Iran (Islamic Republic of),Bandar-e abbas district (Hormozgan province),269.0,5.0
+2009,Earthquake,Malawi,Karonga district (Northern Region province),15015.0,5.9
+2009,Earthquake,Malawi,Karonga district (Northern Region province),5721.0,6.0
+2010,Earthquake,Tajikistan,Uskrogh,7840.0,5.4
+2010,Earthquake,Solomon Islands,Administrative unit not available,1126.0,7.1
+2010,Earthquake,Haiti,Port-au-prince,3700000.0,7.0
+2010,Earthquake,Iran (Islamic Republic of),Andimeshk district (Khuzestan province),750.0,5.0
+2010,Earthquake,United States of America,Ferndale,630.0,6.5
+2010,Earthquake,China,Moxizhen village (Suining district,10515.0,5.1
+2010,Earthquake,China,Kunming district (Yunnan Sheng province),50011.0,5.2
+2010,Earthquake,Chile,Biobio province,2671556.0,8.8
+2010,Earthquake,Türkiye,Basyurt village (Karakocan district,3600.0,6.1
+2010,Earthquake,Mexico,Mexicali district (Baja California province),25232.0,7.2
+2010,Earthquake,China,Yushu Xian area (Name Unknown district,112000.0,6.9
+2010,Earthquake,Indonesia,Yapen district (Papua province),4600.0,7.0
+2010,Earthquake,Iran (Islamic Republic of),Torbat-e heydarieh district (Khorasan province),274.0,5.5
+2010,Earthquake,New Zealand,Christchurch city (Canterbury province),300002.0,7.0
+2010,Earthquake,Indonesia,Kepulauan Mentawai district (Sumatera Barat province),11864.0,7.8
+2010,Earthquake,Serbia,Kraljevo town (Raski Province),27030.0,5.5
+2010,Earthquake,Iran (Islamic Republic of),Dorud village (Dorud district,104.0,4.9
+2010,Earthquake,Iran (Islamic Republic of),Fahraj village (Bam district,25.0,6.7
+2010,Earthquake,Taiwan (Province of China),Taiwan Sheng province,96.0,6.3
+2010,Earthquake,Afghanistan,Samangan province,1070.0,5.6
+2010,Earthquake,Iran (Islamic Republic of),Damghan village (Damghan district,3600.0,5.8
+2010,Earthquake,China,Ningnan area (Liangshan Yi district,5014.0,4.9
+2011,Earthquake,China,Pingyuanzhen village (Yingjiang area,64501.0,4.8
+2011,Earthquake,New Zealand,Christchurch city (Canterbury province),301500.0,6.1
+2011,Earthquake,China,Pingyuanzhen village (Yingjiang area,5440.0,5.5
+2011,Earthquake,Indonesia,Holtekamp beach (Muara Tami area,95.0,9.1
+2011,Earthquake,Japan,Hokkaidoo,368820.0,9.1
+2011,Earthquake,China,Yunnan Sheng province,9508.0,6.9
+2011,Earthquake,Myanmar,Tarlay area (Tachileik district,21277.0,6.9
+2011,Earthquake,Thailand,Chiang Rai,16.0,6.9
+2011,Earthquake,Pakistan,Garhi Khairo village (Jacobabad district,1000.0,7.2
+2011,Earthquake,Japan,Ishinomakisi,132.0,7.1
+2011,Earthquake,Spain,Lorca municipality (Murcia district,15300.0,5.1
+2011,Earthquake,Türkiye,Simav district (Kutahya province),10121.0,5.8
+2011,Earthquake,Kyrgyzstan,Batken district (Batken province),100.0,6.1
+2011,Earthquake,Tajikistan,Khujand,100.0,6.1
+2011,Earthquake,Uzbekistan,Fergana province,86.0,6.1
+2011,Earthquake,Bhutan,Paro,20016.0,6.9
+2011,Earthquake,China,Shigatse,5136.0,6.9
+2011,Earthquake,India,Sikkim,575200.0,6.9
+2011,Earthquake,Nepal,Lamjung,167949.0,6.9
+2011,Earthquake,Guatemala,Cuilapa district (Santa Rosa province) ; Guatemala city (Guatemala district,400.0,5.6
+2011,Earthquake,China,Dabancheng area (Urumqi district,258.0,5.1
+2011,Earthquake,New Zealand,Canterbury,345.0,5.9
+2011,Earthquake,Indonesia,Subulussalam city (Aceh Singkil district,100.0,6.7
+2011,Earthquake,Türkiye,Van,32938.0,7.1
+2011,Earthquake,China,Yining,143000.0,5.6
+2011,Earthquake,Peru,Ica municipality (Ica district,2681.0,6.9
+2011,Earthquake,Philippines,Valencia area (Bukidnon district,28.0,4.9
+2011,Earthquake,Türkiye,Van province,105.0,5.6
+2011,Earthquake,Mexico,Guerrero province,152.0,6.5
+2011,Earthquake,China,Jiashi Xian,1616.0,5.6
+2012,Earthquake,Peru,Ica,4435.0,6.4
+2012,Earthquake,Philippines,Tayasan area (Negros Oriental district,320277.0,6.7
+2012,Earthquake,Indonesia,Simeulue district (Nangroe Aceh Darussalam province),107.0,8.6
+2012,Earthquake,Mexico,Guerrero,49011.0,7.4
+2012,Earthquake,Chile,Parral town (Linares district,24297.0,7.1
+2012,Earthquake,Italy,Finale Emilia,11050.0,6.0
+2012,Earthquake,Tajikistan,Darbanskiy,2531.0,5.7
+2012,Earthquake,Bulgaria,Pernik town (Pernik Province),210.0,5.6
+2012,Earthquake,Italy,Modena Province (Emilia-romagna Region),14350.0,5.8
+2012,Earthquake,Afghanistan,Burka,3548.0,5.7
+2012,Earthquake,China,Ninglang Yi Zizhixian area (Liangshan Yi district,34234.0,5.5
+2012,Earthquake,Azerbaijan,Balaken,15550.0,5.6
+2012,Earthquake,Iran (Islamic Republic of),Varzeghan village (Ahar district,61546.0,6.4
+2012,Earthquake,Philippines,Valencia,4001.0,5.7
+2012,Earthquake,China,Xinjiang Uygur Zizhiqu province,155052.0,6.3
+2012,Earthquake,Costa Rica,Abangares,762.0,7.6
+2012,Earthquake,China,Yiliang area (Zhaotong district,744821.0,5.5
+2012,Earthquake,China,Yangzhou district (Jiangsu Sheng province),2610.0,4.9
+2012,Earthquake,Indonesia,Lindu village (Sigi area,7883.0,6.3
+2012,Earthquake,Guatemala,San Marcos,1321742.0,7.4
+2012,Earthquake,Myanmar,Chaung-U area (Monywa district,1486.0,6.8
+2012,Earthquake,Philippines,Guian town (Eastern Samar district,28879.0,7.6
+2012,Earthquake,Iran (Islamic Republic of),Zohan,5523.0,5.8
+2012,Earthquake,China,Xinjiang Uygur Zizhiqu province,5500.0,5.3
+2012,Earthquake,Azerbaijan,Zagatala,6949.0,5.1
+2012,Earthquake,Iran (Islamic Republic of),Nishabur district (Khorasan province),238.0,5.1
+2012,Earthquake,China,Xinjiang Uygur Zizhiqu province,36641.0,5.9
+2013,Earthquake,Indonesia,Nangroe Aceh Darussalam province,515.0,6.1
+2013,Earthquake,Solomon Islands,Santa Cruz islands (Temotu (Adminitrative unit not available) province),3329.0,8.0
+2013,Earthquake,Colombia,Narino,10015.0,6.9
+2013,Earthquake,China,Eryuan Xian,427740.0,5.2
+2013,Earthquake,Iran (Islamic Republic of),Shonbeh ,4350.0,6.4
+2013,Earthquake,Iran (Islamic Republic of),Khash,27.0,7.7
+2013,Earthquake,Pakistan,Mashkhel area (Chagai district,15175.0,7.7
+2013,Earthquake,China,Lushan area (Ya'an district,2198785.0,6.6
+2013,Earthquake,Hungary,Heves province,1800.0,4.4
+2013,Earthquake,Japan,Hyogo province,8438.0,5.8
+2013,Earthquake,India,Administrive unit not available district (Jammu and Kashmir province),59350.0,5.7
+2013,Earthquake,Afghanistan,Kama,3531.0,5.5
+2013,Earthquake,Taiwan (Province of China),Taiwan Sheng province,1519.0,6.2
+2013,Earthquake,Indonesia,Aceh Tengah,55935.0,6.1
+2013,Earthquake,China,Gannan Tibetan,123887.0,5.9
+2013,Earthquake,New Zealand,Wellington's Central Business Center,13840.0,6.5
+2013,Earthquake,China,Benzilan village (Deqin Xian area,538050.0,5.6
+2013,Earthquake,Pakistan,Awaran District,185749.0,7.7
+2013,Earthquake,Philippines,Catigbian village (Bohol district,3222224.0,7.1
+2013,Earthquake,Guatemala,Ciudad Tecun Uman city (Ayutla district,572.0,6.4
+2013,Earthquake,Peru,Arequipa,7084.0,7.1
+2013,Earthquake,Indonesia,Nangroe Aceh Darussalam province,2738.0,5.4
+2013,Earthquake,China,Changling area (Songyuan district,58300.0,5.3
+2013,Earthquake,Pakistan,Awaran District district (Balochistan province),50.0,6.8
+2013,Earthquake,Iran (Islamic Republic of),Borazjan city (Dashtestan district,1620.0,5.8
+2013,Earthquake,China,Badong area (Enshi Tujia and Miao district,90500.0,5.1
+2013,Earthquake,Taiwan (Province of China),Puli city (Name Unknown district,97.0,5.9
+2013,Earthquake,China,Dali Bai district (Yunnan Sheng province),80555.0,5.1
+2013,Earthquake,China,Keping Xian area (Aksu district,2000.0,5.0
+2014,Earthquake,Greece,Lixouri,2023.0,6.1
+2014,Earthquake,Iran (Islamic Republic of),Bastak city (Bandar-elengeh district,330.0,5.2
+2014,Earthquake,China,Yutian Xian area (Khotan district,450000.0,6.9
+2014,Earthquake,Chile,Arica y Painacota province,513387.0,8.2
+2014,Earthquake,Nicaragua,Managua province,12281.0,6.6
+2014,Earthquake,Mexico,Guerrero,381.0,7.2
+2014,Earthquake,China,Xiluoduzhen village (Zhaotong district,75021.0,5.4
+2014,Earthquake,Thailand,Chiang Rai,17523.0,6.1
+2014,Earthquake,China,Yingjiang area (Dehong Dai and Jingpo district,225015.0,5.8
+2014,Earthquake,Greece,Limnos Island (Lesvou district,75002.0,6.9
+2014,Earthquake,Türkiye,Tekirdag,324.0,6.9
+2014,Earthquake,China,Yingjiang area (Dehong Dai and Jingpo district,184723.0,5.9
+2014,Earthquake,Guatemala,Huehuetenango,94783.0,6.9
+2014,Earthquake,Mexico,Chiapas province,27000.0,6.9
+2014,Earthquake,Comoros,Anjouan province,10000.0,4.8
+2014,Earthquake,China,Longtoushanzhen,1120513.0,6.2
+2014,Earthquake,Iran (Islamic Republic of),Moormoori village (Abdanan district,12250.0,6.0
+2014,Earthquake,Algeria,Alger,420.0,5.5
+2014,Earthquake,South Africa,Orkney city (Dr Kenneth Kaunda District Municipality district,2002.0,5.4
+2014,Earthquake,United States of America,San Francisco Bay (San Francisco district) ,3250.0,6.02
+2014,Earthquake,Peru,Misca (Paruro district,604.0,4.9
+2014,Earthquake,China,Yongping Xian area (Dali Bai district,255324.0,6.1
+2014,Earthquake,China,Sichuan Sheng province,82355.0,5.9
+2014,Earthquake,Japan,Hakuba village (Hakubamura district,2657.0,6.2
+2014,Earthquake,China,Weiyuan Xian area (Dingxi district,2022.0,5.6
+2015,Earthquake,China,Shawan area (Tacheng district,8640.0,5.1
+2015,Earthquake,Colombia,Santafe de Bogota D.c. district (Cundinamarca province),41236.0,6.2
+2015,Earthquake,China,Zhenkang Xian,2032.0,5.2
+2015,Earthquake,Bangladesh,Savar area (Dhaka district,200.0,7.8
+2015,Earthquake,China,Shigatse district (Xizang Zizhiqu province),207883.0,7.8
+2015,Earthquake,India,Bihar,560.0,7.8
+2015,Earthquake,Nepal,Gorkha area (Gandaki district,5639722.0,7.8
+2015,Earthquake,China,Shigatse district (Xizang Zizhiqu province),100.0,7.3
+2015,Earthquake,India,Bihar province,100.0,7.3
+2015,Earthquake,Nepal,Kathmandu,2428.0,7.3
+2015,Earthquake,Malaysia,Ranau district (Sabah province),10.0,6.0
+2015,Earthquake,China,Xilkiqi village (Pishan area,3048.0,6.4
+2015,Earthquake,Democratic Republic of the Congo,Kabare,390.0,5.5
+2015,Earthquake,Indonesia,Sorong district (Papua Barat province),12247.0,6.6
+2015,Earthquake,Chile,Araucania,681499.0,8.3
+2015,Earthquake,Afghanistan,Badakhshan,92725.0,7.5
+2015,Earthquake,India,Administrative unit not available districts (Jammu and Kashmir province),10.0,7.5
+2015,Earthquake,Pakistan,Islamabad District district (Islamabad province),502590.0,7.5
+2015,Earthquake,Kyrgyzstan,Chong-Alay,16780.0,5.6
+2015,Earthquake,Tajikistan,Murgabskiy,7976.0,7.2
+2015,Earthquake,Afghanistan,Ashkasham town (Eshkmesh district,407.0,6.3
+2015,Earthquake,Pakistan,Khyber Agency district (Federally Administrered Tribal Areas province),85.0,6.3
+2015,Earthquake,Timor-Leste,Dili province,2003.0,6.5
+2016,Earthquake,Bangladesh,Dhaka,70.0,6.7
+2016,Earthquake,India,Guwahati city (Kamrup district,10808.0,6.7
+2016,Earthquake,Indonesia,Maluku,368.0,5.5
+2016,Earthquake,Taiwan (Province of China),Tainan city (Name Unkown district,525.0,6.4
+2016,Earthquake,Pakistan,North-West Frontier,142.0,6.6
+2016,Earthquake,Japan,Kumamoto province (Kyushu Isl.),120800.0,6.5
+2016,Earthquake,Ecuador,Guayaquil district (Guayas province),389364.0,7.8
+2016,Earthquake,Japan,Kumamoto,298432.0,7.3
+2016,Earthquake,Ecuador,Esmeraldas district (Esmeraldas province),147.0,6.8
+2016,Earthquake,Tajikistan,Rasht region (Garmskiy district,155.0,5.4
+2016,Earthquake,Peru,Yanque,11182.0,5.3
+2016,Earthquake,Italy,Amatrice,4854.0,6.2
+2016,Earthquake,United Republic of Tanzania,Bukoba,139601.0,5.9
+2016,Earthquake,Uganda,Minziro,590.0,5.9
+2016,Earthquake,North Macedonia,Skopje province,100.0,5.1
+2016,Earthquake,Republic of Korea,Kyonju,29832.0,5.4
+2016,Earthquake,Italy,Visso,3027.0,6.1
+2016,Earthquake,Italy,Norcia (Perugia district,22292.0,6.5
+2016,Earthquake,Myanmar,Magway,1152.0,6.8
+2016,Earthquake,New Zealand,Culverden,50.0,7.8
+2016,Earthquake,Indonesia,Dompu district (Nusatenggara Barat Province),3410.0,5.9
+2016,Earthquake,Peru,Lampa,257.0,6.3
+2016,Earthquake,Indonesia,Pidie Jaya district (Nangroe Aceh Darussalam province,86018.0,6.5
+2016,Earthquake,China,Xinjinag Uygur Zizhiqu province,37200.0,6.6
+2016,Earthquake,Solomon Islands,Malaita,9770.0,7.8
+2016,Earthquake,Japan,Kurayoshi city (Kurayosisi district,493.0,6.2
+2016,Earthquake,United States of America,Cushing (Oklahoma),120.0,5.0
+2016,Earthquake,China,Near Shihezi district (Xinjiang Uygur Zizhiqu province),9120.0,5.9
+2016,Earthquake,China,Shimen (Yunnan - Dali Bai),5000.0,4.8
+2016,Earthquake,Philippines,Surigao city,202.0,6.7
+2017,Earthquake,Italy,Avezzano,11.0,5.3
+2017,Earthquake,Philippines,Surigao Del Norte district (Region XIII (Caraga) province),16857.0,6.7
+2017,Earthquake,China,Yangbi (Yunnan province),2106.0,5.0
+2017,Earthquake,China,Xinjiang region,4583.0,5.4
+2017,Earthquake,Philippines,Verde Island Passage (Tingloy,25000.0,5.9
+2017,Earthquake,Greece,Vrisa,731.0,6.3
+2017,Earthquake,Iran (Islamic Republic of),Kopet Dag Mountain,2262.0,5.6
+2017,Earthquake,Philippines,Kananga (Leyte Isl),16500.0,6.5
+2017,Earthquake,Greece,Kos Island,120.0,6.7
+2017,Earthquake,Türkiye,Bodrum,360.0,6.7
+2017,Earthquake,China,Aba prefecture,218325.0,6.5
+2017,Earthquake,Italy,Casamicciola Terme,2642.0,4.3
+2017,Earthquake,Guatemala,Huehuetenango,3601.0,7.7
+2017,Earthquake,Mexico,Oaxaca (Juchitan),1200250.0,8.1
+2017,Earthquake,Mexico,Puebla (Puebla,256000.0,7.1
+2017,Earthquake,Republic of Korea,Near Pohang,5057.0,5.4
+2017,Earthquake,Iran (Islamic Republic of),Qasre-Shirin,209000.0,7.3
+2017,Earthquake,Iraq,Sulaymaniyah governorate areas,5969.0,7.3
+2017,Earthquake,Kyrgyzstan,Karamyk,5000.0,5.9
+2017,Earthquake,China,Nyingchi (Tibet),23403.0,6.4
+2017,Earthquake,Iran (Islamic Republic of),Tehran region (Malard,120.0,4.9
+2017,Earthquake,Indonesia,Jakarta,8895.0,6.5
+2018,Earthquake,Peru,Yauca,9319.0,7.1
+2018,Earthquake,Indonesia,Jakarta,13811.0,6.0
+2018,Earthquake,Papua New Guinea,Southern Highlandsand Hela provinces,544300.0,7.5
+2018,Earthquake,Taiwan (Province of China),Hualian,285.0,6.4
+2018,Earthquake,Japan,Hyogo,20715.0,5.5
+2018,Earthquake,China,Ningjiang (Jilin province),12000.0,5.1
+2018,Earthquake,Indonesia,North Lombok,102852.0,6.4
+2018,Earthquake,Indonesia,Lombok,516927.0,6.9
+2018,Earthquake,Iran (Islamic Republic of),Tazeh Abad district (Kermanshah),5042.0,5.9
+2018,Earthquake,Indonesia,Lombok Isl.,779.0,6.9
+2018,Earthquake,Iran (Islamic Republic of),Near Javanroud (Kermanshah province),13255.0,6.0
+2018,Earthquake,Mexico,Oaxaca,3004.0,7.2
+2018,Earthquake,Papua New Guinea,South Highlands,100.0,5.6
+2018,Earthquake,Papua New Guinea,Hela (South Highlands),100.0,6.7
+2018,Earthquake,El Salvador,Intipuca (La Union); Chirilagua (San Miguel),2499.0,5.6
+2018,Earthquake,China,Yuxi (Yunnan province),18024.0,5.0
+2018,Earthquake,Japan,Atsuma village,6280.0,6.6
+2018,Earthquake,Indonesia,Dongalla,2000000.0,7.5
+2018,Earthquake,Haiti,Port-de-Paix,39336.0,5.9
+2018,Earthquake,Iran (Islamic Republic of),Sarpol-e Zahab (Kermanshah province),716.0,6.3
+2019,Earthquake,Chile,Coquimbo,780.0,6.7
+2019,Earthquake,Indonesia,West Sumatra province,1763.0,5.4
+2019,Earthquake,China,Sichuan Province,32772.0,4.9
+2019,Earthquake,Indonesia,Lombok Isl. (West Nusa Tenggara),1295.0,5.8
+2019,Earthquake,Philippines,Castillejos (Zambales),15555.0,6.1
+2019,Earthquake,Albania,Korçë county,304.0,5.2
+2019,Earthquake,El Salvador,San Martín municipality (San Salvador Department),160.0,6.6
+2019,Earthquake,Ecuador,Amazon basin region,15.0,8.0
+2019,Earthquake,Peru,Libertad,4272.0,8.0
+2019,Earthquake,China,Yibin (Sichuan province),244220.0,5.8
+2019,Earthquake,Papua New Guinea,New Ireland,651.0,7.6
+2019,Earthquake,Iran (Islamic Republic of),Masjed Soleyman City (Khuzestan Province),2100.0,5.7
+2019,Earthquake,United States of America,Ridgecrest (Califronia),150.0,7.1
+2019,Earthquake,Japan,Yamagata,460.0,6.4
+2019,Earthquake,Indonesia,North Maluku Province,11804.0,7.2
+2019,Earthquake,Philippines,Cantilan,9577.0,5.5
+2019,Earthquake,Philippines,Itbayat Island (Batanes Province),3027.0,6.0
+2019,Earthquake,Indonesia,Pandeglang (Banten Province); Bandar Lampung (Lampung Province),2104.0,6.9
+2019,Earthquake,Albania,Durres,4608.0,5.6
+2019,Earthquake,Indonesia,Ambon,247418.0,6.5
+2019,Earthquake,Pakistan,Mirpur district (Southern Azad Jammu and Kashmir Territory),130398.0,5.6
+2019,Earthquake,Ecuador,Azuay,249.0,7.5
+2019,Earthquake,Türkiye,Istanbul,1453.0,5.7
+2019,Earthquake,Philippines,North Cotabato Province (Mindanao Island),3283.0,6.4
+2019,Earthquake,China,Neijiang (Sichuan Province),15582.0,5.1
+2019,Earthquake,Philippines,Davao del Sur and South Cotabato provinces; North Cotabato Province (Mindanao Island),26025.0,6.6
+2019,Earthquake,Philippines,Cotabato Province,260703.0,6.5
+2019,Earthquake,France,Auvergne-Rhône-Alpes region,754.0,5.3
+2019,Earthquake,Iran (Islamic Republic of),Varnakesh village (Mianeh County); Torkamanchay City (Mianeh County) - East Azerbaijan Province,23084.0,5.9
+2019,Earthquake,Albania,Durrës,202913.0,6.4
+2019,Earthquake,Philippines,Davao del Sur Province (Davao Region,394565.0,6.8
+2020,Earthquake,Puerto Rico,Ponce City,5078.0,6.4
+2020,Earthquake,Türkiye,Sivrice District (Elazig province); Malatya Provinces),70607.0,6.7
+2020,Earthquake,Iran (Islamic Republic of),Azerbaïdjan-Occidental province,15075.0,5.8
+2020,Earthquake,Türkiye,Van City (Baskale district),3050.0,5.8
+2020,Earthquake,Croatia,Zagreb,78942.0,5.4
+2020,Earthquake,Puerto Rico,Ponce,150.0,5.4
+2020,Earthquake,Indonesia,South Morotai,1560.0,6.4
+2020,Earthquake,China,Qiaojia and Ludian (Yunnan province),3324.0,5.1
+2020,Earthquake,Türkiye,Karl?ova,6635.0,5.9
+2020,Earthquake,Türkiye,Özalp,278.0,5.4
+2020,Earthquake,Mexico,South Oaxaca State (Mexico),24393.0,7.4
+2020,Earthquake,Philippines,Bicol Region,4980.0,6.6
+2020,Earthquake,Greece,Samos,919.0,7.0
+2020,Earthquake,Türkiye,Izmir Bornova,6034.0,7.0
+2020,Earthquake,Croatia,Sisak,149407.0,6.4
+2020,Earthquake,Algeria,Mila province,15000.0,4.9
+2021,Earthquake,Argentina,San Juan Province,1814.0,6.4
+2021,Earthquake,Indonesia,Mamuju,100653.0,6.2
+2021,Earthquake,Iran (Islamic Republic of),Esfahan,257724.0,5.6
+2021,Earthquake,Japan,Namie region,7892.0,7.1
+2021,Earthquake,Greece,Larissa,2711.0,5.8
+2021,Earthquake,Japan,Honshu Island,611.0,7.0
+2021,Earthquake,Indonesia,East Java region,5979.0,6.0
+2021,Earthquake,China,Xinjiang Uygur Autonomous Region,195.0,5.4
+2021,Earthquake,Iran (Islamic Republic of),Bouchehr province,3543.0,5.9
+2021,Earthquake,Bhutan,Samdrup Jongkhar District,502.0,6.0
+2021,Earthquake,India,Kamrup and Nagaon (Sonitpur District,3010.0,6.4
+2021,Earthquake,China,Yanbi,39028.0,6.1
+2021,Earthquake,Indonesia,Tehoru (Central Maluku Regency,750.0,5.9
+2021,Earthquake,China,Chuxiong Yi Autonomous Prefecture,8012.0,5.1
+2021,Earthquake,Tajikistan,Tadjikobod district (Douchanbé region),100.0,5.9
+2021,Earthquake,Peru,Piura region,1421.0,6.2
+2021,Earthquake,Haiti,Nippe,702763.0,7.2
+2021,Earthquake,China,Lu County,24395.0,5.4
+2021,Earthquake,Mexico,Southern Guerrero State,21951.0,7.0
+2021,Earthquake,Greece,Arkalochori,2336.0,6.0
+2021,Earthquake,Pakistan,Hernai district i(Balochistan),64100.0,5.9
+2021,Earthquake,Indonesia,Karangasem and Bangli Regencies (Bali),4532.0,5.1
+2021,Earthquake,Iran (Islamic Republic of),Bandar Abbas County (central Hormozgan Province),36588.0,6.3
+2021,Earthquake,Ecuador,nan,39.0,7.2
+2021,Earthquake,Peru,Condorcanqui,17912.0,7.2
+2021,Earthquake,Indonesia,Selayar Islands Regency (South Sulawesi Province); Sikka Regency (Flores Island,1737.0,7.3
+2021,Earthquake,China,Jiangcheng Hani and Yi Autonomous County (Yunnan province),19210.0,5.7
+2021,Earthquake,Lao People's Democratic Republic,Phongsaly province,100.0,5.7
+2022,Earthquake,China,Lijiang,29030.0,5.4
+2022,Earthquake,Indonesia,Maluku Province,302.0,5.6
+2022,Earthquake,Afghanistan,Qadis (Badghis province) Ghor and Hirat provinces,4004.0,5.3
+2022,Earthquake,Indonesia,Banten,15390.0,6.6
+2022,Earthquake,China,Gansu,26499.0,6.6
+2022,Earthquake,Haiti,Nippes Department,1017.0,5.3
+2022,Earthquake,Peru,Barranca District (Datem del Marañón Province),300.0,6.5
+2022,Earthquake,Guatemala,Escuintla,31302.0,6.2
+2022,Earthquake,Indonesia,Pasaman Regency,24903.0,6.1
+2022,Earthquake,Japan,Fukushima Prefecture,741.0,7.3
+2022,Earthquake,Ecuador,Cotopaxi,7804.0,5.8
+2022,Earthquake,Bosnia and Herzegovina,Ljubinje and Capljina,1052.0,5.6
+2022,Earthquake,China,Baoxing,13541.0,5.8
+2022,Earthquake,Afghanistan,Giyan,364623.0,5.9
+2022,Earthquake,Pakistan,Lakki Marwat District (southern Khyber Pakhtunkhwa),100.0,5.9
+2022,Earthquake,Iran (Islamic Republic of),Kooshk,22300.0,6.1
+2022,Earthquake,China,Sichuan,784.0,5.9
+2022,Earthquake,Peru,La Capilla district (Moquegua department); Arequipa department,302.0,5.5
+2022,Earthquake,Philippines,Abra,502856.0,7.0
+2022,Earthquake,China,Sichuan province,130400.0,6.6
+2022,Earthquake,Papua New Guinea,Morobe,1969.0,7.6
+2022,Earthquake,Indonesia,Mentawai Islands Regency,6003.0,6.0
+2022,Earthquake,Taiwan (Province of China),Hualien,140.0,6.5
+2022,Earthquake,Mexico,Mexico; Coalcomán Municipality (Michoacán); Colima,18005.0,6.8
+2022,Earthquake,Mexico,Colima,17886.0,7.6
+2022,Earthquake,Iran (Islamic Republic of),Khoy,12565.0,5.6
+2022,Earthquake,Philippines,Abra Province (northern Luzon),147422.0,6.4
+2022,Earthquake,Nepal,Doti district,30008.0,5.7
+2022,Earthquake,Indonesia,Cianjur,2204645.0,5.6
+2022,Earthquake,Türkiye,Düzce,306.0,6.1
+2022,Earthquake,United States of America,Humboldt County (California),12.0,6.4
+2023,Earthquake,Indonesia,Southwest Maluku and Tanimbar Islands Regencies (Maluku Province),4421.0,7.6
+2023,Earthquake,Iran (Islamic Republic of),Khoy,41678.0,5.7
+2023,Earthquake,Iran (Islamic Republic of),Firouragh district,262404.0,5.9
+2023,Earthquake,Syrian Arab Republic,Aleppo,8808700.0,7.8
+2023,Earthquake,Türkiye,Gaziantep; Pazarcik District (Kahramanmaras); Sanliurfa,16107000.0,7.8
+2023,Earthquake,Indonesia,Papua,2136.0,5.1
+2023,Earthquake,Syrian Arab Republic,nan,470.0,6.3
+2023,Earthquake,Türkiye,Defne District (Hatay Province,294.0,6.3
+2023,Earthquake,Syrian Arab Republic,Northwest,150.0,5.2
+2023,Earthquake,Türkiye,Yesilyurt District (Malatya province),200.0,5.2
+2023,Earthquake,Ecuador,El Oro,127416.0,6.8
+2023,Earthquake,Peru,Tumbes,141.0,6.8
+2023,Earthquake,Afghanistan,Hindu Kush Mountain,3345.0,6.5
+2023,Earthquake,Pakistan,Khyber Pakhtunkhwa,939.0,6.5
+2023,Earthquake,Iran (Islamic Republic of),Khoy City (West Azerbaijan Province),239.0,5.6
+2023,Earthquake,Papua New Guinea,East Sepik Province,16274.0,7.0
+2023,Earthquake,Tajikistan,Sughd province,2205.0,4.8
+2023,Earthquake,China,Yunnan Province,8410.0,5.3
+2023,Earthquake,Japan,Ishikawa,2254.0,6.2
+2023,Earthquake,France,La Laigne,752.0,4.8
+2023,Earthquake,Indonesia,Special Region of Yogyakarta,1120.0,5.8
+2023,Earthquake,China,Dezhou and Liaocheng,399.0,5.4
+2023,Earthquake,Morocco,Al Haouz and Taroudant Provinces; Marrakech; Ouarzazate,845674.0,6.8
+2023,Earthquake,Afghanistan,Herat region,569240.0,5.4
+2023,Earthquake,Nepal,Achham,36273.0,5.7
+2023,Earthquake,Afghanistan,Gulran,140.0,6.3
+2023,Earthquake,Nepal,Jajarkot and Rukum Districts of Karnali Province,300366.0,5.7
+2023,Earthquake,Philippines,Luzon Strait (near Calayan Island,180.0,6.2
+2023,Earthquake,Iceland,Grindavik (Reykjanes peninsula),3665.0,5.6
+2023,Earthquake,Philippines,Glan,99578.0,6.7
+2023,Earthquake,Philippines,Hinatuan Municipality( Surigao Del Sur Province,721076.0,7.6
+2023,Earthquake,China,Gansu province; Haidong (Qinghai province),600980.0,5.9
+2024,Earthquake,Japan,Noto,168326.0,7.5
+2024,Earthquake,China,Xinjiang Province,12572.0,5.6
+2024,Earthquake,Kazakhstan,nan,67.0,5.8
+2024,Earthquake,Papua New Guinea,Ambunti-Dreikikir,5002.0,6.9
+2024,Earthquake,Indonesia,Gresik Regency (East Java province),144522.0,6.4
+2024,Earthquake,Taiwan (Province of China),Hualien region,2369.0,7.4
+2024,Earthquake,Indonesia,Bandung,2812.0,6.1
+2024,Earthquake,Iran (Islamic Republic of),Razavi Khorasan province,120.0,4.9
+2024,Earthquake,Peru,Near Arequipa province,9063.0,7.2
+2024,Earthquake,Philippines,Lingig municipality (Mindanao Island),24000.0,6.8
+2024,Earthquake,Indonesia,Bandung Regency,2875.0,5.1
+2024,Earthquake,Türkiye,Kale (Malatya province) ,1717.0,6.0
+2024,Earthquake,Cuba,Bartolomé Masó,6007.0,6.8
+2024,Earthquake,Vanuatu,nan,80265.0,7.3
+2025,Earthquake,China,Xizang,46688.0,7.1
+2025,Earthquake,Nepal,nan,83.0,7.1
+2025,Earthquake,Ethiopia,Southern Afar,99000.0,5.2
