@@ -162,10 +162,16 @@
         <!-- Download Dataset Button -->
         <div class="has-text-centered mb-5">
             <a href="#" class="button" style="background-color: var(--lime); color: var(--dark);">
-                <span class="icon">
-                    <i class="fas fa-download"></i>
-                </span>
-                <span>Download Dataset</span>
+            <span class="icon">
+                <i class="fas fa-download"></i>
+            </span>
+            <span>Download Dataset</span>
+            </a>
+            <a href="https://purple-lonee-72.tiiny.site/?mode=suggestions" class="button" style="background-color: var(--lime); margin-left: 10px; color: var(--dark);">
+            <span class="icon">
+                <i class="fas fa-link"></i>
+            </span>
+            <span style="color: #000000;">Dataset Link</span>
             </a>
         </div>
 
@@ -175,13 +181,13 @@
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Base URL</h1>
             <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>https://floodless.example.com/api/disasters/</code></pre>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Endpoints</h1>
             <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>GET /disasters/</code></pre>
             <p style="color: var(--white);">This endpoint retrieves disaster records and supports filtering by parameters.</p>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Query Parameters</h1>
             <table class="table is-fullwidth" style="background-color: var(--dark-lighter); color: var(--white); border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; width: 100%;">
@@ -226,12 +232,12 @@
                 </tbody>
             </table>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Example API Request</h1>
             <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>GET https://abhirajadhikary06.github.io/DisasterAPI/disasters.json?year=2020&disaster_type=Flood&limit=5</code></pre>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Example API Response</h1>
             <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>{
@@ -249,14 +255,14 @@
 ]
 }</code></pre>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Authentication</h1>
             <p style="color: var(--white);">The API requires an API key. Include your key in the request header:</p>
             <pre style="background-color: var(--dark-light); color: var(--lime); padding: 0.5rem; border-radius: 5px; overflow-x: auto; font-size: 0.9rem;"><code>Authorization: Bearer YOUR_API_KEY</code></pre>
             <p style="color: var(--white);">To obtain an API key, contact <a href="mailto:admin@floodless.example.com" style="color: var(--blue-light); text-decoration: none;">admin@floodless.example.com</a>.</p>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Error Codes</h1>
             <table class="table is-fullwidth" style="background-color: var(--dark-lighter); color: var(--white); border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; width: 100%;">
@@ -286,7 +292,7 @@
                 </tbody>
             </table>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Rate Limiting</h1>
             <p style="color: var(--white);">To ensure fair usage, the API enforces rate limits:</p>
@@ -296,7 +302,7 @@
             </ul>
             <p style="color: var(--white);">Exceeding the limit will result in a <code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">429 Too Many Requests</code> response.</p>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Pagination</h1>
             <p style="color: var(--white);">Results are paginated with a default page size of 100 records. Use the <code style="background-color: var(--dark-lighter); color: var(--white); padding: 0.25rem 0.5rem; border-radius: 3px;">page</code> query parameter to navigate through pages. Metadata about pagination is included in the response:</p>
@@ -306,7 +312,7 @@
                 <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">previous</code>: URL for the previous page</li>
             </ul>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Sorting</h1>
             <p style="color: var(--white);">Results can be sorted by specific fields using the <code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">ordering</code> query parameter:</p>
@@ -315,7 +321,7 @@
                 <li><code style="background-color: var(--dark-lighter); color: var(--lime); padding: 0.25rem 0.5rem; border-radius: 3px;">ordering=disaster_type</code>: Sort by disaster type in ascending order</li>
             </ul>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Use Cases</h1>
             <p style="color: var(--white);">This API can be used for various purposes, including:</p>
@@ -326,7 +332,7 @@
                 <li>Developing mobile apps to provide disaster-related information</li>
             </ul>
 
-            <hr style="border: none; border-top: 1px solid var(--dark-light); margin: 2rem 0;">
+            <br>
 
             <h1 class="title is-3" style="color: var(--white); font-weight: bold; margin-bottom: 1rem;">Support</h1>
             <p style="color: var(--white);">If you encounter issues or have questions, please contact our support team:</p>
