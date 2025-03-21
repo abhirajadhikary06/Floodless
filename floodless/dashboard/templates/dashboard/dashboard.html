@@ -1,97 +1,394 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disaster Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <style>
-        #map { height: 600px; width: 100%; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Dashboard | Global Alert Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    
+    .dashboard-header {
+      background: var(--blue);
+      padding: 3rem 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+    
+    .card {
+      background-color: var(--dark-light);
+      color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid var(--dark-lighter);
+      position: relative;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      border-color: var(--lime);
+    }
+
+    .card-priority {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--lime);
+      color: var(--dark);
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 0 8px 0 8px;
+    }
+    
+    .card-content {
+      padding: 1.7rem;
+    }
+    
+    a.article-title {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: block;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+      transition: color 0.2s ease;
+    }
+    
+    a.article-title:hover {
+      color: var(--lime);
+      text-decoration: none;
+    }
+    
+    .source {
+      color: var(--gray-light);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--dark-lighter);
+    }
+    
+    .source .icon {
+      margin-right: 0.5rem;
+      color: var(--blue-light);
+      font-size: 0.8rem;
+    }
+    
+    .empty-message {
+      color: var(--gray-light);
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 3rem;
+      background: var(--dark-light);
+      border-radius: 8px;
+      border: 1px dashed var(--dark-lighter);
+    }
+    
+    .filter-bar {
+      background-color: var(--dark-light);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tag {
+      background-color: rgba(0, 119, 198, 0.2);
+      color: var(--blue-light);
+      border: 1px solid rgba(0, 119, 198, 0.3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .tag:hover, .tag.is-active {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tag.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+    
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime:hover {
+      background-color: var(--lime-dark);
+    }
+    
+
+    #map {height: 600px; width: 100%;}
+  </style>
 </head>
 <body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">Disaster Dashboard</h1>
+    <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <span class="icon mr-2" style="color: var(--blue);">
+            <i class="fas fa-satellite-dish"></i>
+          </span>
+          Global Alert Network
+          <span class="alert-badge">LIVE</span>
+        </a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Header Section -->
+  <section class="dashboard-header">
+    <div class="container">
+      <h1 class="dashboard-title">
+        <span class="icon mr-2" style="color: var(--lime);">
+          <i class="fas fa-tachometer-alt"></i>
+        </span>
+        Disaster Dashboard
+      </h1>
+      <p class="dashboard-subtitle">Dashboard on previous natural calamities. Filter to check about each disasters.</p>
+    </div>
+  </section>
+  
+  <section class="section" style="margin-top: -2.5rem;">
+    <div class="container">
+
+        <!-- Center the form containing the filters -->
+        <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
             <form method="GET" class="field is-grouped">
                 <div class="control">
-                    <div class="select">
-                        <select name="calamity_type" onchange="this.form.submit()">
-                            <option value="all" {% if selected_type == 'all' %}selected{% endif %}>All Calamities</option>
+                    <div class="select" style="background-color: var(--dark); color: var(--white); border: 1px solid var(--dark-lighter); border-radius: 12px;">
+                        <select name="calamity_type" onchange="this.form.submit()" style="color: var(--white); background-color: var(--dark);">
+                            <option value="all" {% if selected_type == 'all' %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">All Calamities</option>
                             {% for type in calamity_types %}
-                                <option value="{{ type }}" {% if selected_type == type %}selected{% endif %}>{{ type|capfirst }}</option>
+                                <option value="{{ type }}" {% if selected_type == type %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">{{ type|capfirst }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
                 <div class="control">
-                    <div class="select">
-                        <select name="year" onchange="this.form.submit()">
-                            <option value="all" {% if selected_year == 'all' %}selected{% endif %}>All Years</option>
+                    <div class="select" style="background-color: var(--dark); color: var(--white); border: 1px solid var(--dark-lighter); border-radius: 12px;">
+                        <select name="year" onchange="this.form.submit()" style="color: var(--white); background-color: var(--dark);">
+                            <option value="all" {% if selected_year == 'all' %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">All Years</option>
                             {% for year in years %}
-                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">{{ year }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
             </form>
-
-            <div id="map"></div>
         </div>
-    </section>
 
-    <script>
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 2,
-                center: { lat: 0, lng: 0 }
-            });
+        <!-- Map remains unaffected -->
+        <div id="map" style="height: 600px; width: 100%; border: 1px solid var(--dark-lighter); border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
+    </div>
+</section>
 
-            var colorMap = {
-                'drought': '#FFA500',          // Orange
-                'earthquake': '#FF0000',       // Red
-                'flood': '#0000FF',            // Blue
-                'storm': '#800080',            // Purple
-                'volcanic activity': '#FF4500', // Orange-Red
-                'wildfire': '#FFD700'          // Gold
-            };
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+            <span class="icon mr-2" style="color: var(--blue);">
+              <i class="fas fa-satellite-dish"></i>
+            </span>
+            Global Alert Network
+          </h3>
+          <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+          <button class="button is-lime mt-3">
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span>Subscribe to Alerts</span>
+          </button>
+        </div>
+        <div class="column is-2 is-offset-1">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+            <li class="mb-2"><a href="#">Relief Organizations</a></li>
+            <li class="mb-2"><a href="#">Safety Guides</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Our Mission</a></li>
+            <li class="mb-2"><a href="#">Sources</a></li>
+            <li class="mb-2"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Data Sources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-            var calamities = JSON.parse('{{ calamities|safe|escapejs }}');
+    <!-- Load Google Maps API with your API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: { lat: 0, lng: 0 },
+            mapTypeId: 'satellite', // Set default to satellite view
+            scrollwheel: true // Allow zooming while scrolling
+        });
+
+        // Define colors for each calamity type
+        var colorMap = {
+            'drought': 'orange',           // Closest to #FFA500 (Orange)
+            'earthquake': 'red',          // Matches #FF0000 (Red)
+            'flood': 'blue',              // Matches #0000FF (Blue)
+            'storm': 'purple',            // Closest to #800080 (Purple)
+            'volcanic activity': 'red',   // Closest to #FF4500 (Orange-Red)
+            'wildfire': 'yellow'          // Closest to #FFD700 (Gold)
+        };
+
+        // Ensure calamities data is properly formatted
+        try {
+            var calamities = JSON.parse('{{ calamities_json|escapejs }}');
             console.log("Calamities data:", calamities);
+
+            var infoWindow = new google.maps.InfoWindow();
 
             calamities.forEach(function(calamity) {
                 if (calamity.latitude && calamity.longitude) {
                     console.log("Plotting:", calamity);
+
+                    // Use Google's default pin icon with mapped color
+                    var markerIcon = {
+                        url: `https://maps.google.com/mapfiles/ms/icons/${colorMap[calamity.calamity_type] || 'grey'}-dot.png`,
+                        scaledSize: new google.maps.Size(32, 32)  // Default pin size
+                    };
+
                     var marker = new google.maps.Marker({
                         position: { lat: parseFloat(calamity.latitude), lng: parseFloat(calamity.longitude) },
                         map: map,
-                        icon: {
-                            path: google.maps.SymbolPath.CIRCLE,
-                            scale: 8,
-                            fillColor: colorMap[calamity.calamity_type] || '#808080',
-                            fillOpacity: 0.8,
-                            strokeWeight: 1,
-                            strokeColor: colorMap[calamity.calamity_type] || '#808080'
-                        },
+                        icon: markerIcon,
                         title: calamity.calamity_type.toUpperCase()  // Tooltip on hover
                     });
 
-                    // Info window on click
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: `<b>${calamity.calamity_type.toUpperCase()}</b><br>` +
-                                 `Year: ${calamity.year}<br>` +
-                                 `Location: ${calamity.location}, ${calamity.region}, ${calamity.country}`
-                    });
+                    // Popup on click
                     marker.addListener('click', function() {
+                        infoWindow.setContent(
+                            `<b>${calamity.calamity_type.toUpperCase()}</b><br>` +
+                            `Year: ${calamity.year}<br>` +
+                            `Location: ${calamity.location}, ${calamity.country}`
+                        );
                         infoWindow.open(map, marker);
                     });
                 } else {
-                    console.log("Skipping (no coords):", calamity);
+                    console.warn("Skipping calamity (missing coordinates):", calamity);
                 }
             });
+        } catch (error) {
+            console.error("Error parsing calamities data:", error);
         }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+    }
+</script>
+
 </body>
 </html>
