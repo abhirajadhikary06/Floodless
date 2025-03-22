@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floodless Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Custom Color Palette */
+            --blue: #0077C6;         /* Primary blue */
+            --blue-dark: #005d9c;    /* Darker shade of blue */
+            --blue-light: #3a99de;   /* Lighter shade of blue */
+            --dark: #333333;         /* Dark gray/black */
+            --dark-light: #4a4a4a;   /* Lighter version of dark */
+            --dark-lighter: #666666; /* Even lighter version of dark */
+            --lime: #C6FF00;         /* Accent lime green */
+            --lime-dark: #a2cc00;    /* Darker shade of lime */
+            --white: #ffffff;        /* White for contrast */
+            --gray-light: #e0e0e0;   /* Light gray */
+        }
+    
+        body {
+            background-color: var(--dark);
+            color: var(--white);
+            min-height: 100vh;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .navbar-brand .navbar-item {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+    
+        .alert-badge {
+            background-color: var(--lime);
+            color: var(--dark);
+            border-radius: 12px;
+            padding: 2px 12px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+    
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    
+        .dashboard-header {
+            background: var(--blue);
+            padding: 4rem 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+    
+        .dashboard-title {
+            color: white;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+    
+        .dashboard-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 800px;
+        }
+
+        .chat-container {
+            max-width: 800px; /* Increased width of the chat space */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--dark-lighter);
+            border-radius: 0 8px 8px 8px; /* Top-left corner not rounded */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-messages {
+            padding: 1rem;
+            overflow-y: auto;
+            border-bottom: 1px solid var(--dark-lighter);
+            max-height: 600px; /* Increased initial height */
+        }
+
+        /* Custom scrollbar styling for .chat-messages */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px; /* Sleek width for the scrollbar */
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--dark); /* Dark background for the scrollbar track */
+            border-radius: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--dark-lighter); /* Dark color for the scrollbar thumb */
+            border-radius: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-light); /* Slightly lighter on hover */
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            background-color: var(--blue);
+            color: var(--white);
+            margin-left: auto;
+            text-align: right;
+            max-width: fit-content; /* Width matches the content */
+            padding: 0.5rem 1rem; /* Ensure padding is balanced */
+        }
+
+        .message.bot {
+            background-color: var(--dark-lighter);
+            color: var(--white);
+            margin-right: auto;
+            max-width: 60%; /* Reduced width for bot messages */
+        }
+
+        /* Style for rendered HTML content in messages */
+        .message ul {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .message li {
+            list-style-type: disc;
+            margin-bottom: 0.25rem;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            background-color: var(--dark);
+        }
+
+        .chat-input input {
+            flex: 1;
+            background-color: var(--dark-light);
+            color: var(--white);
+            border: 1px solid var(--dark-lighter);
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem; /* Increased padding for a longer typing area */
+            margin-right: 0.5rem;
+            max-width: 100%; /* Ensure it takes full available width */
+        }
+
+        .chat-input button {
+            background-color: var(--lime);
+            color: var(--dark);
+            border: none;
+            border-radius: 20px;
+        }
+
+        .chat-input button:hover {
+            background-color: var(--lime-dark);
+        }
+
+        /* Style for the Floodless Bot header */
+        .chat-header {
+            background-color: var(--lime);
+            color: var(--dark);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 8px;
+            padding: 0.5rem 1rem;
+            text-align: left;
+            font-weight: bold;
+            width: fit-content;
+            margin-bottom: 0; /* Remove gap between header and chat container */
+        }
+            
+        .footer {
+            background-color: var(--dark-light);
+            color: var(--gray-light);
+            padding: 3rem 1.5rem;
+            margin-top: 3rem;
+        }
+    
+        .footer a {
+            color: var(--gray-light);
+            transition: color 0.2s ease;
+        }
+    
+        .footer a:hover {
+            color: var(--lime);
+        }
+    
+        .footer h4 {
+            color: var(--white) !important;
+        }
+    
+        /* Custom lime button */
+        .button.is-lime {
+            background-color: var(--lime);
+            color: var(--dark);
+            font-weight: bold;
+        }
+    
+        .button.is-lime:hover {
+            background-color: var(--lime-dark);
+        }
+    
+        /* Tags */
+        .tags .tag.is-info {
+            background-color: var(--blue);
+            color: white;
+        }
+    
+        .tags .tag.is-danger {
+            background-color: var(--lime);
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <span class="icon mr-2" style="color: var(--blue);">
+                        <i class="fas fa-satellite-dish"></i>
+                    </span>
+                    Global Alert Network
+                    <span class="alert-badge">LIVE</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="dashboard-header">
+        <div class="container">
+            <h1 class="dashboard-title">
+                <span class="icon mr-2" style="color: var(--lime);">
+                    <i class="fas fa-robot"></i>
+                </span>
+                Disaster Chatbot
+            </h1>
+            <p class="dashboard-subtitle">Ask Floodless Bot me anything about disasters and natural calamities, preventive measures and get the best possible answers!</p>
+        </div>
+    </section>
+
+    <section class="section" style="margin-top: -2rem; margin-bottom: -1rem;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0;">
+            <!-- Floodless Bot Header -->
+            <div class="chat-header">
+                Floodless Bot
+            </div>
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        Hello! I'm the Floodless Chatbot. I can help with questions about the disaster and natural calamities.
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                    <button class="button" onclick="sendMessage()">
+                        <span class="icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = message;
+            chatMessages.appendChild(userMessage);
+
+            // Clear input
+            userInput.value = '';
+
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Send message to server
+            fetch("{% url 'chat_response' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: new URLSearchParams({ 'message': message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Add bot response to chat
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                botMessage.innerHTML = data.response; // Use innerHTML to render HTML tags
+                chatMessages.appendChild(botMessage);
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                botMessage.textContent = 'Sorry, there was an error processing your request.';
+                chatMessages.appendChild(botMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        }
+
+        // Handle Enter key press
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Function to get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+                        <span class="icon mr-2" style="color: var(--blue);">
+                            <i class="fas fa-satellite-dish"></i>
+                        </span>
+                        Global Alert Network
+                    </h3>
+                    <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+                    <button class="button is-lime mt-3">
+                        <span class="icon"><i class="fas fa-bell"></i></span>
+                        <span>Subscribe to Alerts</span>
+                    </button>
+                </div>
+                <div class="column is-2 is-offset-1">
+                    <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+                        <li class="mb-2"><a href="#">Relief Organizations</a></li>
+                        <li class="mb-2"><a href="#">Safety Guides</a></li>
+                    </ul>
+                </div>
+                <div class="column is-2">
+                    <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#">Our Mission</a></li>
+                        <li class="mb-2"><a href="#">Sources</a></li>
+                        <li class="mb-2"><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="column is-2">
+                    <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#">Data Sources</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
