@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +30,9 @@ INSTALLED_APPS = [
     'prediction',
     'apidocs',
     'chatbot',
+    'community',
+    'channels',  # Add the Channels app
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -41,15 +43,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'floodless.middleware.RedirectRootToHomeMiddleware',  # Add the custom middleware
 ]
 
 ROOT_URLCONF = 'floodless.urls'
 
+# floodless/settings.py
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # Root templates directory (optional)
+        'APP_DIRS': True,  # This must be True to look in app-specific templates/ directories
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -62,6 +66,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'floodless.wsgi.application'
+ASGI_APPLICATION = 'floodless.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',  # In-memory layer for development
+    },
+}
 
 
 # Database

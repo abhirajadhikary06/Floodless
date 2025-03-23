@@ -1,0 +1,82 @@
+<!-- community/templates/community/login.html -->
+{% extends 'community/base.html' %}
+
+{% block title %}
+<title>Login | Global Alert Network</title>
+{% endblock title %}
+
+{% block content %}
+     <!-- Header Section -->
+     <section class="dashboard-header">
+        <div class="container">
+          <h1 class="dashboard-title">
+            <span class="icon mr-2" style="color: var(--lime);">
+              <i class="fas fa-sign-in-alt"></i>
+            </span>
+            Login
+          </h1>
+          <p class="dashboard-subtitle">Your dedicated Login gateway for reporting disasters. Stay alert! Stay safe!</p>
+        </div>
+      </section>
+
+      <section class="section" style="background-color: var(--dark); margin-top: -2rem;">
+        <div class="container">
+          <!-- Messages (if any) -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="notification" 
+                     style="background-color: {% if message.tags == 'error' %}#ff4d4d{% elif message.tags == 'success' %}var(--lime){% else %}var(--blue-light){% endif %}; 
+                        color: var(--white); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center; position: fixed; top: 1rem; right: 1rem; z-index: 1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <script>
+            setTimeout(() => {
+            const notifications = document.querySelectorAll('.notification');
+            notifications.forEach(notification => notification.style.display = 'none');
+            }, 1000); // Message lasts for 5 seconds
+          </script>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+      
+          <!-- Login Form -->
+          <div class="login-form" style="background-color: var(--dark-light); padding: 2rem; border-radius: 16px; max-width: 500px; margin: 0 auto; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <form method="post">
+              {% csrf_token %}
+              <!-- Username Field -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Username</label>
+                <div class="control">
+                  <input class="input" type="text" name="username" required 
+                         style="border-radius: 12px; padding: 0.75rem; background-color: var(--white); color: var(--dark); transition: border-color 0.3s;">
+                </div>
+              </div>
+      
+              <!-- Password Field -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Password</label>
+                <div class="control">
+                  <input class="input" type="password" name="password" required 
+                         style="border-radius: 12px; padding: 0.75rem; background-color: var(--white); color: var(--dark); transition: border-color 0.3s;">
+                </div>
+              </div>
+      
+              <!-- Submit Button -->
+              <div class="field" style="margin-top: 1.5rem;">
+                <button type="submit" class="button" 
+                        style="background-color: var(--lime); color: var(--dark); font-weight: bold; border: none; border-radius: 12px; padding: 0.75rem 1.5rem; width: 100%; font-size: 1rem; transition: transform 0.3s;">
+                  Login
+                </button>
+              </div>
+            </form>
+      
+            <!-- Register Link -->
+            <p class="has-text-centered" style="color: var(--white); font-size: 0.9rem; margin-top: 1.5rem;">
+              Don't have an account? 
+              <a href="{% url 'register' %}" style="color: var(--lime); font-weight: bold; text-decoration: none; transition: color 0.3s;">
+                Register here
+              </a>.
+            </p>
+          </div>
+        </div>
+      </section>
+{% endblock content %}

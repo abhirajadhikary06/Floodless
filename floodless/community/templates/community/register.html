@@ -1,0 +1,87 @@
+<!-- community/templates/community/register.html -->
+{% extends 'community/base.html' %}
+
+{% block title %}
+<title>Register | Global Alert Network</title>
+{% endblock title %}
+
+{% block content %}
+     <!-- Header Section -->
+     <section class="dashboard-header">
+        <div class="container">
+          <h1 class="dashboard-title">
+            <span class="icon mr-2" style="color: var(--lime);">
+              <i class="fas fa-user-plus"></i>
+            </span>
+            Register
+          </h1>
+          <p class="dashboard-subtitle">Register yourself to Open Alert Network and make you and your family disaster safe.</p>
+        </div>
+      </section>
+
+    <section class="section" style="padding: 4rem 1rem; background-color: var(--dark); margin: -3rem;">
+      <div class="container">
+        <div class="register-form" style="background-color: var(--dark-light); padding: 2rem; border-radius: 16px; max-width: 500px; margin: 0 auto; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <form method="post">
+              {% csrf_token %}
+              <!-- Username Field -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Username</label>
+                <div class="control">
+                    <input class="input" type="text" name="username" placeholder="Enter your username" required 
+                      style="border-radius: 12px; padding: 0.75rem; background-color: var(--white); color: var(--dark); transition: border-color 0.3s;">
+                </div>
+              </div>
+    
+              <!-- Password Field -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password" placeholder="Enter your password" required 
+                      style="border-radius: 12px; padding: 0.75rem; background-color: var(--white); color: var(--dark); transition: border-color 0.3s;">
+                </div>
+              </div>
+    
+              <!-- Confirm Password Field -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Confirm Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="confirm_password" placeholder="Confirm your password" required 
+                      style="border-radius: 12px; padding: 0.75rem; background-color: var(--white); color: var(--dark); transition: border-color 0.3s;">
+                </div>
+              </div>
+    
+              <!-- Role Selection -->
+              <div class="field">
+                <label class="label" style="color: var(--white); font-weight: bold; margin-bottom: 0.5rem;">Role</label>
+                <div class="control">
+                    <div class="select" style="width: 100%; border-radius: 12px; overflow: hidden;">
+                      <select name="role" required 
+                        style="width: 100%; background-color: var(--dark-lighter); color: var(--white); border: none; padding: 0.75rem; cursor: pointer; height: 3rem;">
+                        <option value="citizen" style="color: var(--dark);">Citizen</option>
+                        <option value="authority" style="color: var(--dark);">Authority</option>
+                      </select>
+                    </div>
+                </div>
+              </div>
+    
+              <!-- Submit Button -->
+              <div class="field" style="margin-top: 1.5rem;">
+                <button type="submit" class="button" 
+                    style="background-color: var(--lime); color: var(--dark); font-weight: bold; border: none; border-radius: 12px; padding: 0.75rem 1.5rem; width: 100%; font-size: 1rem; transition: transform 0.3s;">
+                    Register
+                </button>
+              </div>
+            </form>
+    
+            <!-- Login Link -->
+            <p class="has-text-centered" style="color: var(--white); font-size: 0.9rem; margin-top: 1.5rem;">
+              Already have an account? 
+              <a href="{% url 'login' %}" style="color: var(--lime); font-weight: bold; text-decoration: none; transition: color 0.3s;">
+                Login here
+              </a>.
+            </p>
+        </div>
+      </div>
+    </section>
+{% endblock content %}

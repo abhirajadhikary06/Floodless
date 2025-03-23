@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  {% endblock title %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .dashboard-header {
+      background: var(--blue);
+      padding: 4rem 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+
+        
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime:hover {
+      background-color: var(--lime-dark);
+    }
+    
+    /* Tags */
+    .tags .tag.is-info {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tags .tag.is-danger {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+  .chat-section {
+    background-color: var(--dark-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .chat-details {
+    margin-bottom: 1.5rem;
+  }
+  .chat-details p {
+    color: var(--white);
+    margin: 0.25rem 0;
+  }
+  .chat-details p strong {
+    color: var(--lime);
+  }
+  .chat-container {
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: var(--dark);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--dark-lighter);
+    margin-bottom: 1.5rem;
+  }
+  .chat-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-container::-webkit-scrollbar-track {
+    background: var(--dark-light);
+    border-radius: 8px;
+  }
+  .chat-container::-webkit-scrollbar-thumb {
+    background: var(--lime);
+    border-radius: 8px;
+  }
+  .chat-container::-webkit-scrollbar-thumb:hover {
+    background: var(--lime-dark);
+  }
+  .chat-message {
+    background-color: var(--dark-lighter);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+  }
+  .authority-message {
+    background-color: var(--blue);
+    color: var(--white);
+    border-left: 4px solid var(--lime);
+  }
+  .authority-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    margin-right: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    background-color: var(--lime);
+    color: var(--dark);
+  }
+  .chat-message strong {
+    color: var(--white);
+  }
+  .chat-message small {
+    margin-left: auto;
+    color: var(--white);
+    opacity: 0.7;
+    font-size: 0.8rem;
+  }
+  .chat-input {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .chat-input input {
+    flex: 1;
+    background-color: var(--dark-lighter);
+    color: var(--white);
+    border: 1px solid var(--dark-light);
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .chat-input input:focus {
+    border-color: var(--lime);
+    box-shadow: 0 0 8px rgba(191, 255, 64, 0.3);
+    outline: none;
+  }
+  .chat-input .button {
+    background-color: var(--lime);
+    color: var(--dark);
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .chat-input .button:hover {
+    background-color: var(--lime-dark);
+    transform: scale(1.05);
+  }
+  .chat-input .button:disabled {
+    background-color: var(--dark-lighter);
+    cursor: not-allowed;
+    transform: none;
+  }
+  .back-button {
+    background-color: var(--lime);
+    color: var(--dark);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .back-button:hover {
+    background-color: var(--lime-dark);
+    transform: scale(1.05);
+  }
+  .back-button:active {
+    transform: scale(0.95);
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 768px) {
+    .chat-section {
+      padding: 1.5rem;
+    }
+    .chat-container {
+      max-height: 400px;
+    }
+    .chat-input {
+      flex-direction: column;
+    }
+    .chat-input input,
+    .chat-input .button {
+      width: 100%;
+    }
+    .back-button {
+      width: 100%;
+    }
+  }
+</style>
+ <!-- Navbar -->
+ <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <span class="icon mr-2" style="color: var(--blue);">
+          <i class="fas fa-satellite-dish"></i>
+        </span>
+        Global Alert Network
+        <span class="alert-badge">LIVE</span>
+      </a>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button class="button is-lime" type="submit">
+            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+            <span>Logout</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="dashboard-header">
+  <div class="container">
+    <h1 class="dashboard-title">
+      <span class="icon mr-2" style="color: var(--lime);">
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+      {{ report.disaster_type|title }}
+    </h1>
+    <p class="dashboard-subtitle">If you are stuck any where please report your presence here. Volunteer will be sent accordingly</p>
+  </div>
+</section>
+<section class="section" style="margin-top: -2rem;">
+  <div class="container">
+    <div style="position: absolute; top: 1rem; right: 1rem; z-index: 1000;">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="notification is-success" style="background-color: var(--lime); color: var(--dark); border-radius: 8px; padding: 0.5rem 1rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const notifications = document.querySelectorAll('.notification');
+          notifications.forEach(notification => {
+            setTimeout(() => {
+              notification.style.opacity = '0';
+              notification.style.transition = 'opacity 2s ease';
+              setTimeout(() => notification.remove(), 1000); // Remove after fade-out
+            }, 3000); // Start fade-out after 3 seconds
+          });
+        });
+      </script>
+    </div>
+
+    <div class="chat-section">
+      <!-- Report Details -->
+      <div class="chat-details">
+        <p><strong>Reported by:</strong> {{ report.user.username }}</p>
+        <p><strong>Reported at:</strong> {{ report.reported_at }}</p>
+        <p><strong>Description:</strong> {{ report.description }}</p>
+        <p><strong>Location:</strong> {{ location_display }}</p>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chat-container" id="chat-messages">
+        {% for message in messages %}
+          <div class="chat-message {% if message.user.profile.role == 'authority' %}authority-message{% endif %}" data-message-id="{{ message.id }}">
+            {% if message.user.profile.role == 'authority' %}
+              <span class="authority-badge">AUTHORITY</span>
+            {% endif %}
+            <strong>{{ message.user.username }}</strong>: {{ message.message }} <small>({{ message.timestamp }})</small>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Type your message">
+        <button class="button" id="send-button" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <!-- Back to Report List -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{% url 'report_list' %}" class="back-button mt-4">Back to Report List</a>
+    </div></div>
+  </div>
+</section>
+
+<script>
+  const reportId = "{{ report.id }}";
+  let lastMessageId = "{{ messages.last.id|default:'0' }}";
+
+  // Function to escape HTML to prevent XSS
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // Function to send a message via AJAX
+  function sendMessage() {
+    const messageInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-button');
+    const message = messageInput.value.trim();
+    if (!message) {
+      alert('Message cannot be empty.');
+      return;
+    }
+
+    messageInput.disabled = true;
+    sendButton.disabled = true;
+    sendButton.textContent = 'Sending...';
+
+    const formData = new FormData();
+    formData.append('message', message);
+    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+    fetch(`/community/disaster/${reportId}/send/`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'success') {
+        messageInput.value = '';
+        fetchMessages();
+      } else {
+        alert('Error sending message: ' + (data.message || 'Unknown error'));
+      }
+    })
+    .catch(error => {
+      console.error('Error sending message:', error);
+      alert('Error sending message. Please try again.');
+    })
+    .finally(() => {
+      messageInput.disabled = false;
+      sendButton.disabled = false;
+      sendButton.textContent = 'Send';
+    });
+  }
+
+  // Function to fetch new messages
+  function fetchMessages() {
+    const chatMessages = document.getElementById('chat-messages');
+    if (!chatMessages) return;
+
+    fetch(`/community/disaster/${reportId}/?format=json`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data.messages)) {
+        console.error('Invalid messages data:', data);
+        return;
+      }
+
+      data.messages.forEach(message => {
+        if (message.id > lastMessageId) {
+          const messageElement = document.createElement('div');
+          messageElement.className = `chat-message ${message.is_authority ? 'authority-message' : ''}`;
+          messageElement.setAttribute('data-message-id', message.id);
+          const badge = message.is_authority ? '<span class="authority-badge">AUTHORITY</span>' : '';
+          const user = escapeHTML(message.user);
+          const msg = escapeHTML(message.message);
+          const timestamp = escapeHTML(message.timestamp);
+          messageElement.innerHTML = `${badge} <strong>${user}</strong>: ${msg} <small>(${timestamp})</small>`;
+          chatMessages.appendChild(messageElement);
+          lastMessageId = message.id;
+        }
+      });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    })
+    .catch(error => {
+      console.error('Error fetching messages:', error);
+    });
+  }
+
+  // Fetch messages every 5 seconds
+  setInterval(fetchMessages, 5000);
+
+  // Initial fetch
+  fetchMessages();
+
+  // Handle Enter key press for sending messages
+  document.getElementById('chat-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  });
+</script>

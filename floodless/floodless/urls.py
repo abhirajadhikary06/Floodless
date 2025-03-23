@@ -24,4 +24,6 @@ urlpatterns = [
     path('prediction/', include('prediction.urls')),
     path('apidocs/', include('apidocs.urls')),
     path('chatbot/', include('chatbot.urls')),
+    path('community/', include('community.urls')),
+    path('home/', include('home.urls')),
 ]

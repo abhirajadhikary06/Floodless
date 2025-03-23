@@ -1,0 +1,177 @@
+<!-- community/templates/community/report_list.html -->
+{% extends 'community/base.html' %}
+
+{% block title %}
+<title>Active Emergency Reports - Global Alert Network</title>
+{% endblock title %}
+
+{% block extra_head %}
+<style>
+  /* General Styles */
+  .active-reports {
+    background-color: var(--dark-light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Table Header */
+  .report-table-header {
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  /* Table Rows */
+  .report-row {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .report-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Buttons */
+  .button.is-lime.is-small {
+    background-color: var(--lime);
+    color: var(--dark);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .button.is-lime.is-small:hover {
+    background-color: var(--lime-dark);
+    transform: scale(1.05);
+  }
+  .button.is-lime.is-small:active {
+    transform: scale(0.95);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .report-table-header,
+    .report-row {
+      grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    }
+    .report-row {
+      padding: 1rem;
+    }
+    .button.is-lime.is-small {
+      width: 100%;
+    }
+  }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<section class="dashboard-header">
+  <div class="container">
+    <h1 class="dashboard-title">
+      <span class="icon mr-2" style="color: var(--lime);">
+        <i class="fas fa-list"></i>
+      </span>
+      Reported Lists
+    </h1>
+    <p class="dashboard-subtitle">If you are stuck any where please report your presence here. Volunteer will be sent accordingly.</p>
+  </div>
+</section>
+<section class="section" style="margin-top: -2.5rem;">
+  <div class="container">
+    <div id="popup-messages" style="position: fixed; top: 1rem; right: 1rem; z-index: 1000;"></div>
+{% if messages %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popupMessages = document.getElementById("popup-messages");
+          {% for message in messages %}
+          popupMessages.innerHTML += `
+            <div class="popup-message {{ message.tags|escapejs }}" style="
+              background-color: #ff0000;
+              color: white;
+              padding: 1rem;
+              margin-bottom: 1rem;
+              border-radius: 8px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+              opacity: 1;
+              transition: opacity 0.5s ease;">
+              {{ message|escapejs }}
+            </div>`;
+          setTimeout(() => {
+            const messageDiv = popupMessages.lastElementChild;
+            messageDiv.style.opacity = "0";
+            setTimeout(() => messageDiv.remove(), 500);
+          }, 5000);
+          {% endfor %}
+        });
+    </script>
+{% endif %}
+
+    <!-- Active Emergency Reports Table -->
+    <div class="active-reports">
+
+      <!-- Table Header -->
+      <div class="report-table-header" style="display: grid; grid-template-columns: 1fr 1fr 2fr 1fr 1fr; gap: 1rem; padding: 1rem; background-color: var(--dark-lighter); border-radius: 8px; margin-bottom: 1rem; color: var(--white);">
+        <div><strong style="color: var(--white);">Disaster Type</strong></div>
+        <div><strong style="color: var(--white);">Reported By</strong></div>
+        <div><strong style="color: var(--white);">Description</strong></div>
+        <div><strong style="color: var(--white);">Location</strong></div>
+        <div><strong style="color: var(--white);">Action</strong></div>
+      </div>
+
+      <!-- Table Body -->
+      <div class="report-table-body">
+        {% if active_reports %}
+          {% for report in active_reports %}
+        <div class="report-row" style="display: grid; grid-template-columns: 1fr 1fr 2fr 1fr 1fr; gap: 1rem; padding: 1rem; {% if forloop.zero %}background-color: var(--dark-lighter);{% endif %} border-radius: 8px; margin-bottom: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <!-- Disaster Type as Lime Tag -->
+          <div>
+            <span class="tag" style="background-color: var(--lime); color: var(--dark); padding: 0.5rem 1rem; border-radius: 8px; font-weight: bold;">
+          {{ report.disaster_type|title }}
+            </span>
+          </div>
+
+          <!-- Reported By -->
+          <div>
+            {{ report.user.username }}
+          </div>
+
+          <!-- Description -->
+          <div>
+            {{ report.description }}
+          </div>
+
+          <!-- Location -->
+          <div>
+            {% if report.location %}
+          {{ report.location }}
+            {% else %}
+          Not provided
+            {% endif %}
+          </div>
+
+              <!-- Join Dedicated Chat Button -->
+              <div style="text-align: center;">
+                <a href="{% url 'disaster_chat' report.id %}" class="button is-lime is-small" style="background-color: var(--lime); color: var(--dark); border: none; border-radius: 8px; padding: 0.5rem 1rem; font-weight: bold; transition: transform 0.3s ease, background-color 0.3s ease;">
+                  Join Dedicated Chat
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="has-text-white">No active emergency reports.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Button to Go Back to Reporting -->
+    <div class="button-container" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+      <a href="{% url 'emergency_report' %}" class="report-new-button" style="background-color: var(--lime); color: var(--dark); font-weight: bold; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; transition: transform 0.3s ease, background-color 0.3s ease;">
+      Report a New Emergency
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock content %}

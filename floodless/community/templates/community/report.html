@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Emergency | Global Alert Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      background-color: var(--dark-light);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: var(--lime);
+    }
+
+    .field {
+      margin-bottom: 1.5rem;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .control {
+      position: relative;
+      width: 100%;
+    }
+
+    .input, .textarea, .select select {
+      width: 100%;
+      padding: 10px 14px;
+      background-color: var(--dark);
+      border: 1px solid var(--dark-lighter);
+      border-radius: 6px;
+      color: var(--white);
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .input:focus, .textarea:focus, .select select:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 1px var(--blue-light);
+    }
+
+    .input::placeholder, .textarea::placeholder {
+      color: var(--dark-lighter);
+    }
+
+    .textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .select {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+
+    .select select {
+      appearance: none;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .select::after {
+      content: "▼";
+      font-size: 0.7rem;
+      color: var(--lime);
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .is-centered {
+      justify-content: center;
+    }
+
+    .button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button.is-primary {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+
+    .button.is-primary:hover {
+      background-color: var(--blue);
+    }
+
+    .button.is-link {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+    .button.is-link:hover {
+      background-color: var(--lime);
+    }
+
+    .button.is-light {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+    .button.is-light:hover {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+    .is-fullwidth {
+      width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+      }
+      
+      .button {
+        width: 100%;
+      }
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .dashboard-header {
+      background: var(--blue);
+      padding: 4rem 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+
+        
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime:hover {
+      background-color: var(--lime-dark);
+    }
+    
+    /* Tags */
+    .tags .tag.is-info {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tags .tag.is-danger {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <span class="icon mr-2" style="color: var(--blue);">
+            <i class="fas fa-satellite-dish"></i>
+          </span>
+          Global Alert Network
+          <span class="alert-badge">LIVE</span>
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="button is-lime" type="submit">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span>Logout</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="dashboard-header">
+    <div class="container">
+      <h1 class="dashboard-title">
+        <span class="icon mr-2" style="color: var(--lime);">
+            <i class="fas fa-flag"></i>
+        </span>
+        Reported Emergency
+      </h1>
+      <p class="dashboard-subtitle">If you are stuck any where please report your presence here. Volunteer will be sent accordingly.</p>
+    </div>
+  </section>
+<section class="section">
+  <div class="container">
+    <div class="form-container">
+      <form method="post" id="emergency-report-form">
+        {% csrf_token %}
+        <!-- Disaster Type -->
+        <div class="field">
+          <label class="label has-text-light">Disaster Type</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select name="disaster_type" required>
+                <option value="" disabled selected>Select a disaster type</option>
+                <option value="flood">Flood</option>
+                <option value="wildfire">Wildfire</option>
+                <option value="storm">Storm</option>
+                <option value="earthquake">Earthquake</option>
+                <option value="volcanic_eruption">Volcanic Eruption</option>
+                <option value="drought">Drought</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="field">
+          <label class="label has-text-light">Description</label>
+          <div class="control">
+            <textarea class="textarea" name="description" rows="3" required placeholder="Describe the situation..."></textarea>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="field">
+          <label class="label has-text-light">Location</label>
+          <div class="control">
+            <input class="input" type="text" name="location" id="location" placeholder="Enter address or coordinates" />
+          </div>
+          <button type="button" id="live-location-button" class="button is-primary mt-2">
+            <span class="icon"><i class="fas fa-location-arrow"></i></span>
+            <span>Share Live Location</span>
+          </button>
+        </div>
+
+        <!-- Hidden Fields for Latitude and Longitude -->
+        <input type="hidden" name="latitude" id="latitude" />
+        <input type="hidden" name="longitude" id="longitude" />
+
+        <!-- Buttons -->
+        <div class="buttons is-centered mt-4">
+          <button type="submit" class="button is-link">Submit Report</button>
+          <a href="{% url 'report_list' %}" class="button is-light">View Reports</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+  // Live Location Button
+  document.getElementById('live-location-button').addEventListener('click', function () {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    const locationInput = document.getElementById('location');
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Store latitude and longitude in hidden fields
+        latitudeInput.value = latitude;
+        longitudeInput.value = longitude;
+
+        // Reverse geocode to get a human-readable address
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.display_name) {
+              locationInput.value = data.display_name; // Populate the location field
+              alert("Live location shared successfully!");
+            } else {
+              alert("Unable to determine address. Please enter manually.");
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching address:", error);
+            alert("Error fetching address. Please enter manually.");
+          });
+      },
+      function (error) {
+        let errorMessage = "Unable to retrieve location.";
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage = "Location access denied. Enable location in settings.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage = "Location unavailable. Ensure GPS is enabled.";
+            break;
+          case error.TIMEOUT:
+            errorMessage = "Location request timed out. Try again.";
+            break;
+        }
+        alert(errorMessage);
+      },
+      { timeout: 10000 } // Increased timeout to 10 seconds
+    );
+  });
+
+  // Autocomplete for Description
+  const descriptionInput = document.querySelector('textarea[name="description"]');
+  const suggestions = [
+    "Heavy rainfall causing flooding",
+    "Fire spreading rapidly in the area",
+    "Strong winds damaging infrastructure",
+    "Ground shaking detected",
+    "Volcano eruption observed",
+    "Severe drought affecting water supply"
+  ];
+
+  descriptionInput.addEventListener('input', function () {
+    const inputValue = descriptionInput.value.toLowerCase();
+    const filteredSuggestions = suggestions.filter(suggestion =>
+      suggestion.toLowerCase().includes(inputValue)
+    );
+
+    if (filteredSuggestions.length > 0) {
+      descriptionInput.setAttribute('placeholder', filteredSuggestions[0]);
+    } else {
+      descriptionInput.setAttribute('placeholder', "Describe the situation...");
+    }
+  });
+</script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+            <span class="icon mr-2" style="color: var(--blue);">
+              <i class="fas fa-satellite-dish"></i>
+            </span>
+            Global Alert Network
+          </h3>
+          <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+          <button class="button is-lime mt-3">
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span>Subscribe to Alerts</span>
+          </button>
+        </div>
+        <div class="column is-2 is-offset-1">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+            <li class="mb-2"><a href="#">Relief Organizations</a></li>
+            <li class="mb-2"><a href="#">Safety Guides</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Our Mission</a></li>
+            <li class="mb-2"><a href="#">Sources</a></li>
+            <li class="mb-2"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Data Sources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  {% endblock title %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .dashboard-header {
+      background: var(--blue);
+      padding: 4rem 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+
+        
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime:hover {
+      background-color: var(--lime-dark);
+    }
+    
+    /* Tags */
+    .tags .tag.is-info {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tags .tag.is-danger {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+  </style>
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <span class="icon mr-2" style="color: var(--blue);">
+            <i class="fas fa-satellite-dish"></i>
+          </span>
+          Global Alert Network
+          <span class="alert-badge">LIVE</span>
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="button is-lime" type="submit">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span>Logout</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  {% block content %}
+  {% endblock content %}
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+            <span class="icon mr-2" style="color: var(--blue);">
+              <i class="fas fa-satellite-dish"></i>
+            </span>
+            Global Alert Network
+          </h3>
+          <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+          <button class="button is-lime mt-3">
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span>Subscribe to Alerts</span>
+          </button>
+        </div>
+        <div class="column is-2 is-offset-1">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+            <li class="mb-2"><a href="#">Relief Organizations</a></li>
+            <li class="mb-2"><a href="#">Safety Guides</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Our Mission</a></li>
+            <li class="mb-2"><a href="#">Sources</a></li>
+            <li class="mb-2"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Data Sources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

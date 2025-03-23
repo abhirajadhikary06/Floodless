@@ -1,0 +1,349 @@
+<!-- community/templates/community/authority_dashboard.html -->
+{% extends 'community/base.html' %}
+
+{% block title %}
+<title>Authority | Global Alert Network</title>
+{% endblock title %}
+
+{% block extra_head %}
+<style>
+  .report-form, .active-reports {
+    background-color: var(--dark-light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .report-item {
+    background-color: var(--dark-lighter);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  .chat-container {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--dark-light);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  .chat-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-container::-webkit-scrollbar-track {
+    background: var(--dark);
+    border-radius: 8px;
+  }
+  .chat-container::-webkit-scrollbar-thumb {
+    background: var(--dark-lighter);
+    border-radius: 8px;
+  }
+  .chat-container::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-light);
+  }
+  .chat-message {
+    background-color: var(--dark-lighter);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .authority-comment {
+    background-color: var(--blue);
+    color: var(--white);
+    border-left: 4px solid var(--lime);
+  }
+  .role-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .citizen-tag {
+    background-color: var(--dark-light);
+    color: var(--white);
+  }
+  .authority-tag {
+    background-color: var(--lime);
+    color: var(--dark);
+  }
+  .comment-input {
+    margin-top: 0.5rem;
+  }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-white">Authority Dashboard</h1>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="notification {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- Emergency Reporting Form -->
+    <div class="report-form">
+      <h2 class="subtitle has-text-white">Report an Emergency</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label has-text-white">Disaster Type</label>
+          <div class="control">
+            <div class="select">
+              <select name="disaster_type" required>
+                <option value="flood">Flood</option>
+                <option value="wildfire">Wildfire</option>
+                <option value="storm">Storm</option>
+                <option value="earthquake">Earthquake</option>
+                <option value="volcanic_eruption">Volcanic Eruption</option>
+                <option value="drought">Drought</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-white">Description</label>
+          <div class="control">
+            <textarea class="textarea" name="description" required></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-white">Live Location (Latitude, Longitude)</label>
+          <div class="control">
+            <input class="input" type="text" id="latitude" name="latitude" placeholder="Latitude" readonly>
+            <input class="input" type="text" id="longitude" name="longitude" placeholder="Longitude" readonly>
+          </div>
+          <button type="button" class="button is-lime mt-2" id="location-button" onclick="getLocation()">Share Live Location</button>
+        </div>
+        <div class="field">
+          <label class="label has-text-white">Or Enter Address (if live location is unavailable)</label>
+          <div class="control">
+            <input class="input" type="text" name="address" placeholder="Enter your address">
+          </div>
+        </div>
+        <button type="submit" class="button is-primary">Report Emergency</button>
+      </form>
+    </div>
+
+    <!-- Active Emergency Reports -->
+    <div class="active-reports">
+      <h2 class="subtitle has-text-white">Active Emergency Reports</h2>
+      {% for report in active_reports %}
+        <div class="report-item">
+          <p><strong>{{ report.disaster_type|title }}</strong> reported by {{ report.user.username }} at {{ report.reported_at }}</p>
+          <p>{{ report.description }}</p>
+          <p>Latitude: {{ report.latitude }}, Longitude: {{ report.longitude }}</p>
+          {% if report.location %}
+            <p>Location: {{ report.location }}</p>
+          {% endif %}
+          <a href="{% url 'disaster_chat' report.id %}" class="button is-lime is-small">Join Dedicated Chat</a>
+
+          <!-- Chat Section -->
+          <div class="chat-container" id="chat-messages-{{ report.id }}">
+            {% for message in report.messages.all %}
+              <div class="chat-message {% if message.is_authority_comment %}authority-comment{% endif %}">
+                {% if message.is_authority_comment %}
+                  <span class="role-tag authority-tag">[Authority]</span>
+                {% else %}
+                  <span class="role-tag citizen-tag">[Citizen]</span>
+                {% endif %}
+                <strong>{{ message.user.username }}</strong>: {{ message.message }} <small>({{ message.timestamp }})</small>
+              </div>
+            {% endfor %}
+          </div>
+
+          <!-- Comment Section for Authority -->
+          <div class="comment-input">
+            <form id="comment-form-{{ report.id }}" onsubmit="addComment(event, '{{ report.id|escapejs }}')">
+              {% csrf_token %}
+              <div class="field">
+                <div class="control">
+                  <input type="text" class="input" name="comment" placeholder="Add your comment..." required>
+                </div>
+              </div>
+              <button type="submit" class="button is-lime" id="submit-comment-{{ report.id }}">Comment</button>
+            </form>
+          </div>
+        </div>
+      {% empty %}
+        <p>No active emergency reports.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+  // Geolocation handling
+  function getLocation() {
+    const locationButton = document.getElementById('location-button');
+    locationButton.disabled = true;
+    locationButton.textContent = 'Fetching Location...';
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+      locationButton.disabled = false;
+      locationButton.textContent = 'Share Live Location';
+    }
+  }
+
+  function showPosition(position) {
+    document.getElementById("latitude").value = position.coords.latitude;
+    document.getElementById("longitude").value = position.coords.longitude;
+    const locationButton = document.getElementById('location-button');
+    locationButton.disabled = false;
+    locationButton.textContent = 'Share Live Location';
+  }
+
+  function showError(error) {
+    const locationButton = document.getElementById('location-button');
+    locationButton.disabled = false;
+    locationButton.textContent = 'Share Live Location';
+
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
+  }
+
+  // Object to keep track of the last message ID for each report
+  const lastMessageIds = {};
+
+  // Function to escape HTML to prevent XSS
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // Function to add a comment via AJAX
+  function addComment(event, reportId) {
+    event.preventDefault();
+    const form = document.getElementById(`comment-form-${reportId}`);
+    const submitButton = document.getElementById(`submit-comment-${reportId}`);
+    const comment = form.querySelector('input[name="comment"]').value.trim();
+
+    if (!comment) {
+      alert('Please enter a comment.');
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    const formData = new FormData();
+    formData.append('comment', comment);
+    formData.append('csrfmiddlewaretoken', form.querySelector('input[name="csrfmiddlewaretoken"]').value);
+
+    fetch(`/community/authority/comment/${reportId}/`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'success') {
+        form.reset();
+        fetchMessages(reportId);
+      } else {
+        alert(data.message || 'Error adding comment.');
+      }
+    })
+    .catch(error => {
+      console.error('Error adding comment:', error);
+      alert('Error adding comment: ' + error.message);
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Comment';
+    });
+  }
+
+  // Function to fetch new messages for a specific report
+  function fetchMessages(reportId) {
+    const chatMessages = document.getElementById(`chat-messages-${reportId}`);
+    if (!chatMessages) return;
+
+    fetch(`/community/disaster/${reportId}/?format=json`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data.messages)) {
+        console.error('Invalid messages data:', data);
+        return;
+      }
+
+      if (!lastMessageIds[reportId]) lastMessageIds[reportId] = 0;
+
+      data.messages.forEach(message => {
+        if (message.id > lastMessageIds[reportId]) {
+          const messageElement = document.createElement('div');
+          messageElement.className = `chat-message ${message.is_authority_comment ? 'authority-comment' : ''}`;
+          const user = escapeHTML(message.user);
+          const msg = escapeHTML(message.message);
+          const timestamp = escapeHTML(message.timestamp);
+          const roleTag = message.is_authority_comment
+            ? '<span class="role-tag authority-tag">[Authority]</span>'
+            : '<span class="role-tag citizen-tag">[Citizen]</span>';
+          messageElement.innerHTML = `${roleTag} <strong>${user}</strong>: ${msg} <small>(${timestamp})</small>`;
+          chatMessages.appendChild(messageElement);
+          lastMessageIds[reportId] = message.id;
+        }
+      });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    })
+    .catch(error => {
+      console.error(`Error fetching messages for report ${reportId}:`, error);
+    });
+  }
+
+  // Use the serialized active_reports_json to get report IDs
+  let activeReportIds = [];
+  try {
+    const activeReports = JSON.parse('{{ active_reports_json | escapejs }}');
+    activeReportIds = activeReports.map(report => report.id);
+  } catch (error) {
+    console.error('Error parsing active_reports_json:', error);
+  }
+
+  // Fetch messages for all reports every 5 seconds
+  if (activeReportIds.length > 0) {
+    setInterval(() => {
+      activeReportIds.forEach(reportId => {
+        fetchMessages(reportId);
+      });
+    }, 5000);
+
+    // Initial fetch for all reports
+    activeReportIds.forEach(reportId => {
+      fetchMessages(reportId);
+    });
+  }
+</script>
+{% endblock extra_scripts %}
