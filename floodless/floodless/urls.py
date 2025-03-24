@@ -26,4 +26,5 @@ urlpatterns = [
     path('chatbot/', include('chatbot.urls')),
     path('community/', include('community.urls')),
     path('home/', include('home.urls')),
+    path('emailing/', include('emailing.urls')),
 ]

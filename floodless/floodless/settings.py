@@ -1,4 +1,5 @@
 from pathlib import Path
+import fcntl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,13 @@ INSTALLED_APPS = [
     'community',
     'channels',  # Add the Channels app
     'home',
+    'emailing',
+    'django_crontab',
+]
+
+# Cron Jobs
+CRONJOBS = [
+    ('0 */6 * * *', 'emailing.management.commands.fetch_disaster_updates.Command', '>> /path/to/your/project/cron.log 2>&1'),  # Runs every 6 hours
 ]
 
 MIDDLEWARE = [
@@ -135,3 +143,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GEMINI_API_KEY = 'AIzaSyBi3IV-S4N61E0kc6E5nEuuZa5nJqwjFB0'
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'abhirajkviit@gmail.com'  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = 'abhirajgoat'  # Replace with your Gmail App Password
+DEFAULT_FROM_EMAIL = 'Global Alert Network <abhirajkviit@gmail.com>'
