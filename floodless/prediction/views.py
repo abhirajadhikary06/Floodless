@@ -1,4 +1,7 @@
+# prediction/views.py
+import json
 from django.shortcuts import render
+from django.core.cache import cache
 from prediction.models import DisasterPrediction
 
 # Google Maps API key
@@ -27,48 +30,59 @@ def predict_disaster(request):
     disaster_types = ['Earthquake', 'Drought', 'Volcanic activity', 'Flood', 'Storm', 'Wildfire']
 
     # Get filter values from the request
-    selected_year = request.GET.get('year', None)
-    selected_country = request.GET.get('country', None)
-    selected_disaster_type = request.GET.get('disaster_type', None)
+    selected_year = request.GET.get('year', 'all')
+    selected_country = request.GET.get('country', 'all')
+    selected_disaster_type = request.GET.get('disaster_type', 'all')
 
-    # Query the database with filters
-    queryset = DisasterPrediction.objects.filter(latitude__isnull=False, longitude__isnull=False)
-    if selected_year:
-        queryset = queryset.filter(year=int(selected_year))
-    if selected_country:
-        queryset = queryset.filter(country=selected_country)
-    if selected_disaster_type:
-        queryset = queryset.filter(disaster_type=selected_disaster_type)
+    # Create a cache key based on the filters
+    cache_key = f"predictions_{selected_year}_{selected_country}_{selected_disaster_type}"
 
-    # Prepare data for the map
-    predictions = []
-    for prediction in queryset:
-        radius = prediction.magnitude * 1000  # Scale radius based on magnitude
-        hospitals = prediction.hospitals.all()
-        hospital_data = [
-            {
-                'name': hospital.name,
-                'latitude': hospital.latitude,
-                'longitude': hospital.longitude,
-                'address': hospital.address,
-            }
-            for hospital in hospitals
-        ]
-        predictions.append({
-            'id': prediction.id,
-            'calamity_type': prediction.disaster_type,
-            'latitude': prediction.latitude,
-            'longitude': prediction.longitude,
-            'radius': radius,
-            'total_affected': prediction.total_affected,
-            'magnitude': prediction.magnitude,
-            'year': prediction.year,
-            'country': prediction.country,
-            'hospitals': hospital_data,
-        })
+    # Check if the data is in the cache
+    cached_predictions = cache.get(cache_key)
+    if cached_predictions is None:
+        print("Cache miss, querying database...")
+        # Query the database with filters
+        queryset = DisasterPrediction.objects.filter(latitude__isnull=False, longitude__isnull=False)
+        if selected_year != 'all':
+            queryset = queryset.filter(year=int(selected_year))
+        if selected_country != 'all':
+            queryset = queryset.filter(country=selected_country)
+        if selected_disaster_type != 'all':
+            queryset = queryset.filter(disaster_type=selected_disaster_type)
 
-    return render(request, 'prediction/predict.html', {
-        'predictions': predictions,
+        # Prepare data for the map
+        predictions = []
+        for prediction in queryset:
+            hospitals = prediction.hospitals.all()
+            hospital_data = [
+                {
+                    'name': hospital.name,
+                    'latitude': hospital.latitude,
+                    'longitude': hospital.longitude,
+                    'address': hospital.address,
+                }
+                for hospital in hospitals
+            ]
+            predictions.append({
+                'id': prediction.id,
+                'calamity_type': prediction.disaster_type,
+                'latitude': prediction.latitude,
+                'longitude': prediction.longitude,
+                'total_affected': prediction.total_affected,
+                'magnitude': prediction.magnitude,
+                'year': prediction.year,
+                'country': prediction.country,
+                'hospitals': hospital_data,
+            })
+
+        cached_predictions = predictions
+        cache.set(cache_key, cached_predictions, 900)  # Cache for 15 minutes
+        print("Cached predictions:", cached_predictions)
+    else:
+        print("Cache hit, using cached data")
+
+    context = {
+        'predictions_json': json.dumps(cached_predictions),  # Serialize properly
         'google_maps_api_key': GOOGLE_MAPS_API_KEY,
         'years': years,
         'countries': countries,
@@ -76,4 +90,5 @@ def predict_disaster(request):
         'selected_year': selected_year,
         'selected_country': selected_country,
         'selected_disaster_type': selected_disaster_type,
-    })
+    }
+    return render(request, 'prediction/predict.html', context)

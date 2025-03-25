@@ -179,17 +179,6 @@
           <span class="alert-badge">LIVE</span>
         </a>
       </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button class="button is-lime" type="submit">
-              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-              <span>Logout</span>
-            </button>
-          </form>
-        </div>
-      </div>
     </div>
   </nav>
 
@@ -205,70 +194,160 @@
     </div>
   </section>
   
-  <section class="section" style="margin-left: 8rem;">
+  <!-- Filter Form Section -->
+  <section class="section" style="margin-top: -2.5rem;">
     <div class="container">
-        <!-- Filter Form -->
-        <form class="filter-form" method="get" style="justify-content: center; text-align: center;">
-            <div class="field">
-                <label class="label has-text-light">Year</label>
+        <!-- Center the form containing the filters -->
+        <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+            <form method="GET" class="field is-grouped">
                 <div class="control">
-                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
-                        <select name="year" style="background-color: var(--dark); color: var(--lime);">
-                            <option value="">All Years</option>
+                    <div class="select" style="background-color: var(--dark); color: var(--white); border: 1px solid var(--dark-lighter); border-radius: 12px;">
+                        <select name="year" onchange="this.form.submit()" style="color: var(--white); background-color: var(--dark);">
+                            <option value="all" {% if selected_year == 'all' %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">All Years</option>
                             {% for year in years %}
-                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">{{ year }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
-            </div>
-
-            <div class="field">
-                <label class="label has-text-light">Country</label>
                 <div class="control">
-                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
-                        <select name="country" style="background-color: var(--dark); color: var(--lime);">
-                            <option value="">All Countries</option>
+                    <div class="select" style="background-color: var(--dark); color: var(--white); border: 1px solid var(--dark-lighter); border-radius: 12px;">
+                        <select name="country" onchange="this.form.submit()" style="color: var(--white); background-color: var(--dark);">
+                            <option value="all" {% if selected_country == 'all' %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">All Countries</option>
                             {% for country in countries %}
-                                <option value="{{ country }}" {% if selected_country == country %}selected{% endif %}>{{ country }}</option>
+                                <option value="{{ country }}" {% if selected_country == country %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">{{ country }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
-            </div>
-
-            <div class="field">
-                <label class="label has-text-light">Disaster Type</label>
                 <div class="control">
-                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
-                        <select name="disaster_type" style="background-color: var(--dark); color: var(--lime);">
-                            <option value="">All Disaster Types</option>
+                    <div class="select" style="background-color: var(--dark); color: var(--white); border: 1px solid var(--dark-lighter); border-radius: 12px;">
+                        <select name="disaster_type" onchange="this.form.submit()" style="color: var(--white); background-color: var(--dark);">
+                            <option value="all" {% if selected_disaster_type == 'all' %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">All Disaster Types</option>
                             {% for disaster_type in disaster_types %}
-                                <option value="{{ disaster_type }}" {% if selected_disaster_type == disaster_type %}selected{% endif %}>{{ disaster_type }}</option>
+                                <option value="{{ disaster_type }}" {% if selected_disaster_type == disaster_type %}selected{% endif %} style="color: var(--lime); background-color: var(--dark);">{{ disaster_type }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="field">
-                <button type="submit" class="button is-lime" style="margin-top: 1.8rem; margin-left: -8rem;">Apply Filters</button>
-            </div>
-        </form>
-    </div>
-</section>
+        <!-- Map -->
+        <div id="map" style="height: 600px; width: 100%; border: 1px solid var(--dark-lighter); border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
 
-<section>
-    <div class="container">
-        <!-- Google Map -->
-        <div id="map" style="width: 90%; height: 500px; margin: 0 auto; border-radius: 8px;"></div>
-  
         <!-- Message for No Predictions -->
-        {% if not predictions %}
+        {% if not predictions_json %}
             <p class="has-text-white mt-4" style="text-align: center;">No predictions match the selected filters.</p>
         {% endif %}
     </div>
 </section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&libraries=places&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: { lat: 0, lng: 0 },
+            mapTypeId: 'satellite', // Set default to satellite view
+            scrollwheel: true // Allow zooming while scrolling
+        });
+
+        // Define colors for each disaster type
+        var disasterIcons = {
+            'Earthquake': 'red',
+            'Drought': 'yellow',
+            'Volcanic activity': 'purple',
+            'Flood': 'blue',
+            'Storm': 'green',
+            'Wildfire': 'orange'
+        };
+
+        // Ensure predictions data is properly formatted
+        try {
+            var predictions = JSON.parse('{{ predictions_json|safe }}');
+            console.log("Predictions data:", predictions);
+
+            var infoWindow = new google.maps.InfoWindow();
+
+            predictions.forEach(function(prediction) {
+                if (prediction.latitude && prediction.longitude) {
+                    console.log("Plotting disaster:", prediction);
+
+                    // Use Google's default pin icon with mapped color
+                    var markerIcon = {
+                        url: `https://maps.google.com/mapfiles/ms/icons/${disasterIcons[prediction.calamity_type] || 'grey'}-dot.png`,
+                        scaledSize: new google.maps.Size(32, 32)  // Default pin size
+                    };
+
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(prediction.latitude), lng: parseFloat(prediction.longitude) },
+                        map: map,
+                        icon: markerIcon,
+                        title: prediction.calamity_type  // Tooltip on hover
+                    });
+
+                    // Popup on click for disaster
+                    marker.addListener('click', function() {
+                        infoWindow.setContent(
+                            `<div style="background-color: var(--dark); color: var(--white); padding: 10px; border-radius: 8px;">` +
+                            `<b>${prediction.calamity_type}</b><br>` +
+                            `Year: ${prediction.year}<br>` +
+                            `Country: ${prediction.country}<br>` +
+                            `Magnitude: ${prediction.magnitude}<br>` +
+                            `Total Affected: ${prediction.total_affected}` +
+                            `</div>`
+                        );
+                        infoWindow.open(map, marker);
+                    });
+
+                    // Plot hospitals
+                    var hospitals = prediction.hospitals || [];
+                    console.log(`Hospitals for ${prediction.calamity_type} at (${prediction.latitude}, ${prediction.longitude}):`, hospitals);
+
+                    hospitals.forEach(function(hospital) {
+                        if (hospital.latitude && hospital.longitude) {
+                            console.log("Plotting hospital:", hospital);
+
+                            var hospitalMarker = new google.maps.Marker({
+                                position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
+                                map: map,
+                                icon: {
+                                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                            <circle cx="25" cy="25" r="25" fill="transparent" />
+                                            <text x="25" y="32.8125" font-size="16" font-family="Poppins" font-weight="bold" text-anchor="middle" fill="white">🚩</text>
+                                        </svg>
+                                    `),
+                                    scaledSize: new google.maps.Size(32, 32)  // Default pin size
+                                },
+                                title: hospital.name  // Tooltip on hover
+                            });
+
+                            // Popup on click for hospital
+                            hospitalMarker.addListener('click', function() {
+                                infoWindow.setContent(
+                                    `<div style="background-color: var(--dark); color: var(--white); padding: 10px; border-radius: 8px;">` +
+                                    `<b>${hospital.name}</b><br>` +
+                                    `Type: Hospital<br>` +
+                                    `Address: ${hospital.address || 'N/A'}` +
+                                    `</div>`
+                                );
+                                infoWindow.open(map, hospitalMarker);
+                            });
+                        } else {
+                            console.warn("Skipping hospital (missing coordinates):", hospital);
+                        }
+                    });
+                } else {
+                    console.warn("Skipping prediction (missing coordinates):", prediction);
+                }
+            });
+        } catch (error) {
+            console.error("Error parsing predictions data:", error);
+        }
+    }
+</script>
 
   <!-- Footer -->
   <footer class="footer">
@@ -315,156 +394,5 @@
     </div>
   </footer>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&libraries=places"></script>
-<script>
-        function initMap() {
-                var map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 2,
-                        center: { lat: 0, lng: 0 },
-                        scrollwheel: true, // Enable scrolling zoom without Ctrl
-                        styles: [
-                                { elementType: 'geometry', stylers: [{ color: '#212121' }] },
-                                { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
-                                { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-                                {
-                                        featureType: 'administrative.locality',
-                                        elementType: 'labels.text.fill',
-                                        stylers: [{ color: '#d59563' }],
-                                },
-                                {
-                                        featureType: 'poi',
-                                        elementType: 'labels.text.fill',
-                                        stylers: [{ color: '#d59563' }],
-                                },
-                                {
-                                        featureType: 'poi.park',
-                                        elementType: 'geometry',
-                                        stylers: [{ color: '#263c3f' }],
-                                },
-                                {
-                                        featureType: 'road',
-                                        elementType: 'geometry',
-                                        stylers: [{ color: '#38414e' }],
-                                },
-                                {
-                                        featureType: 'road',
-                                        elementType: 'geometry.stroke',
-                                        stylers: [{ color: '#212a37' }],
-                                },
-                                {
-                                        featureType: 'road.highway',
-                                        elementType: 'geometry',
-                                        stylers: [{ color: '#746855' }],
-                                },
-                                {
-                                        featureType: 'water',
-                                        elementType: 'geometry',
-                                        stylers: [{ color: '#17263c' }],
-                                },
-                        ],
-                });
-
-                const disasterIcons = {
-                        'Earthquake': 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-                        'Drought': 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
-                        'Volcanic activity': 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
-                        'Flood': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-                        'Storm': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-                        'Wildfire': 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
-                };
-
-                let predictions;
-                try {
-                        predictions = JSON.parse('{{ predictions|escapejs }}');
-                        console.log('Predictions:', predictions); // Debug: Log the predictions data
-                } catch (e) {
-                        console.error('Error parsing predictions:', e);
-                        predictions = [];
-                }
-
-                const bounds = new google.maps.LatLngBounds();
-
-                predictions.forEach(prediction => {
-                        // Validate latitude and longitude
-                        if (typeof prediction.latitude !== 'number' || typeof prediction.longitude !== 'number') {
-                                console.warn(`Invalid coordinates for prediction: ${prediction.calamity_type} at (${prediction.latitude}, ${prediction.longitude})`);
-                                return;
-                        }
-
-                        const position = { lat: prediction.latitude, lng: prediction.longitude };
-                        const markerIcon = disasterIcons[prediction.calamity_type] || 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-
-                        // Add marker for disaster prediction
-                        const marker = new google.maps.Marker({
-                                position: position,
-                                map: map,
-                                title: prediction.calamity_type,
-                                icon: markerIcon,
-                        });
-
-                        // Add info window for disaster details
-                        const infoWindow = new google.maps.InfoWindow({
-                                content: `
-                                        <div style="color: black;">
-                                                <h3>${prediction.calamity_type}</h3>
-                                                <p><strong>Location:</strong> (${prediction.latitude}, ${prediction.longitude})</p>
-                                                <p><strong>Country:</strong> ${prediction.country}</p>
-                                                <p><strong>Year:</strong> ${prediction.year}</p>
-                                                <p><strong>Magnitude:</strong> ${prediction.magnitude}</p>
-                                                <p><strong>Total Affected:</strong> ${prediction.total_affected}</p>
-                                        </div>
-                                `,
-                        });
-
-                        marker.addListener('click', () => {
-                                infoWindow.open(map, marker);
-                        });
-
-                        bounds.extend(position);
-
-                        // Add markers for hospitals
-                        const hospitals = prediction.hospitals || [];
-                        hospitals.forEach(hospital => {
-                                if (typeof hospital.latitude !== 'number' || typeof hospital.longitude !== 'number') {
-                                        console.warn(`Invalid coordinates for hospital: ${hospital.name} at (${hospital.latitude}, ${hospital.longitude})`);
-                                        return;
-                                }
-
-                                const hospitalPosition = { lat: hospital.latitude, lng: hospital.longitude };
-                                const hospitalMarker = new google.maps.Marker({
-                                        position: hospitalPosition,
-                                        map: map,
-                                        title: hospital.name,
-                                        icon: {
-                                                url: 'http://maps.google.com/mapfiles/ms/icons/hospital.png',
-                                        },
-                                });
-
-                                const hospitalInfoWindow = new google.maps.InfoWindow({
-                                        content: `
-                                                <div style="color: black;">
-                                                        <h3>${hospital.name}</h3>
-                                                        <p><strong>Type:</strong> Hospital</p>
-                                                        <p><strong>Address:</strong> ${hospital.address || 'N/A'}</p>
-                                                </div>
-                                        `,
-                                });
-
-                                hospitalMarker.addListener('click', () => {
-                                        hospitalInfoWindow.open(map, hospitalMarker);
-                                });
-                        });
-                });
-
-                if (predictions.length > 0) {
-                        map.fitBounds(bounds);
-                } else {
-                        console.warn('No predictions to display on the map.');
-                }
-        }
-
-        window.onload = initMap;
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&callback=initMap"></script>
 </body>
 </html>
