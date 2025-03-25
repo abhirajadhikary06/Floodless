@@ -23,6 +23,7 @@ def predict_disaster(request):
         'Switzerland', 'New Zealand', 'Jamaica', 'Puerto Rico', 'Zimbabwe', 'Lebanon', 'Bhutan', 'Nicaragua',
         'Saint Vincent and the Grenadines', 'Central African Republic', 'Czechia', 'Poland', 'Canada'
     ]
+    countries.sort()
     disaster_types = ['Earthquake', 'Drought', 'Volcanic activity', 'Flood', 'Storm', 'Wildfire']
 
     # Get filter values from the request
