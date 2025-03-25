@@ -7,8 +7,6 @@ class RedirectRootToHomeMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Check if the request path is the root URL (/)
         if request.path == '/':
-            # Redirect to /home
             return HttpResponseRedirect(reverse('home'))
         return self.get_response(request)

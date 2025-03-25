@@ -1,123 +1,78 @@
-import pandas as pd
-import requests
 from django.shortcuts import render
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-import os
-from datetime import datetime, timedelta
+from prediction.models import DisasterPrediction
 
-# Path to dataset.csv
-DATASET_PATH = os.path.join(os.path.dirname(__file__), 'dataset.csv')
-
-# OpenWeatherMap API key (replace with your API key)
-API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw'
 
 def predict_disaster(request):
-    # Load the dataset
-    df = pd.read_csv(DATASET_PATH)
+    # Define filter options
+    years = list(range(2026, 2034))
+    countries = [
+        "Democratic People's Republic of Korea", 'El Salvador', 'Kenya', 'United Republic of Tanzania',
+        'Italy', 'Democratic Republic of the Congo', 'Armenia', 'Guinea-Bissau', 'Paraguay', 'Sri Lanka',
+        'Türkiye', 'Indonesia', 'Republic of Korea', 'Chile', 'Ecuador', 'Pakistan', 'Rwanda', 'China',
+        'Syrian Arab Republic', 'Guatemala', 'Peru', 'Comoros', 'Japan', 'Serbia', 'Greece', 'Croatia',
+        'Iran (Islamic Republic of)', 'Viet Nam', 'Austria', 'Montenegro', 'Colombia', 'India', 'Malaysia',
+        'Mexico', 'United States of America', 'Nepal', 'Yemen', 'Somalia', 'Philippines', 'Ghana', 'Romania',
+        'Algeria', 'Uruguay', 'Sudan', 'South Africa', 'Haiti', 'Panama', 'Honduras', 'Cuba', 'Mozambique',
+        'Afghanistan', 'Russian Federation', 'Myanmar', 'Nigeria', 'Argentina', 'Senegal', 'Costa Rica',
+        'Côte d’Ivoire', 'Brazil', 'Oman', 'Bangladesh', 'Bulgaria', 'France', 'Madagascar', 'North Macedonia',
+        'Guinea', 'Bolivia (Plurinational State of)', 'Iraq', 'Papua New Guinea', 'Bosnia and Herzegovina',
+        'Mali', 'Ethiopia', 'Belarus', 'Angola', 'Togo', 'Cyprus', 'Malawi', 'Zambia', 'Slovenia', 'Ireland',
+        'Australia', 'Thailand', 'Portugal', 'Taiwan (Province of China)', 'Germany', 'Burundi', 'Vanuatu',
+        'Switzerland', 'New Zealand', 'Jamaica', 'Puerto Rico', 'Zimbabwe', 'Lebanon', 'Bhutan', 'Nicaragua',
+        'Saint Vincent and the Grenadines', 'Central African Republic', 'Czechia', 'Poland', 'Canada'
+    ]
+    disaster_types = ['Earthquake', 'Drought', 'Volcanic activity', 'Flood', 'Storm', 'Wildfire']
 
-    # Preprocess the dataset
-    # Encode categorical variables (calamity_type, location, country)
-    le_calamity = LabelEncoder()
-    le_location = LabelEncoder()
-    le_country = LabelEncoder()
+    # Get filter values from the request
+    selected_year = request.GET.get('year', None)
+    selected_country = request.GET.get('country', None)
+    selected_disaster_type = request.GET.get('disaster_type', None)
 
-    df['calamity_type_encoded'] = le_calamity.fit_transform(df['calamity_type'])
-    df['location_encoded'] = le_location.fit_transform(df['location'])
-    df['country_encoded'] = le_country.fit_transform(df['country'])
+    # Query the database with filters
+    queryset = DisasterPrediction.objects.filter(latitude__isnull=False, longitude__isnull=False)
+    if selected_year:
+        queryset = queryset.filter(year=int(selected_year))
+    if selected_country:
+        queryset = queryset.filter(country=selected_country)
+    if selected_disaster_type:
+        queryset = queryset.filter(disaster_type=selected_disaster_type)
 
-    # Features: latitude, longitude, year, and weather data (to be fetched)
-    # Target: calamity_type_encoded
-    X = df[['latitude', 'longitude', 'year']]
-    y = df['calamity_type_encoded']
-
-    # Split the data for training
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    # Train a RandomForest model
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
-    model.fit(X_train, y_train)
-
-    # Fetch current weather data for each unique location in the dataset
-    unique_locations = df[['latitude', 'longitude']].drop_duplicates()
-    weather_data = []
-
-    for _, row in unique_locations.iterrows():
-        lat = row['latitude']
-        lon = row['longitude']
-        url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric'
-        response = requests.get(url)
-        
-        if response.status_code == 200:
-            data = response.json()
-            weather_data.append({
-                'latitude': lat,
-                'longitude': lon,
-                'temperature': data['main']['temp'],
-                'humidity': data['main']['humidity'],
-                'wind_speed': data['wind']['speed'],
-                'precipitation': data.get('rain', {}).get('1h', 0)  # Rainfall in the last hour, if available
-            })
-        else:
-            weather_data.append({
-                'latitude': lat,
-                'longitude': lon,
-                'temperature': None,
-                'humidity': None,
-                'wind_speed': None,
-                'precipitation': None
-            })
-
-    # Convert weather data to DataFrame
-    weather_df = pd.DataFrame(weather_data)
-
-    # Predict the next disaster
-    current_year = datetime.now().year
+    # Prepare data for the map
     predictions = []
-
-    for _, row in weather_df.iterrows():
-        if row['temperature'] is None:  # Skip if weather data fetch failed
-            continue
-
-        # Prepare features for prediction
-        features = pd.DataFrame([[
-            row['latitude'],
-            row['longitude'],
-            current_year
-        ]], columns=['latitude', 'longitude', 'year'])
-
-        # Predict the disaster type
-        pred = model.predict(features)[0]
-        calamity_type = le_calamity.inverse_transform([pred])[0]
-
-        # Simple heuristic for time prediction: assume disaster occurs within 30 days if conditions are extreme
-        # Example: High precipitation might indicate a flood
-        possible_time = datetime.now() + timedelta(days=30)
-        if row['precipitation'] > 10 and calamity_type == 'flood':
-            possible_time = datetime.now() + timedelta(days=7)  # Flood might happen sooner
-
+    for prediction in queryset:
+        radius = prediction.magnitude * 1000  # Scale radius based on magnitude
+        hospitals = prediction.hospitals.all()
+        hospital_data = [
+            {
+                'name': hospital.name,
+                'latitude': hospital.latitude,
+                'longitude': hospital.longitude,
+                'address': hospital.address,
+            }
+            for hospital in hospitals
+        ]
         predictions.append({
-            'calamity_type': calamity_type,
-            'latitude': row['latitude'],
-            'longitude': row['longitude'],
-            'possible_time': possible_time.strftime('%Y-%m-%d'),
-            'temperature': row['temperature'],
-            'humidity': row['humidity'],
-            'wind_speed': row['wind_speed'],
-            'precipitation': row['precipitation']
+            'id': prediction.id,
+            'calamity_type': prediction.disaster_type,
+            'latitude': prediction.latitude,
+            'longitude': prediction.longitude,
+            'radius': radius,
+            'total_affected': prediction.total_affected,
+            'magnitude': prediction.magnitude,
+            'year': prediction.year,
+            'country': prediction.country,
+            'hospitals': hospital_data,
         })
 
-    # Sort predictions by likelihood (simplified: based on precipitation for floods, temperature for wildfires, etc.)
-    predictions.sort(key=lambda x: (
-        x['precipitation'] if x['calamity_type'] == 'flood' else
-        x['temperature'] if x['calamity_type'] == 'wildfire' else
-        0
-    ), reverse=True)
-
-    # Take the top prediction
-    top_prediction = predictions[0] if predictions else None
-
-    return render(request, 'predication/predict.html', {
-        'prediction': top_prediction
+    return render(request, 'prediction/predict.html', {
+        'predictions': predictions,
+        'google_maps_api_key': GOOGLE_MAPS_API_KEY,
+        'years': years,
+        'countries': countries,
+        'disaster_types': disaster_types,
+        'selected_year': selected_year,
+        'selected_country': selected_country,
+        'selected_disaster_type': selected_disaster_type,
     })
