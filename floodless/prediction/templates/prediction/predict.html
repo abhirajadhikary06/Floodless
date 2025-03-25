@@ -318,7 +318,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&libraries=places"></script>
 <script>
         function initMap() {
-                const map = new google.maps.Map(document.getElementById('map'), {
+                var map = new google.maps.Map(document.getElementById("map"), {
                         zoom: 2,
                         center: { lat: 0, lng: 0 },
                         scrollwheel: true, // Enable scrolling zoom without Ctrl
@@ -465,5 +465,6 @@
 
         window.onload = initMap;
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&callback=initMap"></script>
 </body>
 </html>
