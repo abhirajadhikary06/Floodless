@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Prediction Map | Global Alert Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Custom Color Palette */
+      --blue: #0077C6;         /* Primary blue */
+      --blue-dark: #005d9c;    /* Darker shade of blue */
+      --blue-light: #3a99de;   /* Lighter shade of blue */
+      --dark: #333333;         /* Dark gray/black */
+      --dark-light: #4a4a4a;   /* Lighter version of dark */
+      --dark-lighter: #666666; /* Even lighter version of dark */
+      --lime: #C6FF00;         /* Accent lime green */
+      --lime-dark: #a2cc00;    /* Darker shade of lime */
+      --white: #ffffff;        /* White for contrast */
+      --gray-light: #e0e0e0;   /* Light gray */
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar {
+      background-color: var(--dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    
+    .alert-badge {
+      background-color: var(--lime);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .dashboard-header {
+      background: var(--blue);
+      padding: 4rem 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dashboard-title {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .dashboard-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      max-width: 800px;
+    }
+
+    .footer {
+      background-color: var(--dark-light);
+      color: var(--gray-light);
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--gray-light);
+      transition: color 0.2s ease;
+    }
+    
+    .footer a:hover {
+      color: var(--lime);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    /* Custom lime button */
+    .button.is-lime {
+      background-color: var(--lime);
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .button.is-lime:hover {
+      background-color: var(--lime-dark);
+    }
+    
+    /* Tags */
+    .tags .tag.is-info {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .tags .tag.is-danger {
+      background-color: var(--lime);
+      color: var(--dark);
+    }
+
+    #map {
+      height: 500px;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .filter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-form .field {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .pagination {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .pagination a {
+      color: var(--lime);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .pagination a:hover {
+      background-color: var(--dark-lighter);
+    }
+
+    .pagination .current {
+      background-color: var(--lime);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <span class="icon mr-2" style="color: var(--blue);">
+            <i class="fas fa-satellite-dish"></i>
+          </span>
+          Global Alert Network
+          <span class="alert-badge">LIVE</span>
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="button is-lime" type="submit">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span>Logout</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="dashboard-header">
+    <div class="container">
+      <h1 class="dashboard-title">
+        <span class="icon mr-2" style="color: var(--lime);">
+          <i class="fas fa-map"></i>
+        </span>
+        Disaster Prediction Map
+      </h1>
+      <p class="dashboard-subtitle">Maps showing possible prediction of next spot of disaster.</p>
+    </div>
+  </section>
+  
+  <section class="section" style="margin-left: 8rem;">
+    <div class="container">
+        <!-- Filter Form -->
+        <form class="filter-form" method="get" style="justify-content: center; text-align: center;">
+            <div class="field">
+                <label class="label has-text-light">Year</label>
+                <div class="control">
+                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
+                        <select name="year" style="background-color: var(--dark); color: var(--lime);">
+                            <option value="">All Years</option>
+                            {% for year in years %}
+                                <option value="{{ year }}" {% if selected_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label has-text-light">Country</label>
+                <div class="control">
+                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
+                        <select name="country" style="background-color: var(--dark); color: var(--lime);">
+                            <option value="">All Countries</option>
+                            {% for country in countries %}
+                                <option value="{{ country }}" {% if selected_country == country %}selected{% endif %}>{{ country }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label has-text-light">Disaster Type</label>
+                <div class="control">
+                    <div class="select is-fullwidth" style="background-color: var(--dark); color: var(--lime);">
+                        <select name="disaster_type" style="background-color: var(--dark); color: var(--lime);">
+                            <option value="">All Disaster Types</option>
+                            {% for disaster_type in disaster_types %}
+                                <option value="{{ disaster_type }}" {% if selected_disaster_type == disaster_type %}selected{% endif %}>{{ disaster_type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="button is-lime" style="margin-top: 1.8rem; margin-left: -8rem;">Apply Filters</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <!-- Google Map -->
+        <div id="map" style="width: 90%; height: 500px; margin: 0 auto; border-radius: 8px;"></div>
+  
+        <!-- Message for No Predictions -->
+        {% if not predictions %}
+            <p class="has-text-white mt-4" style="text-align: center;">No predictions match the selected filters.</p>
+        {% endif %}
+    </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4 has-text-weight-bold mb-4" style="color: var(--white);">
+            <span class="icon mr-2" style="color: var(--blue);">
+              <i class="fas fa-satellite-dish"></i>
+            </span>
+            Global Alert Network
+          </h3>
+          <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
+          <button class="button is-lime mt-3">
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span>Subscribe to Alerts</span>
+          </button>
+        </div>
+        <div class="column is-2 is-offset-1">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Resources</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Emergency Contacts</a></li>
+            <li class="mb-2"><a href="#">Relief Organizations</a></li>
+            <li class="mb-2"><a href="#">Safety Guides</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">About</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Our Mission</a></li>
+            <li class="mb-2"><a href="#">Sources</a></li>
+            <li class="mb-2"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6 has-text-weight-bold mb-3">Legal</h4>
+          <ul>
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Data Sources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4y-YKK1KxniUfZC2PfFTlhjfCmi_tMuw&libraries=places"></script>
+<script>
+        function initMap() {
+                const map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 2,
+                        center: { lat: 0, lng: 0 },
+                        scrollwheel: true, // Enable scrolling zoom without Ctrl
+                        styles: [
+                                { elementType: 'geometry', stylers: [{ color: '#212121' }] },
+                                { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
+                                { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
+                                {
+                                        featureType: 'administrative.locality',
+                                        elementType: 'labels.text.fill',
+                                        stylers: [{ color: '#d59563' }],
+                                },
+                                {
+                                        featureType: 'poi',
+                                        elementType: 'labels.text.fill',
+                                        stylers: [{ color: '#d59563' }],
+                                },
+                                {
+                                        featureType: 'poi.park',
+                                        elementType: 'geometry',
+                                        stylers: [{ color: '#263c3f' }],
+                                },
+                                {
+                                        featureType: 'road',
+                                        elementType: 'geometry',
+                                        stylers: [{ color: '#38414e' }],
+                                },
+                                {
+                                        featureType: 'road',
+                                        elementType: 'geometry.stroke',
+                                        stylers: [{ color: '#212a37' }],
+                                },
+                                {
+                                        featureType: 'road.highway',
+                                        elementType: 'geometry',
+                                        stylers: [{ color: '#746855' }],
+                                },
+                                {
+                                        featureType: 'water',
+                                        elementType: 'geometry',
+                                        stylers: [{ color: '#17263c' }],
+                                },
+                        ],
+                });
+
+                const disasterIcons = {
+                        'Earthquake': 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                        'Drought': 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                        'Volcanic activity': 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
+                        'Flood': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                        'Storm': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                        'Wildfire': 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+                };
+
+                let predictions;
+                try {
+                        predictions = JSON.parse('{{ predictions|escapejs }}');
+                        console.log('Predictions:', predictions); // Debug: Log the predictions data
+                } catch (e) {
+                        console.error('Error parsing predictions:', e);
+                        predictions = [];
+                }
+
+                const bounds = new google.maps.LatLngBounds();
+
+                predictions.forEach(prediction => {
+                        // Validate latitude and longitude
+                        if (typeof prediction.latitude !== 'number' || typeof prediction.longitude !== 'number') {
+                                console.warn(`Invalid coordinates for prediction: ${prediction.calamity_type} at (${prediction.latitude}, ${prediction.longitude})`);
+                                return;
+                        }
+
+                        const position = { lat: prediction.latitude, lng: prediction.longitude };
+                        const markerIcon = disasterIcons[prediction.calamity_type] || 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+
+                        // Add marker for disaster prediction
+                        const marker = new google.maps.Marker({
+                                position: position,
+                                map: map,
+                                title: prediction.calamity_type,
+                                icon: markerIcon,
+                        });
+
+                        // Add info window for disaster details
+                        const infoWindow = new google.maps.InfoWindow({
+                                content: `
+                                        <div style="color: black;">
+                                                <h3>${prediction.calamity_type}</h3>
+                                                <p><strong>Location:</strong> (${prediction.latitude}, ${prediction.longitude})</p>
+                                                <p><strong>Country:</strong> ${prediction.country}</p>
+                                                <p><strong>Year:</strong> ${prediction.year}</p>
+                                                <p><strong>Magnitude:</strong> ${prediction.magnitude}</p>
+                                                <p><strong>Total Affected:</strong> ${prediction.total_affected}</p>
+                                        </div>
+                                `,
+                        });
+
+                        marker.addListener('click', () => {
+                                infoWindow.open(map, marker);
+                        });
+
+                        bounds.extend(position);
+
+                        // Add markers for hospitals
+                        const hospitals = prediction.hospitals || [];
+                        hospitals.forEach(hospital => {
+                                if (typeof hospital.latitude !== 'number' || typeof hospital.longitude !== 'number') {
+                                        console.warn(`Invalid coordinates for hospital: ${hospital.name} at (${hospital.latitude}, ${hospital.longitude})`);
+                                        return;
+                                }
+
+                                const hospitalPosition = { lat: hospital.latitude, lng: hospital.longitude };
+                                const hospitalMarker = new google.maps.Marker({
+                                        position: hospitalPosition,
+                                        map: map,
+                                        title: hospital.name,
+                                        icon: {
+                                                url: 'http://maps.google.com/mapfiles/ms/icons/hospital.png',
+                                        },
+                                });
+
+                                const hospitalInfoWindow = new google.maps.InfoWindow({
+                                        content: `
+                                                <div style="color: black;">
+                                                        <h3>${hospital.name}</h3>
+                                                        <p><strong>Type:</strong> Hospital</p>
+                                                        <p><strong>Address:</strong> ${hospital.address || 'N/A'}</p>
+                                                </div>
+                                        `,
+                                });
+
+                                hospitalMarker.addListener('click', () => {
+                                        hospitalInfoWindow.open(map, hospitalMarker);
+                                });
+                        });
+                });
+
+                if (predictions.length > 0) {
+                        map.fitBounds(bounds);
+                } else {
+                        console.warn('No predictions to display on the map.');
+                }
+        }
+
+        window.onload = initMap;
+</script>
+</body>
+</html>

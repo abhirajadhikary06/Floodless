@@ -1,17 +1,25 @@
+# prediction/models.py
 from django.db import models
 
-class Disaster(models.Model):
-    year = models.IntegerField()
-    disaster_type = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
-    region = models.CharField(max_length=100)
-    location = models.CharField(max_length=200)
+class DisasterPrediction(models.Model):
+    year = models.IntegerField(db_index=True)
+    country = models.CharField(max_length=100, db_index=True)
+    location = models.CharField(max_length=200)  # Original location string
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
+    total_affected = models.IntegerField()
+    magnitude = models.FloatField()
+    disaster_type = models.CharField(max_length=50, db_index=True)
 
     def __str__(self):
-        return f"{self.disaster_type} in {self.location} ({self.year})"
+        return f"{self.disaster_type} in {self.location}, {self.country} ({self.year})"
 
-    class Meta:
-        verbose_name = "Disaster"
-        verbose_name_plural = "Disasters"
+class Hospital(models.Model):
+    disaster_prediction = models.ForeignKey(DisasterPrediction, on_delete=models.CASCADE, related_name='hospitals')
+    name = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    address = models.CharField(max_length=500, blank=True)
+
+    def __str__(self):
+        return f"{self.name} near {self.disaster_prediction.location}"
