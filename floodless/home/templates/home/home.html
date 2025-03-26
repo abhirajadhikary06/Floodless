@@ -141,6 +141,30 @@
       background-color: var(--lime);
       color: var(--dark);
     }
+
+       /* Feature boxes */
+       .feature-box {
+      background-color: var(--dark-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .feature-box:hover {
+      box-shadow: 0 8px 20px rgba(98, 188, 1, 0.2);
+    }
+
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--lime);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -158,13 +182,6 @@
           <span class="alert-badge">LIVE</span>
         </a>
       </div>
-      <div class="navbar-end"></div>
-        <a class="navbar-item" href="/home" style="text-decoration: var(--dark);">
-          <span class="icon" style="color: var(--lime);">
-        <i class="fas fa-home"></i>
-          </span>
-        </a>
-      </div>
     </div>
   </nav></a>
 
@@ -180,10 +197,167 @@
       <p class="dashboard-subtitle">Empowering communities with timely and accurate disaster information to save lives and build resilience.</p>
     </div>
   </section>
-  
-  <section class="hero">
-    <div class="hero-body">
-      <a href="{% url 'login' %}" class="button is-lime">Login to Community</a>
+
+  <section class="section" style="background-color: var(--dark); padding: 4rem 0;">
+    <div class="container">
+        <div style="position: relative; width: 100%; height: 400px;">
+            <svg width="100%" height="100%" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+                <!-- Curvilinear dashed line (road) with smoother right side -->
+                <path
+                    id="curvilinear-path"
+                    d="M 30 200 C 100 50, 200 50, 270 200 S 400 250, 470 100 S 540 50, 570 150"
+                    fill="none"
+                    stroke="var(--lime)"
+                    stroke-width="6"
+                    stroke-dasharray="15, 15"
+                    stroke-linecap="round"
+                />
+
+                <!-- Group to hold circles and icons (added dynamically via JavaScript) -->
+                <g id="circle-group"></g>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Tooltip container */
+    .tooltip-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Tooltip text */
+    .tooltip-wrapper .tooltip-text {
+        visibility: hidden;
+        width: 120px;
+        background-color: var(--dark);
+        color: var(--lime);
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position above the icon */
+        left: 50%;
+        margin-left: -60px; /* Center the tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+        border: 1px solid var(--lime);
+    }
+
+    /* Show the tooltip on hover */
+    .tooltip-wrapper:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+<script>
+    // Function to place circles along the path
+    function placeCirclesOnPath() {
+        const path = document.getElementById('curvilinear-path');
+        const circleGroup = document.getElementById('circle-group');
+        const pathLength = path.getTotalLength();
+
+        // Define the icons, links, and tooltip messages in order
+        const iconsData = [
+            { class: 'fa-users', link: '/community', tooltip: 'Go to Community Page' }, // Community
+            { class: 'fa-map', link: '/prediction', tooltip: 'Go to Map Page' },           // Map
+            { class: 'fa-tachometer-alt', link: '/dashboard', tooltip: 'Go to Dashboard Page' }, // Tachometer
+            { class: 'fa-globe', link: '/news', tooltip: 'Go to Global Page' },    // Globe
+            { class: 'fa-robot', link: '/chatbot', tooltip: 'Go to AI Page' },           // Robot
+            { class: 'fa-book', link: '/apidocs', tooltip: 'Go to Resources Page' } // Book
+        ];
+
+        // Place 6 circles at equal intervals along the path (0%, 20%, 40%, 60%, 80%, 100%)
+        for (let i = 0; i < 6; i++) {
+            const t = i / 5; // Fraction along the path (0 to 1)
+            const point = path.getPointAtLength(t * pathLength);
+
+            // Create the circle
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', point.x);
+            circle.setAttribute('cy', point.y);
+            circle.setAttribute('r', '30');
+            circle.setAttribute('fill', 'var(--lime)');
+            circleGroup.appendChild(circle);
+
+            // Create the foreignObject for the icon
+            const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+            foreignObject.setAttribute('x', point.x - 30); // Center the foreignObject
+            foreignObject.setAttribute('y', point.y - 30);
+            foreignObject.setAttribute('width', '60');
+            foreignObject.setAttribute('height', '60');
+
+            // Create the div, link, and icon
+            const div = document.createElement('div');
+            div.style.display = 'flex';
+            div.style.justifyContent = 'center';
+            div.style.alignItems = 'center';
+            div.style.height = '100%';
+            div.className = 'tooltip-wrapper'; // Add class for tooltip styling
+
+            const link = document.createElement('a');
+            link.setAttribute('href', iconsData[i].link);
+
+            const icon = document.createElement('i');
+            icon.className = `fas ${iconsData[i].class} fa-lg`;
+            icon.style.color = 'var(--dark)';
+
+            // Create the tooltip span
+            const tooltip = document.createElement('span');
+            tooltip.className = 'tooltip-text';
+            tooltip.textContent = iconsData[i].tooltip;
+
+            link.appendChild(icon);
+            link.appendChild(tooltip);
+            div.appendChild(link);
+            foreignObject.appendChild(div);
+            circleGroup.appendChild(foreignObject);
+        }
+    }
+
+    // Call the function to place the circles when the page loads
+    window.onload = placeCirclesOnPath;
+</script>
+
+  <!-- Alert Features Section -->
+  <section class="section">
+    <div class="container">
+      
+      <div class="columns">
+        <div class="column is-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-bolt" style="color: var(--dark);"></i>
+            </div>
+            <h3 class="title is-4 has-text-white">Instant Alerts</h3>
+            <p class="has-text-grey-lighter">Receive real-time notifications about emergencies and natural disasters in your area.</p>
+          </div>
+        </div>
+        
+        <div class="column is-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-map-marker-alt" style="color: var(--dark);"></i>
+            </div>
+            <h3 class="title is-4 has-text-white">Location-Based</h3>
+            <p class="has-text-grey-lighter">Customized alerts based on your location and areas of interest to keep you informed.</p>
+          </div>
+        </div>
+        
+        <div class="column is-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-sliders-h" style="color: var(--dark);"></i>
+            </div>
+            <h3 class="title is-4 has-text-white">Customizable</h3>
+            <p class="has-text-grey-lighter">Set your preferences for alert types, notification methods, and frequency of updates.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
