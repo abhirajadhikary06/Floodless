@@ -122,6 +122,10 @@
       color: var(--dark);
     }
 
+    .button:hover {
+    background-color: var(--dark); /* Keep the same background color */
+    color: var(--lime); /* Keep the same text color */
+  }
 
 
     </style>
@@ -139,8 +143,15 @@
           <span class="alert-badge">LIVE</span>
         </a>
       </div>
+      <div class="navbar-end"></div>
+        <a class="navbar-item" href="/home" style="text-decoration: var(--dark);">
+          <span class="icon" style="color: var(--lime);">
+        <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
     </div>
-  </nav>
+  </nav></a>
 
   <!-- Header Section -->
   <section class="dashboard-header">
