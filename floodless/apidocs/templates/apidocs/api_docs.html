@@ -165,6 +165,169 @@
       <p class="dashboard-subtitle">Access all disaster (earthquake, storm, flood, wildfire, volcanic activity) data from year 2000 to 2025.<br> You can also donwload dataset.</p>
     </div>
   </section>
+
+  <section class="sidebar-section">
+    <div class="sidebar">
+        <ul>
+            <li class="tooltip-wrapper">
+                <a href="/home">
+                    <i class="fas fa-home fa-lg"></i>
+                    <span class="tooltip-text">Home</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/community">
+                    <i class="fas fa-users fa-lg"></i>
+                    <span class="tooltip-text">Community</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/prediction">
+                    <i class="fas fa-map fa-lg"></i>
+                    <span class="tooltip-text">Map</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/dashboard">
+                    <i class="fas fa-tachometer-alt fa-lg"></i>
+                    <span class="tooltip-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/chatbot">
+                    <i class="fas fa-robot fa-lg"></i>
+                    <span class="tooltip-text">Chatbot</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/apidocs">
+                    <i class="fas fa-book fa-lg"></i>
+                    <span class="tooltip-text">API Docs</span>
+                </a>
+            </li>
+            <li class="tooltip-wrapper">
+                <a href="/education">
+                    <i class="fas fa-lightbulb fa-lg"></i>
+                    <span class="tooltip-text">Education</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <style>
+              .sidebar {
+        background-color: var(--dark-light);
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        padding: 5px 0;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px; /* Slightly rounded corners */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        width: 50px; /* Reduced width */
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar ul li {
+        margin: 30px 0; /* Increased vertical space between icons */
+        position: relative;
+    }
+
+    .sidebar ul li a {
+        color: var(--blue);
+        text-decoration: none;
+        font-size: 1.2rem; /* Decreased icon size */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        border-radius: 10px; /* Slightly rounded for hover effect */
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+        color: var(--blue-light);
+        transform: scale(1.2);
+    }
+
+    /* Tooltip (name label) styles */
+    .tooltip-wrapper {
+        position: relative;
+    }
+
+    .tooltip-wrapper .tooltip-text {
+        visibility: hidden;
+        background-color: var(--dark);
+        color: var(--white);
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+        position: absolute;
+        z-index: 1;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(-50%) translateX(-10px);
+        font-size: 12px;
+        border: 1px solid var(--gray-light);
+    }
+
+    .tooltip-wrapper:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .sidebar {
+            right: 10px;
+            padding: 5px 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0; /* Adjusted for smaller screens */
+        }
+
+        .sidebar ul li a {
+            font-size: 1rem; /* Further reduced icon size */
+        }
+
+        .tooltip-wrapper .tooltip-text {
+            width: 80px;
+            font-size: 11px;
+            right: 60px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .sidebar {
+            right: 5px;
+        }
+
+        .sidebar ul li a {
+            font-size: 0.9rem; /* Even smaller icon size for very small screens */
+        }
+
+        .tooltip-wrapper .tooltip-text {
+            width: 70px;
+            font-size: 10px;
+            right: 50px;
+        }
+    }
+    </style>
   
   <!-- Section -->
   <section class="section" style="padding: -4rem 2rem; margin-top: -1rem; margin-bottom: -2rem;">

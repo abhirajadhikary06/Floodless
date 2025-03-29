@@ -66,7 +66,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'floodless.wsgi.application'
 ASGI_APPLICATION = 'floodless.asgi.application'
 
 CHANNEL_LAYERS = {
