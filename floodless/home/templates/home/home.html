@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Global Alert Network</title>
+  <title>Home | Global Disaster Network</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -178,7 +178,7 @@
           <span class="icon mr-2" style="color: var(--blue);">
             <i class="fas fa-satellite-dish"></i>
           </span>
-          Global Alert Network
+          Global Disaster Network
           <span class="alert-badge">LIVE</span>
         </a>
       </div>
@@ -192,7 +192,7 @@
         <span class="icon mr-2" style="color: var(--lime);">
             <i class="fas fa-broadcast-tower"></i>
         </span>
-        Welcome to Global Alert Network
+        Welcome to Global Disaster Network
       </h1>
       <p class="dashboard-subtitle">Empowering communities with timely and accurate disaster information to save lives and build resilience.</p>
     </div>
@@ -200,128 +200,129 @@
 
   <section class="section" style="background-color: var(--dark); padding: 4rem 0;">
     <div class="container">
-        <div style="position: relative; width: 100%; height: 400px;">
-            <svg width="100%" height="100%" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
-                <!-- Curvilinear dashed line (road) with smoother right side -->
-                <path
-                    id="curvilinear-path"
-                    d="M 30 200 C 100 50, 200 50, 270 200 S 400 250, 470 100 S 540 50, 570 150"
-                    fill="none"
-                    stroke="var(--lime)"
-                    stroke-width="6"
-                    stroke-dasharray="15, 15"
-                    stroke-linecap="round"
-                />
+      <div style="position: relative; width: 100%; height: 500px; margin-top: -12rem;">
+        <svg width="100%" height="100%" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+          <!-- Curvilinear dashed line (road) with smoother right side -->
+          <path
+    id="curvilinear-path"
+    d="M 0 200 C 100 100, 200 100, 270 200 S 400 300, 470 200 S 540 150, 600 200"
+    fill="none"
+    stroke="var(--lime)"
+    stroke-width="6"
+    stroke-dasharray="15, 15"
+    stroke-linecap="round"
+/>
 
-                <!-- Group to hold circles and icons (added dynamically via JavaScript) -->
-                <g id="circle-group"></g>
-            </svg>
-        </div>
+          <!-- Group to hold circles and icons (added dynamically via JavaScript) -->
+          <g id="circle-group"></g>
+        </svg>
+      </div>
     </div>
-</section>
+  </section>
 
-<style>
+  <style>
     /* Tooltip container */
     .tooltip-wrapper {
-        position: relative;
-        display: inline-block;
+      position: relative;
+      display: inline-block;
     }
 
     /* Tooltip text */
     .tooltip-wrapper .tooltip-text {
-        visibility: hidden;
-        width: 120px;
-        background-color: var(--dark);
-        color: var(--lime);
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%; /* Position above the icon */
-        left: 50%;
-        margin-left: -60px; /* Center the tooltip */
-        opacity: 0;
-        transition: opacity 0.3s;
-        font-size: 12px;
-        border: 1px solid var(--lime);
+      visibility: hidden;
+      width: 120px;
+      background-color: var(--dark);
+      color: var(--lime);
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position above the icon */
+      left: 50%;
+      margin-left: -60px; /* Center the tooltip */
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+      border: 1px solid var(--lime);
     }
 
     /* Show the tooltip on hover */
     .tooltip-wrapper:hover .tooltip-text {
-        visibility: visible;
-        opacity: 1;
+      visibility: visible;
+      opacity: 1;
     }
-</style>
+  </style>
 
-<script>
+  <script>
     // Function to place circles along the path
     function placeCirclesOnPath() {
-        const path = document.getElementById('curvilinear-path');
-        const circleGroup = document.getElementById('circle-group');
-        const pathLength = path.getTotalLength();
+      const path = document.getElementById('curvilinear-path');
+      const circleGroup = document.getElementById('circle-group');
+      const pathLength = path.getTotalLength();
 
-        // Define the icons, links, and tooltip messages in order
-        const iconsData = [
-            { class: 'fa-users', link: '/community', tooltip: 'Go to Community Page' }, // Community
-            { class: 'fa-map', link: '/prediction', tooltip: 'Go to Map Page' },           // Map
-            { class: 'fa-tachometer-alt', link: '/dashboard', tooltip: 'Go to Dashboard Page' }, // Tachometer
-            { class: 'fa-globe', link: '/news', tooltip: 'Go to Global Page' },    // Globe
-            { class: 'fa-robot', link: '/chatbot', tooltip: 'Go to AI Page' },           // Robot
-            { class: 'fa-book', link: '/apidocs', tooltip: 'Go to Resources Page' } // Book
-        ];
+      // Define the icons, links, and tooltip messages in order
+      const iconsData = [
+        { class: 'fa-users', link: '/community', tooltip: 'Go to Community Page' }, // Community
+        { class: 'fa-map', link: '/prediction', tooltip: 'Go to Map Page' },           // Map
+        { class: 'fa-tachometer-alt', link: '/dashboard', tooltip: 'Go to Dashboard Page' }, // Tachometer
+        { class: 'fa-globe', link: '/news', tooltip: 'Go to Global Page' },    // Globe
+        { class: 'fa-robot', link: '/chatbot', tooltip: 'Go to AI Page' },           // Robot
+        { class: 'fa-book', link: '/apidocs', tooltip: 'Go to Resources Page' }, // Book
+        { class: 'fa-lightbulb', link: '/education', tooltip: 'Go Disaster Awarness Page' } // Education
+      ];
 
-        // Place 6 circles at equal intervals along the path (0%, 20%, 40%, 60%, 80%, 100%)
-        for (let i = 0; i < 6; i++) {
-            const t = i / 5; // Fraction along the path (0 to 1)
-            const point = path.getPointAtLength(t * pathLength);
+      // Place 7 circles at equal intervals along the path (0%, 16.6%, 33.3%, 50%, 66.6%, 83.3%, 100%)
+      for (let i = 0; i < iconsData.length; i++) {
+        const t = i / (iconsData.length - 1); // Fraction along the path (0 to 1)
+        const point = path.getPointAtLength(t * pathLength);
 
-            // Create the circle
-            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', point.x);
-            circle.setAttribute('cy', point.y);
-            circle.setAttribute('r', '30');
-            circle.setAttribute('fill', 'var(--lime)');
-            circleGroup.appendChild(circle);
+        // Create the circle
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', point.x);
+        circle.setAttribute('cy', point.y);
+        circle.setAttribute('r', '30');
+        circle.setAttribute('fill', 'var(--lime)');
+        circleGroup.appendChild(circle);
 
-            // Create the foreignObject for the icon
-            const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-            foreignObject.setAttribute('x', point.x - 30); // Center the foreignObject
-            foreignObject.setAttribute('y', point.y - 30);
-            foreignObject.setAttribute('width', '60');
-            foreignObject.setAttribute('height', '60');
+        // Create the foreignObject for the icon
+        const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+        foreignObject.setAttribute('x', point.x - 30); // Center the foreignObject
+        foreignObject.setAttribute('y', point.y - 30);
+        foreignObject.setAttribute('width', '60');
+        foreignObject.setAttribute('height', '60');
 
-            // Create the div, link, and icon
-            const div = document.createElement('div');
-            div.style.display = 'flex';
-            div.style.justifyContent = 'center';
-            div.style.alignItems = 'center';
-            div.style.height = '100%';
-            div.className = 'tooltip-wrapper'; // Add class for tooltip styling
+        // Create the div, link, and icon
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.justifyContent = 'center';
+        div.style.alignItems = 'center';
+        div.style.height = '100%';
+        div.className = 'tooltip-wrapper'; // Add class for tooltip styling
 
-            const link = document.createElement('a');
-            link.setAttribute('href', iconsData[i].link);
+        const link = document.createElement('a');
+        link.setAttribute('href', iconsData[i].link);
 
-            const icon = document.createElement('i');
-            icon.className = `fas ${iconsData[i].class} fa-lg`;
-            icon.style.color = 'var(--dark)';
+        const icon = document.createElement('i');
+        icon.className = `fas ${iconsData[i].class} fa-lg`;
+        icon.style.color = 'var(--dark)';
 
-            // Create the tooltip span
-            const tooltip = document.createElement('span');
-            tooltip.className = 'tooltip-text';
-            tooltip.textContent = iconsData[i].tooltip;
+        // Create the tooltip span
+        const tooltip = document.createElement('span');
+        tooltip.className = 'tooltip-text';
+        tooltip.textContent = iconsData[i].tooltip;
 
-            link.appendChild(icon);
-            link.appendChild(tooltip);
-            div.appendChild(link);
-            foreignObject.appendChild(div);
-            circleGroup.appendChild(foreignObject);
-        }
+        link.appendChild(icon);
+        link.appendChild(tooltip);
+        div.appendChild(link);
+        foreignObject.appendChild(div);
+        circleGroup.appendChild(foreignObject);
+      }
     }
 
     // Call the function to place the circles when the page loads
     window.onload = placeCirclesOnPath;
-</script>
+  </script>
 
   <!-- Alert Features Section -->
   <section class="section">
@@ -361,6 +362,8 @@
     </div>
   </section>
 
+  
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -370,7 +373,7 @@
             <span class="icon mr-2" style="color: var(--blue);">
               <i class="fas fa-satellite-dish"></i>
             </span>
-            Global Alert Network
+            Global Disaster Network
           </h3>
           <p class="mb-3">Providing critical information during times of crisis. Our mission is to keep people informed with accurate and timely updates.</p>
           <button class="button is-lime mt-3">
